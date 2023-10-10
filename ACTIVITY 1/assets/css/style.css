@@ -1,3 +1,4 @@
+/* landing page css */
 *{
     margin: 0;
     padding: 0;
@@ -89,15 +90,14 @@ body {
     background-color: #c29e5c;;
 }
 
-/* test for landing page images */
-div.images-portrait {
+.images-portrait {
     margin-top: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
-div.images-portrait img {
+.images-portrait img {
     width: 400px;
     height: 600px;
     border: 2px solid #ff3d0036;
@@ -107,7 +107,7 @@ div.images-portrait img {
     transition: 400ms;
 }
 
-div.images-portrait img:hover{
+.images-portrait img:hover{
     filter: grayscale(1);
     transform: scale(1.03);
 }
