@@ -1,9 +1,7 @@
-/* mouse hover */
 <script>
-      $('button').mouseover(() => {
-         $('.container').css("display", "block")
-      })
-      $('button').mouseout(() => {
-         $('.container').css("display", "none")
-      })
+// When the user clicks on div, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
+}
 </script>
