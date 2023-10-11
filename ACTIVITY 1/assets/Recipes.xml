@@ -1,11 +1,14 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <Recipes>
-    <Dish>dish name</Dish>
-    <Ingredients>Ingredients</Ingredients>
-    <Dish>dish name</Dish>
-    <Ingredients>Ingredients</Ingredients> 
-    <Dish>dish name</Dish>
-    <Ingredients>Ingredients</Ingredients> 
-    <Dish>dish name</Dish>
-    <Ingredients>Ingredients</Ingredients> 
+    <Dish>Sinigang Na Bangus</Dish>
+    <Ingredients>bangus, tomato, okra, onion, kangkong, sinigang mix, green pepper, fish sauce, black pepper, cooking oil</Ingredients>
+    <Dish>Chicken Adobo</Dish>
+    <Ingredients>chicken, soy sauce, vinegar, onion, garlic, potato, pepper, cooking oil</Ingredients> 
+    <Dish>Tinolang Manok</Dish>
+    <Ingredients>cooking oil, chicken, malunggay leaves, pepper, papaya, knorr chicken cube, onion, garlic, ginger, fish sauce</Ingredients> 
+    <Dish>Chopsuey</Dish>
+    <Ingredients>pork, chicken, shrimp, cauliflower, carrot, corn, snow peas, red bell pepper, green bell pepper, cabbage, eggs, onion, garlic, 
+    soy sauce, oyster sauce, cornstarch, black pepper, cooking oil</Ingredients> 
+    <Dish>Pork Sisig</Dish>
+    <Ingredients>pork belly, onion, soy sauce, pepper, ginger, salt, garlic, egg, lemon, cooking oil</Ingredients> 
 </Recipes>
