@@ -115,6 +115,20 @@ body {
 
 /* recipes css */
 
+.recipes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 -10px; /* Adjust the margin to create spacing between recipe sets */
+}
+
+.recipes {
+    width: calc(33.33% - 20px); /* 33.33% width for each recipe with a margin of 20px between them */
+    margin: 10px; /* Adjust the margin as needed */
+}
+
+
+
 /* team css */
 
 /* contact css */

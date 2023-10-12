@@ -1,4 +1,38 @@
-<?xml version = "1.0" encoding = "UTF-8"?>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Recipes>
+    <Dish id="1">
+        <Name>Sinigang Na Bangus</Name>
+        <Ingredients>bangus, tomato, okra, onion, kangkong, sinigang mix, green pepper, fish sauce, black pepper, cooking oil</Ingredients>
+    </Dish>
+    <Dish id="2">
+        <Name>Chicken Adobo</Name>
+        <Ingredients>chicken, soy sauce, vinegar, onion, garlic, potato, pepper, cooking oil</Ingredients>
+    </Dish>
+    
+
+
+
+
+   
+</Recipes>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <?xml version = "1.0" encoding = "UTF-8"?>
 <Recipes>
     <Dish id="1">Sinigang Na Bangus</Dish>
     <Ingredients>bangus, tomato, okra, onion, kangkong, sinigang mix, green pepper, fish sauce, black pepper, cooking oil</Ingredients>
@@ -50,4 +84,4 @@
 
  
     
-</Recipes>
+</Recipes> -->
