@@ -132,3 +132,44 @@ body {
 /* team css */
 
 /* contact css */
+.images-contact
+{
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+.images-contact img{
+    width: 400px;
+    height: 300px;
+    border: 2px solid #ff3d0036;
+    border-radius: 13px;
+    box-shadow: 4px 7px 7px 0px #00000000;
+    cursor: pointer;
+    transition: 400ms;
+}
+
+.images-contact :hover{
+    filter: grayscale(1);
+    transform: scale(1.03);
+}
+.image{
+    position: relative;
+    display: inline-block;
+}
+.imgdesc{
+    position: absolute;
+    top: 50%;
+    opacity: 0;
+    transition: opacty 0.3s;
+}
+.imgdesc :hover{
+    opacity: 100%;
+}
+
+.image:hover .imgdesc{
+    opacity: 1;
+} 
