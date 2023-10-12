@@ -155,6 +155,7 @@ body {
 .images-contact :hover{
     filter: grayscale(1);
     transform: scale(1.03);
+    color:white;
 }
 .image{
     position: relative;
@@ -172,4 +173,12 @@ body {
 
 .image:hover .imgdesc{
     opacity: 1;
-} 
+}
+.Contact h2{
+color: #c29e5c;
+    margin-left: 10px;
+    cursor: pointer;
+    text-align: center;
+
+
+}
