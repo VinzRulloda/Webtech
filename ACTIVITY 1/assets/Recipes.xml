@@ -2,11 +2,15 @@
 
 <?xml version="1.0" encoding="UTF-8"?>
 <Recipes>
-    <Dish id="1">
+    <Dish>
         <Name>Sinigang Na Bangus</Name>
         <Ingredients>bangus, tomato, okra, onion, kangkong, sinigang mix, green pepper, fish sauce, black pepper, cooking oil</Ingredients>
     </Dish>
-    <Dish id="2">
+    <Dish>
+        <Name>Chicken Adobo</Name>
+        <Ingredients>chicken, soy sauce, vinegar, onion, garlic, potato, pepper, cooking oil</Ingredients>
+    </Dish>
+       <Dish>
         <Name>Chicken Adobo</Name>
         <Ingredients>chicken, soy sauce, vinegar, onion, garlic, potato, pepper, cooking oil</Ingredients>
     </Dish>

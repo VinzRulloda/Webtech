@@ -1,25 +1,33 @@
-document.addEventListener("DOMContentLoaded", function() {
-  
-  fetch("ACTIVITY 1\assets\Recipes.xml") 
-      .then(response => response.text())
-      .then(data => {
-          
-          const parser = new DOMParser();
-          const xmlDoc = parser.parseFromString(data, "text/xml");
-          const dishElements = xmlDoc.querySelectorAll("Dish");
 
-          
-          const recipesContainer = document.getElementById("recipes-container");
-
-         
-          dishElements.forEach(dish => {
-              const dishName = dish.querySelector("Name").textContent;
-
+document.addEventListener("DOMContentLoaded", function () {
+    
+    if (window.location.pathname.endsWith("ACTIVITY 1\recipes.html")) {
+        
+        fetch("ACTIVITY 1\assets\Recipes.xml")
+            .then(response => response.text())
+            .then(xmlString => new window.DOMParser().parseFromString(xmlString, "text/xml"))
+            .then(xmlDoc => {
               
-              const dishElement = document.createElement("p");
-              dishElement.textContent = dishName;
-              recipesContainer.appendChild(dishElement);
-          });
-      })
-      .catch(error => console.error("Error fetching or parsing XML:", error));
-});
+                const dishNames = xmlDoc.querySelectorAll("Dish Name");
+  
+               
+                const dishListDiv = document.createElement("div");
+                dishListDiv.className = "dish-list";
+  
+                
+                dishNames.forEach(name => {
+                    const dishName = name.textContent;
+                    const dishItem = document.createElement("p");
+                    dishItem.textContent = dishName;
+                    dishListDiv.appendChild(dishItem);
+                });
+  
+                
+                document.getElementById("xml-content").appendChild(dishListDiv);
+            })
+            .catch(error => {
+                console.error("Error loading XML file: ", error);
+            });
+    }
+  });
+  
