@@ -64,13 +64,13 @@ body {
 
 }
 
-.searchbar {
+.searchbar-land {
     position: absolute;
     margin-top: 28%;
     margin-left: 42%;
 }
 
-.searchbar input {
+.searchbar-land input {
     outline: none;
     border: none;
     padding: 12px 40px;
@@ -78,13 +78,13 @@ body {
     width: 100%;
 }
 
-.submit {
+.submit-land {
     position: absolute;
     margin-top: 31%;
     margin-left: 48%;
 }
 
-.submit a {
+.submit-land a {
     text-decoration: none;
     color: #fff;
     padding: 12px 25px;
@@ -127,6 +127,19 @@ body {
     margin: 10px; /* Adjust the margin as needed */
 }
 
+/* CSS for search results */
+.result-item {
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  /* CSS for selected image display */
+  #selected-image {
+    max-width: 300px;
+    display: block;
+    margin: 10px auto;
+  }
 
 
 /* team css */

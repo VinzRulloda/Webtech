@@ -1,25 +1,24 @@
 
-
 <?xml version="1.0" encoding="UTF-8"?>
 <Recipes>
     <Dish>
+        <ID>1</ID>
         <Name>Sinigang Na Bangus</Name>
         <Ingredients>bangus, tomato, okra, onion, kangkong, sinigang mix, green pepper, fish sauce, black pepper, cooking oil</Ingredients>
+        <image>WebtechMidterms/ACTIVITY 1/assets/images/pic01.jpg</image>
     </Dish>
     <Dish>
+        <ID>2</ID>
         <Name>Chicken Adobo</Name>
         <Ingredients>chicken, soy sauce, vinegar, onion, garlic, potato, pepper, cooking oil</Ingredients>
+        <image>WebtechMidterms/ACTIVITY 1/assets/images/pic02.jpg</image>
     </Dish>
-       <Dish>
-        <Name>Chicken Adobo</Name>
-        <Ingredients>chicken, soy sauce, vinegar, onion, garlic, potato, pepper, cooking oil</Ingredients>
+    <Dish>
+        <ID>3</ID>
+        <Name>Tinolang Manok</Name>
+        <Ingredients>cooking oil, chicken, malunggay leaves, pepper, papaya, knorr chicken cube, onion, garlic, ginger, fish sauce</Ingredients> 
+        <image>WebtechMidterms/ACTIVITY 1/assets/images/pic03.jpg</image>
     </Dish>
-    
-
-
-
-
-   
 </Recipes>
 
 
