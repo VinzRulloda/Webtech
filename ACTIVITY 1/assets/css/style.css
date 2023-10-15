@@ -44,30 +44,35 @@ body {
 .content-land {
     position: absolute;
     color: #fff;
-    top: 40%;
-    left: 30%;
+
 }
 
 .content-land h3 {
     font-family: sans-serif;
-    font-size: 20px;
-    margin-left: 30%;
+    text-align: center;
+
+
 }
 
 .content-land h1 {
     font-size: 50px;
+    text-align: center;
+
 }
 
 .content-land p {
-    position: absolute;
     margin-top: 17px;
+    text-align: center;
+    
 
 }
 
 .searchbar-land {
     position: absolute;
-    margin-top: 28%;
-    margin-left: 42%;
+    margin-top: 18%;
+    margin-left: 40%;
+    
+    
 }
 
 .searchbar-land input {
@@ -80,7 +85,7 @@ body {
 
 .submit-land {
     position: absolute;
-    margin-top: 31%;
+    margin-top: 23%;
     margin-left: 48%;
 }
 
@@ -92,7 +97,7 @@ body {
 }
 
 .images-portrait {
-    margin-top: 35%;
+    margin-top: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
