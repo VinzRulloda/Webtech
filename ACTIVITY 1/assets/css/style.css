@@ -67,35 +67,6 @@ body {
 
 }
 
-.searchbar-land {
-    position: absolute;
-    margin-top: 18%;
-    margin-left: 40%;
-    
-    
-}
-
-.searchbar-land input {
-    outline: none;
-    border: none;
-    padding: 12px 40px;
-    size: 1em;
-    width: 100%;
-}
-
-.submit-land {
-    position: absolute;
-    margin-top: 23%;
-    margin-left: 48%;
-}
-
-.submit-land a {
-    text-decoration: none;
-    color: #fff;
-    padding: 12px 25px;
-    background-color: #c29e5c;;
-}
-
 .images-portrait {
     margin-top: 30%;
     display: flex;
