@@ -16,7 +16,6 @@ recipeCloseBtn.addEventListener('click', () => {
 
 let mealsData = []; // Initialize an empty array for meals data.
 
-// Fetch and parse XML data
 fetch('data.xml')
     .then(response => response.text())
     .then(data => {
@@ -28,11 +27,9 @@ fetch('data.xml')
         console.error("Error fetching or parsing XML data:", error);
     });
 
-// Rest of your code...
 function getMealList() {
     let searchInputTxt = document.getElementById('search-input').value.trim();
     
-    // Check if the search input matches any predefined query in the XML file
     const isMatch = mealsData.some(meal => {
         const mealName = meal.querySelector('name').textContent.toLowerCase();
         return mealName.includes(searchInputTxt.toLowerCase());
@@ -105,7 +102,6 @@ function getMealRecipe(e) {
     }
 }
 
-// create a modal
 function mealRecipeModal(meal) {
     const id = meal.querySelector('id').textContent;
     const name = meal.querySelector('name').textContent;
@@ -124,4 +120,4 @@ function mealRecipeModal(meal) {
 }
 
 /* uncomment to clear local storage */
-localStorage.clear();
+// localStorage.clear();
