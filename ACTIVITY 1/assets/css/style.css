@@ -118,20 +118,6 @@ body {
     transform: scale(1.03);
 }
 
-/* recipes css */
-
-.recipes-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 0 -10px; /* Adjust the margin to create spacing between recipe sets */
-}
-
-.recipes {
-    width: calc(33.33% - 20px); /* 33.33% width for each recipe with a margin of 20px between them */
-    margin: 10px; /* Adjust the margin as needed */
-}
-
 /* CSS for search results */
 .result-item {
     display: inline-block;
@@ -145,57 +131,6 @@ body {
     display: block;
     margin: 10px auto;
   }
-
-/* contact css */
-.images-contact {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-
-.images-contact img {
-    width: 400px;
-    height: 300px;
-    border: 2px solid #ff3d0036;
-    border-radius: 13px;
-    padding-bottom: 10%;
-    box-shadow: 4px 7px 7px 0px #00000000;
-    cursor: default;
-    transition: 400ms;
-}
-
-.images-contact :hover {
-    filter: grayscale(1);
-    transform: scale(1.03);
-    color:white;
-    cursor: default;
-}
-.image {
-    position: relative;
-    display: inline-block;
-}
-.imgdesc {
-    padding-left: 22%; 
-    opacity: 0;
-    transition: opacty 0.3s;
-}
-
-.image:hover .imgdesc {
-    opacity: 1;
-    cursor: default;
-}
-
-.Contact h2 {
-    color: #c29e5c;
-    margin-left: 10px;
-    margin-bottom: 1%;
-    cursor: default;
-    text-align: center;
-
-
-}
 
 /* team css */
 

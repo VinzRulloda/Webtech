@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Recipes>
+    <!--Sinigang Na bangus-->
+    <Dish>
+        <Name>Sinigang Na Bangus</Name>
+        <Ingredients>bangus, tomato, okra, onion, kangkong, sinigang mix, green pepper, fish sauce, black pepper, cooking oil</Ingredients>
+    </Dish>
+    <Dish>
+    <!--Chicken Adobo-->
+        <Name>Chicken Adobo</Name>
+        <Ingredients>chicken, soy sauce, vinegar, onion, garlic, potato, pepper, cooking oil</Ingredients>
+    </Dish>
+   
+     <Dish>
+    <!--Tinolang manok-->
+    <Name>Tinolang Manok</Name>
+    <Ingredients>cooking oil, chicken, malunggay leaves, pepper, papaya, knorr chicken cube, onion, garlic, ginger, fish sauce</Ingredients>
+  </Dish>
+    <!--Chopsuey-->
+    <Dish>
+        <Name>Chopsuey</Name>
+         <Ingredients>pork, chicken, shrimp, cauliflower, carrot, corn, snow peas, red bell pepper, green bell pepper, cabbage, eggs, onion, garlic, 
+    soy sauce, oyster sauce, cornstarch, black pepper, cooking oil</Ingredients> 
+    </Dish>
+    <!--Pork Sisig-->
+    <Dish>
+        <Name>Pork Sisig</Name>
+         <Ingredients>pork belly, onion, soy sauce, pepper, ginger, salt, garlic, egg, lemon, cooking oil</Ingredients>
+    </Dish>
+     <!--Bulalo-->
+    <Dish>
+        <Name>Bulalo</Name>
+         <Ingredients>cooking oil, cobs corn, black pepper, bok choy, beef, whole peppercorn, onion, water, cabbage,fish sauce</Ingredients>
+    </Dish>
+        <!--Tortang Talong-->
+    <Dish>
+        <Name>Tortang Talong</Name>
+        <Ingredients>eggplant, raw eggs, salt, cooking oil</Ingredients>
+    </Dish>
+        <!--Laing-->
+    <Dish>
+        <Name>Laing</Name>
+        <Ingredients>dried gabi leaves, lemongrass stalks, cooking oil, onion, garlic, ginger, pork belly, pepper, salt, shrimp paste, coconut milk, chili pepper, coconut cream</Ingredients>
+    </Dish>
+        <!--Pinakbet-->
+    <Dish>
+        <Name>Pinakbet</Name>
+        <Ingredients>pork/lechon kawali, knorr shrimp cube, eggplant. sitaw, kalabasa, okra, tomato, ampalaya, kamote, ginger, onion, garlic, bagoong alamang, pepper, cooking oil</Ingredients>
+    </Dish>
+       <!--Chicken Inasal-->
+    <Dish>
+        <Name>Chicken Inasal</Name>
+       <Ingredients>Chicken, Onion, Salt, Calamansi, Soy Sauce, Garlic, Pepper</Ingredients>
+    </Dish>
+         <!--Caldereta Beef-->
+    <Dish>
+        <Name>Caldereta Beef</Name>
+        <Ingredients>beef garlic, onion, beef broth, red bell pepper, green bell pepper, tomato sauce, liver spread, chili flakes, dried bay leaves, potato, carrots,  cooking oil, green olives, salt, pepper</Ingredients>
+    </Dish>
+             <!--Crispy Pata-->
+    <Dish>
+        <Name>Crispy Pata</Name>
+        <Ingredients>pig leg, pork, dried bay leaves, whole peppercorn, star anise, salt, ground black pepper, garlic powder, water, cooking oi</Ingredients>
+    </Dish>
+              <!--Bicol Express-->
+    <Dish>
+        <Name>Bicol Express</Name>
+        <Ingredients>pork, coconut milk, coconut cream, bagoong alamang, cooking oil</Ingredients>
+    </Dish>
+                <!--Bopis-->
+    <Dish>
+        <Name>Bopis</Name>
+        <Ingredients>pork lungs, Knorr Pork Cube, dried bay leaves, carrots, thumbs ginger, annatto powder, Thai chili pepper, onion, garlic, vinegar, water, ground black pepper,  cooking oil, Fish sauce</Ingredients>
+    </Dish>
+              <!--Papaitan-->
+    <Dish>
+        <Name>Papaitan</Name>
+         <Ingredients>ox tripe, cow’s small intestine, beef cow’s heart, bile, ginger, onion, garlic, water,  finger chilies, salt, ground black pepper, cooking oil, calamansi</Ingredients>
+    </Dish>
+              <!--Dinuguan-->
+    <Dish>
+        <Name>Dinuguan</Name>
+        <Ingredients>pork shoulder, pork blood, Knorr Pork Cube, long peppers, onion,  garlic, water, white vinegar, dried bay leaves, cooking oil,  granulated white sugar, salt, ground black pepper</Ingredients>
+    </Dish>
+               <!--Kare-Kare-->
+    <Dish>
+        <Name>Kare-Kare</Name>
+        <Ingredients>pork shark, crushed peanuts, peanut butter, Chinese eggplant, bok choy, string beans, onion, garlic, annatto powder, ground black pepper, beef broth, salt, shrimp paste, cooking oil</Ingredients>
+    </Dish>
+                  <!--Kiawin-->
+    <Dish>
+        <Name>Kilawin</Name>
+        <Ingredients>cooking oil, Seafood, Pork, Vinegar, Citrus, Onion, Ginger, Shallots, Carrots</Ingredients>
+    </Dish>
+                     <!--Pork Adobo-->
+    <Dish>
+        <Name>Pork Adobo</Name>
+         <Ingredients>pork, soy sauce, vinegar, onion, garlic, potato, pepper, cooking oil</Ingredients>
+    </Dish>
+                      <!--Pork Sinigang-->
+    <Dish>
+        <Name>Pork Sinigang</Name>
+         <Ingredients>cooking oil, pork, tomatoes, okra, fish sauce, gabi, radish, onion, egg plant, kangkong, sinigang mix</Ingredients>
+    </Dish>
+ 
+
+       </Dish>
+
+
+   
+</Recipes>
