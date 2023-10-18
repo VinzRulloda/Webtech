@@ -56,7 +56,7 @@ function getMealList() {
             html += `
                 <div class="meal-item" data-id="${id}">
                     <div class="meal-img">
-                        <img src="${image}" alt="food">
+                        <img src="foodimages/${image}" alt="food">
                     </div>
                     <div class="meal-name">
                         <h3>${name}</h3>
