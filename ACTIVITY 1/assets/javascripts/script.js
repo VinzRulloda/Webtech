@@ -105,13 +105,13 @@ function getMealRecipe(e) {
 function mealRecipeModal(meal) {
     const id = meal.querySelector('id').textContent;
     const name = meal.querySelector('name').textContent;
-    const instructions = meal.querySelector('instructions').textContent;
+    const ingredients = meal.querySelector('ingredients').textContent;
 
     let html = `
         <h2 class="recipe-title">${name}</h2>
-        <div class="recipe-instruct">
-            <h3>Instructions:</h3>
-            <p>${instructions}</p>
+        <div class="recipe-ingredients">
+            <h3>Ingredients:</h3>
+            <p>${ingredients}</p>
         </div>
     `;
 

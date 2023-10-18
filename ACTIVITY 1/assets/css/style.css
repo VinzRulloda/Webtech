@@ -103,6 +103,7 @@ body {
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
+    font size: 30;
 }
 
 .meal-search {
@@ -128,6 +129,7 @@ body {
 
 .meal-name {
     color: #fff;
+
 }
 
 #top-searches {
@@ -294,10 +296,12 @@ body {
 
 .meal-details-content{
     margin: 2rem;
+
 }
 
 .meal-details-content p:not(.recipe-category){
     padding: 1rem 0;
+    font-size: 32px;
 }
 
 .recipe-close-btn{
@@ -329,6 +333,7 @@ body {
     color: #fff;
     letter-spacing: 1px;
     padding-bottom: 1rem;
+    font size: 33px;
 }
 
 .recipe-category{
@@ -357,8 +362,9 @@ body {
     -o-border-radius: 0.3rem;
 }
 
-.recipe-instruct {
+.recipe-ingredients {
     padding: 1rem 0;
+    font-size: 10px;
 }
 
 .recipe-meal-img img {

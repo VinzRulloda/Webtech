@@ -5,14 +5,16 @@
         <id>1</id>
         <name>Sinigang Na Bangus</name>
         <image>Sinigang Na Bangus.jpg</image>
-        <instructions>bangus, tomato, okra, onion, kangkong, sinigang mix, green pepper, fish sauce, black pepper, cooking oil</instructions>
+        <ingredients>bangus, tomato, okra, onion, kangkong, sinigang mix, green pepper, fish sauce, black pepper, cooking oil</ingredients>
+
+
     </meal>
     <meal>
          <!--Chicken Adobo-->
          <id>2</id>
         <name>Chicken Adobo</name>
         <image>Chicken Adobo.jpg</image>
-        <instructions>chicken, soy sauce, vinegar, onion, garlic, potato, pepper, cooking oil</instructions>
+        <ingredients>chicken, soy sauce, vinegar, onion, garlic, potato, pepper, cooking oil</ingredients>
     </meal>
    
      <meal>
@@ -20,7 +22,7 @@
          <id>3</id>
         <name>Tinolang Manok</name>
         <image>Tinolang Manok.jpg</image>
-        <instructions>cooking oil, chicken, malunggay leaves, pepper, papaya, knorr chicken cube, onion, garlic, ginger, fish sauce</instructions>
+        <ingredients>cooking oil, chicken, malunggay leaves, pepper, papaya, knorr chicken cube, onion, garlic, ginger, fish sauce</ingredients>
     </meal>
 
          <!--Chopsuey-->
@@ -28,8 +30,8 @@
         <id>4</id>
         <name>Chopsuey</name>
         <image>Chopsuey.jpg</image>
-        <instructions>pork, chicken, shrimp, cauliflower, carrot, corn, snow peas, red bell pepper, green bell pepper, cabbage, eggs, onion, garlic, 
-    soy sauce, oyster sauce, cornstarch, black pepper, cooking oil</instructions> 
+        <ingredients>pork, chicken, shrimp, cauliflower, carrot, corn, snow peas, red bell pepper, green bell pepper, cabbage, eggs, onion, garlic,
+    soy sauce, oyster sauce, cornstarch, black pepper, cooking oil</ingredients>
     </meal>
 
          <!--Pork Sisig-->
@@ -37,7 +39,7 @@
         <id>5</id>
         <name>Pork Sisig</name>
         <image>Pork Sisig.jpg</image>
-         <instructions>pork belly, onion, soy sauce, pepper, ginger, salt, garlic, egg, lemon, cooking oil</instructions>
+         <ingredients>pork belly, onion, soy sauce, pepper, ginger, salt, garlic, egg, lemon, cooking oil</ingredients>
     </meal>
 
          <!--Bulalo-->
@@ -45,7 +47,7 @@
         <id>6</id>
         <name>Bulalo</name>
         <image>Bulalo.jpg</image>
-        <instructions>cooking oil, cobs corn, black pepper, bok choy, beef, whole peppercorn, onion, water, cabbage,fish sauce</instructions>
+        <ingredients>cooking oil, cobs corn, black pepper, bok choy, beef, whole peppercorn, onion, water, cabbage,fish sauce</ingredients>
     </meal>
 
         <!--Tortang Talong-->
@@ -53,7 +55,7 @@
         <id>7</id>
         <name >Tortang Talong</name>
         <image>Tortang Talong.jpg</image>
-        <instructions>eggplant, raw eggs, salt, cooking oil</instructions>
+        <ingredients>eggplant, raw eggs, salt, cooking oil</ingredients>
     </meal>
 
         <!--Laing-->
@@ -61,7 +63,7 @@
         <id>8</id>
         <name>Laing</name>
         <image>Laing.jpg</image>
-        <instructions>dried gabi leaves, lemongrass stalks, cooking oil, onion, garlic, ginger, pork belly, pepper, salt, shrimp paste, coconut milk, chili pepper, coconut cream</instructions>
+        <ingredients>dried gabi leaves, lemongrass stalks, cooking oil, onion, garlic, ginger, pork belly, pepper, salt, shrimp paste, coconut milk, chili pepper, coconut cream</ingredients>
     </meal>
 
         <!--Pinakbet-->
@@ -69,7 +71,7 @@
         <id>9</id>
         <name>Pinakbet</name>
         <image>Pinakbet.jpg</image>
-        <instructions>pork/lechon kawali, knorr shrimp cube, eggplant. sitaw, kalabasa, okra, tomato, ampalaya, kamote, ginger, onion, garlic, bagoong alamang, pepper, cooking oil</instructions>
+        <ingredients>pork/lechon kawali, knorr shrimp cube, eggplant. sitaw, kalabasa, okra, tomato, ampalaya, kamote, ginger, onion, garlic, bagoong alamang, pepper, cooking oil</ingredients>
     </meal>
 
        <!--Chicken Inasal-->
@@ -77,7 +79,7 @@
         <id>10</id>
         <name>Chicken Inasal</name>
         <image>Chicken Inasal.jpg</image>
-       <instructions>Chicken, Onion, Salt, Calamansi, Soy Sauce, Garlic, Pepper</instructions>
+       <ingredients>Chicken, Onion, Salt, Calamansi, Soy Sauce, Garlic, Pepper</ingredients>
     </meal>
 
          <!--Caldereta Beef-->
@@ -85,7 +87,7 @@
         <id>11</id>
         <name>Caldereta Beef</name>
         <image>Caldereta Beef.jpg</image>
-        <instructions>beef garlic, onion, beef broth, red bell pepper, green bell pepper, tomato sauce, liver spread, chili flakes, dried bay leaves, potato, carrots,  cooking oil, green olives, salt, pepper</instructions>
+        <ingredients>beef garlic, onion, beef broth, red bell pepper, green bell pepper, tomato sauce, liver spread, chili flakes, dried bay leaves, potato, carrots,  cooking oil, green olives, salt, pepper</ingredients>
     </meal>
 
          <!--Crispy Pata-->
@@ -93,7 +95,7 @@
         <id>12</id>
         <name>Crispy Pata</name>
         <image>Crispy Pata.jpg</image>
-        <instructions>pig leg, pork, dried bay leaves, whole peppercorn, star anise, salt, ground black pepper, garlic powder, water, cooking oi</instructions>
+        <ingredients>pig leg, pork, dried bay leaves, whole peppercorn, star anise, salt, ground black pepper, garlic powder, water, cooking oi</ingredients>
     </meal>
 
         <!--Bicol Express-->
@@ -101,7 +103,7 @@
         <id>13</id>
         <name>Bicol Express</name>
         <image>Bicol Express.jpg</image>
-        <instructions>pork, coconut milk, coconut cream, bagoong alamang, cooking oil</instructions>
+        <ingredients>pork, coconut milk, coconut cream, bagoong alamang, cooking oil</ingredients>
     </meal>
 
         <!--Bopis-->
@@ -109,7 +111,7 @@
         <id>14</id>
         <name>Bopis</name>
         <image>Bopis.jpg</image>
-        <instructions>pork lungs, Knorr Pork Cube, dried bay leaves, carrots, thumbs ginger, annatto powder, Thai chili pepper, onion, garlic, vinegar, water, ground black pepper,  cooking oil, Fish sauce</instructions>
+        <ingredients>pork lungs, Knorr Pork Cube, dried bay leaves, carrots, thumbs ginger, annatto powder, Thai chili pepper, onion, garlic, vinegar, water, ground black pepper,  cooking oil, Fish sauce</ingredients>
     </meal>
 
         <!--Papaitan-->
@@ -117,7 +119,7 @@
         <id>15</id>
         <name>Papaitan</name>
         <image>Papaitan.jpg</image>
-         <instructions>ox tripe, cow’s small intestine, beef cow’s heart, bile, ginger, onion, garlic, water,  finger chilies, salt, ground black pepper, cooking oil, calamansi</instructions>
+         <ingredients>ox tripe, cow’s small intestine, beef cow’s heart, bile, ginger, onion, garlic, water,  finger chilies, salt, ground black pepper, cooking oil, calamansi</ingredients>
     </meal>
 
         <!--Dinuguan-->
@@ -125,7 +127,7 @@
         <id>16</id>
         <name>Dinuguan</name>
         <image>Dinuguan.jpg</image>
-        <instructions>pork shoulder, pork blood, Knorr Pork Cube, long peppers, onion,  garlic, water, white vinegar, dried bay leaves, cooking oil,  granulated white sugar, salt, ground black pepper</instructions>
+        <ingredients>pork shoulder, pork blood, Knorr Pork Cube, long peppers, onion,  garlic, water, white vinegar, dried bay leaves, cooking oil,  granulated white sugar, salt, ground black pepper</ingredients>
     </meal>
 
         <!--Kare-Kare-->
@@ -133,7 +135,7 @@
         <id>17</id>
         <name>Kare-Kare</name>
         <image>Kare-Kare.jpg</image>
-        <instructions>pork shark, crushed peanuts, peanut butter, Chinese eggplant, bok choy, string beans, onion, garlic, annatto powder, ground black pepper, beef broth, salt, shrimp paste, cooking oil</instructions>
+        <ingredients>pork shark, crushed peanuts, peanut butter, Chinese eggplant, bok choy, string beans, onion, garlic, annatto powder, ground black pepper, beef broth, salt, shrimp paste, cooking oil</ingredients>
     </meal>
 
         <!--Kilawin-->
@@ -141,7 +143,7 @@
         <id>18</id>
         <name>Kilawin</name>
         <image>Kilawin.jpg</image>
-        <instructions>cooking oil, Seafood, Pork, Vinegar, Citrus, Onion, Ginger, Shallots, Carrots</instructions>
+        <ingredients>cooking oil, Seafood, Pork, Vinegar, Citrus, Onion, Ginger, Shallots, Carrots</ingredients>
     </meal>
 
          <!--Pork Adobo-->
@@ -149,7 +151,7 @@
         <id>19</id>
         <name>Pork Adobo</name>
         <image>Pork Adobo.jpg</image>
-        <instructions>pork, soy sauce, vinegar, onion, garlic, potato, pepper, cooking oil</instructions>
+        <ingredients>pork, soy sauce, vinegar, onion, garlic, potato, pepper, cooking oil</ingredients>
     </meal>
 
         <!--Pork Sinigang-->
@@ -157,7 +159,7 @@
         <id>20</id>
         <name>Pork Sinigang</name>
         <image>Pork Sinigang.jpg</image>
-        <instructions>cooking oil, pork, tomatoes, okra, fish sauce, gabi, rameal, onion, egg plant, kangkong, sinigang mix</instructions>
+        <ingredients>cooking oil, pork, tomatoes, okra, fish sauce, gabi, rameal, onion, egg plant, kangkong, sinigang mix</ingredients>
     </meal>
    
 </meals>
