@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<meals>
+         <!--Sinigang Na bangus-->
+    <meal>
+        <id>1</id>
+        <name>Sinigang Na Bangus</name>
+        <image>Sinigang Na Bangus.jpg</image>
+        <ingredients>bangus, tomato, okra, onion, kangkong, sinigang mix, green pepper, fish sauce, black pepper, cooking oil</ingredients>
+
+
+    </meal>
+    <meal>
+         <!--Chicken Adobo-->
+         <id>2</id>
+        <name>Chicken Adobo</name>
+        <image>Chicken Adobo.jpg</image>
+        <ingredients>chicken, soy sauce, vinegar, onion, garlic, potato, pepper, cooking oil</ingredients>
+    </meal>
+   
+     <meal>
+         <!--Tinolang manok-->
+         <id>3</id>
+        <name>Tinolang Manok</name>
+        <image>Tinolang Manok.jpg</image>
+        <ingredients>cooking oil, chicken, malunggay leaves, pepper, papaya, knorr chicken cube, onion, garlic, ginger, fish sauce</ingredients>
+    </meal>
+
+         <!--Chopsuey-->
+    <meal>
+        <id>4</id>
+        <name>Chopsuey</name>
+        <image>Chopsuey.jpg</image>
+        <ingredients>pork, chicken, shrimp, cauliflower, carrot, corn, snow peas, red bell pepper, green bell pepper, cabbage, eggs, onion, garlic,
+    soy sauce, oyster sauce, cornstarch, black pepper, cooking oil</ingredients>
+    </meal>
+
+         <!--Pork Sisig-->
+    <meal>
+        <id>5</id>
+        <name>Pork Sisig</name>
+        <image>Pork Sisig.jpg</image>
+         <ingredients>pork belly, onion, soy sauce, pepper, ginger, salt, garlic, egg, lemon, cooking oil</ingredients>
+    </meal>
+
+         <!--Bulalo-->
+    <meal>
+        <id>6</id>
+        <name>Bulalo</name>
+        <image>Bulalo.jpg</image>
+        <ingredients>cooking oil, cobs corn, black pepper, bok choy, beef, whole peppercorn, onion, water, cabbage,fish sauce</ingredients>
+    </meal>
+
+        <!--Tortang Talong-->
+    <meal>
+        <id>7</id>
+        <name >Tortang Talong</name>
+        <image>Tortang Talong.jpg</image>
+        <ingredients>eggplant, raw eggs, salt, cooking oil</ingredients>
+    </meal>
+
+        <!--Laing-->
+    <meal>
+        <id>8</id>
+        <name>Laing</name>
+        <image>Laing.jpg</image>
+        <ingredients>dried gabi leaves, lemongrass stalks, cooking oil, onion, garlic, ginger, pork belly, pepper, salt, shrimp paste, coconut milk, chili pepper, coconut cream</ingredients>
+    </meal>
+
+        <!--Pinakbet-->
+    <meal>
+        <id>9</id>
+        <name>Pinakbet</name>
+        <image>Pinakbet.jpg</image>
+        <ingredients>pork/lechon kawali, knorr shrimp cube, eggplant. sitaw, kalabasa, okra, tomato, ampalaya, kamote, ginger, onion, garlic, bagoong alamang, pepper, cooking oil</ingredients>
+    </meal>
+
+       <!--Chicken Inasal-->
+    <meal>
+        <id>10</id>
+        <name>Chicken Inasal</name>
+        <image>Chicken Inasal.jpg</image>
+       <ingredients>Chicken, Onion, Salt, Calamansi, Soy Sauce, Garlic, Pepper</ingredients>
+    </meal>
+
+         <!--Caldereta Beef-->
+    <meal>
+        <id>11</id>
+        <name>Caldereta Beef</name>
+        <image>Caldereta Beef.jpg</image>
+        <ingredients>beef garlic, onion, beef broth, red bell pepper, green bell pepper, tomato sauce, liver spread, chili flakes, dried bay leaves, potato, carrots,  cooking oil, green olives, salt, pepper</ingredients>
+    </meal>
+
+         <!--Crispy Pata-->
+    <meal>
+        <id>12</id>
+        <name>Crispy Pata</name>
+        <image>Crispy Pata.jpg</image>
+        <ingredients>pig leg, pork, dried bay leaves, whole peppercorn, star anise, salt, ground black pepper, garlic powder, water, cooking oi</ingredients>
+    </meal>
+
+        <!--Bicol Express-->
+    <meal>
+        <id>13</id>
+        <name>Bicol Express</name>
+        <image>Bicol Express.jpg</image>
+        <ingredients>pork, coconut milk, coconut cream, bagoong alamang, cooking oil</ingredients>
+    </meal>
+
+        <!--Bopis-->
+    <meal>
+        <id>14</id>
+        <name>Bopis</name>
+        <image>Bopis.jpg</image>
+        <ingredients>pork lungs, Knorr Pork Cube, dried bay leaves, carrots, thumbs ginger, annatto powder, Thai chili pepper, onion, garlic, vinegar, water, ground black pepper,  cooking oil, Fish sauce</ingredients>
+    </meal>
+
+        <!--Papaitan-->
+    <meal>
+        <id>15</id>
+        <name>Papaitan</name>
+        <image>Papaitan.jpg</image>
+         <ingredients>ox tripe, cow’s small intestine, beef cow’s heart, bile, ginger, onion, garlic, water,  finger chilies, salt, ground black pepper, cooking oil, calamansi</ingredients>
+    </meal>
+
+        <!--Dinuguan-->
+    <meal>
+        <id>16</id>
+        <name>Dinuguan</name>
+        <image>Dinuguan.jpg</image>
+        <ingredients>pork shoulder, pork blood, Knorr Pork Cube, long peppers, onion,  garlic, water, white vinegar, dried bay leaves, cooking oil,  granulated white sugar, salt, ground black pepper</ingredients>
+    </meal>
+
+        <!--Kare-Kare-->
+    <meal>
+        <id>17</id>
+        <name>Kare-Kare</name>
+        <image>Kare-Kare.jpg</image>
+        <ingredients>pork shark, crushed peanuts, peanut butter, Chinese eggplant, bok choy, string beans, onion, garlic, annatto powder, ground black pepper, beef broth, salt, shrimp paste, cooking oil</ingredients>
+    </meal>
+
+        <!--Kilawin-->
+    <meal>
+        <id>18</id>
+        <name>Kilawin</name>
+        <image>Kilawin.jpg</image>
+        <ingredients>cooking oil, Seafood, Pork, Vinegar, Citrus, Onion, Ginger, Shallots, Carrots</ingredients>
+    </meal>
+
+         <!--Pork Adobo-->
+    <meal>
+        <id>19</id>
+        <name>Pork Adobo</name>
+        <image>Pork Adobo.jpg</image>
+        <ingredients>pork, soy sauce, vinegar, onion, garlic, potato, pepper, cooking oil</ingredients>
+    </meal>
+
+        <!--Pork Sinigang-->
+    <meal>
+        <id>20</id>
+        <name>Pork Sinigang</name>
+        <image>Pork Sinigang.jpg</image>
+        <ingredients>cooking oil, pork, tomatoes, okra, fish sauce, gabi, rameal, onion, egg plant, kangkong, sinigang mix</ingredients>
+    </meal>
+   
+</meals>

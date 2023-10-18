@@ -31,18 +31,35 @@
             <div class="meal-search">
                 <h2 class="meal-title">Search for a Filipino Dish</h2>
                 <div class="meal-search-box">
-                    <input type="text" class=""
+                    <input type="text" class="search-control" placeholder="Enter a Dish" id="search-input">
+                    <button type="button" class="search-btn btn" id="search-btn">
+                        <img src="images/search.png">
+                    </button>
+                </div>
+            </div>
+            
+            <h2 class="title">Top Searches:</h2>
+            <ul id="top-searches"></ul>
+
+            <div class="meal-result">
+                <h2 class="title">Your Search Result:</h2>
+                <div class="meal" id="meal">
+                    <!--- Dito lalabas yung meal -->
+                </div>
+            </div>
+
+            <div class="meal-details">
+                <button type="button" class="btn recipe-close-btn" id="recipe-close-btn">
+                    <img src="images/close.png">
+                </button>
+
+                <div class="meal-details-content">
+                    <!-- Dito lalabas yung ingredients -->
                 </div>
             </div>
         </div>
     </div>
                         
-    <div id="xml-content"></div>
-    <script type="text/javascript" src="assets/javascripts/main.js"></script>
-    
+    <script type="text/javascript" src="assets/javascripts/script.js"></script>
 </body>
-<footer>
-    <h3>test</h3>
-    <p>sample footer</p>
-</footer>
 </html>
