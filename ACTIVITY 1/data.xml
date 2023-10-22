@@ -11,7 +11,7 @@
     </meal>
     <meal>
          <!--Chicken Adobo-->
-         <id>2</id>
+        <id>2</id>
         <name>Chicken Adobo</name>
         <image>Chicken Adobo.jpg</image>
         <ingredients>chicken, soy sauce, vinegar, onion, garlic, potato, pepper, cooking oil</ingredients>
@@ -19,7 +19,7 @@
    
      <meal>
          <!--Tinolang manok-->
-         <id>3</id>
+        <id>3</id>
         <name>Tinolang Manok</name>
         <image>Tinolang Manok.jpg</image>
         <ingredients>cooking oil, chicken, malunggay leaves, pepper, papaya, knorr chicken cube, onion, garlic, ginger, fish sauce</ingredients>
@@ -39,7 +39,11 @@
         <id>5</id>
         <name>Pork Sisig</name>
         <image>Pork Sisig.jpg</image>
+<<<<<<< Updated upstream
          <ingredients>pork belly, onion, soy sauce, pepper, ginger, salt, garlic, egg, lemon, cooking oil</ingredients>
+=======
+        <instructions>pork belly, onion, soy sauce, pepper, ginger, salt, garlic, egg, lemon, cooking oil</instructions>
+>>>>>>> Stashed changes
     </meal>
 
          <!--Bulalo-->
