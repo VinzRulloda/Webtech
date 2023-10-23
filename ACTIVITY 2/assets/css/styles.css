@@ -1,11 +1,12 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: rgb(65, 161, 216);
 }
 
 /* top navbar */
 .top-navbar {
-    background-color: blue;
+    background-color: rgb(65, 161, 216);
     display: flex;
     justify-content: center;
     padding: 10px 0;
@@ -39,17 +40,21 @@ body {
 }
 
 .nav-links a:hover {
-    background-color: orange; 
+    background-color: rgb(21, 118, 163); 
     text-decoration: underline;
 }
 
 /* bottom navbar */
 .bottom-navbar {
-    background-color: blue;
+    background-image: url('images/navback.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px 0;
+    color: white;
 }
 
 .bottom-nav-links {
@@ -78,7 +83,7 @@ body {
 
 .bottom-nav-links a:hover {
     margin: 0 10px;
-    background-color: orange; 
+    background-color: rgb(50, 132, 179); 
 }
 
 .nav-logo {
