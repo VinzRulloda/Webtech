@@ -143,7 +143,7 @@ img {
     right: 10px;
 }
 
-/*about us */
+/*about us*/
 *{
     margin: 0px;
     padding: 0px;
@@ -175,7 +175,7 @@ body {
     margin: auto;
 }
 
-.services {
+.about {
     width: 85%;
     display: flex;
     justify-content: space-between;
@@ -205,6 +205,7 @@ body {
 
 .card p {
     font-size: 16px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin-bottom: 30px;
     line-height: 1.5;
     color: #000;
@@ -225,9 +226,21 @@ body {
     transition: 0.5s ease;
 }
 
+/*services*/
 
 
-/*contact us */
+
+/*contact us*/
+
+.contact h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom: 30px;
+    color: #5cb7f0;
+    text-align: center;
+    padding-top: 50px;
+    font-size: 40px;
+}
+
 main{
     
     display: flex;
@@ -266,8 +279,8 @@ main{
 
 .cont h2:nth-of-type(2){
     font-weight:bolder;
-    background-color: #c29e5c;
-}
+    background-color: rgb(65, 161, 216);
+}   
 .cont h1,h2,h3{
     text-align: center;
     font-size: 14px;
