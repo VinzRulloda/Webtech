@@ -259,7 +259,7 @@ body {
     position: relative;
     width: 30%;
     height: 320px;
-    background: #fff;
+    background: rgb(65, 161, 216);
     box-sizing: border-box;
     padding: 0 15px;
     transition: .5s;
