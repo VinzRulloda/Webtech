@@ -94,7 +94,7 @@ body {
 
 /* logo container (the circular area) */
 .logo-container {
-    margin: 0 20px; 
+    margin: 120px 20px; 
     border-radius: 50%; 
     background-color: white;
     padding: 10px;
@@ -102,6 +102,7 @@ body {
 
 /* slideshow */
 .slideshow {
+    margin: 100px 50px;
     display: flex;
     justify-content: center;
     align-items: center;
