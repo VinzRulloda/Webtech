@@ -234,6 +234,40 @@ body {
 
 /*services*/
 
+body {
+    margin: 0;
+    padding: 0;
+    height: 90vh;
+    font-family: sans-serif;
+}
+
+.wrapper {
+    width: 1170px;
+    margin: 5% auto;
+}
+
+.wrapper h2 {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    font-size: 60px;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.single-service {
+    position: relative;
+    width: 30%;
+    height: 320px;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 0 15px;
+    transition: .5s;
+    overflow: hidden;
+    float: left;
+    margin: 0 10px;
+    text-align: center;
+}
 
 
 /*contact us*/
@@ -266,13 +300,17 @@ main{
     display: flex;
     flex-direction: column;
     justify-items: center;
+    align-items: center;
+
 }
 .cont img{
-    height: 50%;
+    width: 70%;
+    height: 60%;
     border-radius: 8px;
 }
 .cont h1{
     font-weight: bolder;
+    
 }
 
 .cont h2{
