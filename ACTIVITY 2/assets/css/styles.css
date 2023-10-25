@@ -55,6 +55,7 @@ body {
     align-items: center;
     padding: 10px 0;
     color: white;
+    height: 100vh;
 }
 
 .bottom-nav-links {
@@ -106,11 +107,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh; 
+    height: 100vh; 
 }
 
 .slideshow-container {
-    max-width: 800px; 
+    max-width: auto; 
     text-align: center;
     position: relative;
 }
