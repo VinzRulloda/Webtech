@@ -46,7 +46,7 @@ body {
 
 /* bottom navbar */
 .bottom-navbar {
-    background-image: url('images/navback.jpg');
+    background-image: url('images/transpoo.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -95,11 +95,11 @@ body {
 
 /* logo container (the circular area) */
 .logo-container {
-    margin: 120px 20px; 
-    border-radius: 50%; 
-    background-color: white;
-    padding: 10px;
-}
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
 /* slideshow */
 .slideshow {
@@ -144,6 +144,72 @@ img {
     right: 10px;
 }
 
+.section__container {
+    max-width: var(--max-width);
+    margin: auto;
+    padding: 5rem 1rem;
+  }
+  
+  .section__header {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 3rem;
+    color: #5cb7f0;
+  }
+
+  .header__container .section__header {
+    text-align: center;
+    font-size: 3rem;
+    line-height: 4rem;
+  }
+
+  .travellers__grid {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  
+  .travellers__card {
+    border-radius: 5rem;
+    overflow: hidden;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .travellers__card__content {
+    background-color: white;
+    position: relative;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .travellers__card__content img {
+    position: absolute;
+    max-width: 70px;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid var(--extra-light);
+    border-radius: 100%;
+  }
+  
+  .travellers__card__content h4 {
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+
+  .travellers__grid, button {
+    font-size: 15px;
+    text-decoration: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+}
+  
+
 /*about us*/
 *{
     margin: 0px;
@@ -152,13 +218,13 @@ img {
     font-family: sans-serif;
 }
 
-body {
+/* body {
     width: 100%;
     background: rgba(120, 184, 236, 0.8) url('images/carousel1.jpg') center center fixed;
     background-size: cover;
     background-blend-mode: darken;
     scroll-behavior: smooth;
-}
+} */
 
 .title h1 {
     color: #5cb7f0;
@@ -182,7 +248,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 75px auto;
+    margin: 50px auto;
     text-align: center;
 }
 
@@ -343,3 +409,325 @@ html,body{
     width: 100%;
     height:100%;
 }
+
+.leaflet-control-geocoder {
+    z-index: 1000;
+}
+
+#map {
+    position: relative;
+}
+
+/* index */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: .2s linear;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+.main-container{
+    background: url(images/taxi2.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 2rem 7%;
+    align-items: center;
+}
+.header .navbar a{
+    font-size: 1.7rem;
+    margin-left: 1rem;
+    color: white;
+    text-decoration: none;
+}
+.header .navbar a:hover{
+    background: #ffc61a;
+    padding: .5rem 3rem;
+    border-radius: 15px;
+}
+
+.background-text h2{
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.background-text h2 span{
+    color: #ffc61a;
+}
+
+.home-container{
+    background: #ffc61a;
+    padding: 2rem 7%;
+    width: 100%;
+    padding-top: 4rem;
+    
+}
+
+.inner-content{
+    flex: 1 1 45rem;
+    padding: 2rem;
+}
+.inner-content h3{
+    font-size: 31px;
+}
+.inner-content h2{
+    font-size: 38px;
+}
+.inner-content p{
+    font-size: 1.5rem;
+    padding-bottom: 1rem;
+}
+.inner-content .booknow{
+    padding: 1rem 3rem;
+    color: black;
+    font-size: 1.5rem;
+    border: 1px solid black;
+}
+.inner-content .booknow:hover{
+padding: 1.5rem 3rem;
+border: 1px solid white;
+border-radius: 15px;
+background: white;
+}
+.form-heading{
+    text-align: center;
+    background: black;
+    padding: 2rem 0;
+}
+.form-heading h1{
+    color: white;
+}
+.contact-form{
+    width: 45rem;
+    background: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin: 0 auto;
+}
+.form-fields input{
+    padding: 2rem ;
+    border: none;
+    border-bottom: 1px solid black;
+}
+.contact-form a{
+    background: black;
+    width: 100%;
+    display: inline-block;
+    padding: 2rem 0;
+    color: white;
+    font-size: 1.5rem;
+    
+}
+.submit{
+    padding-top: 2rem;
+
+}
+.main-tariff{
+    padding: 3rem 7%;
+   
+   
+}
+.main-tariff h1{
+    font-size: 38px;
+    text-align: center;
+    padding-bottom: 6rem;
+}
+.main-tariff h1 span{
+    color: #ffc61a;
+}
+.inner-tarrif{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+.tarrif-container{
+    flex: 1 1 250px;
+    text-align: center;
+    padding: 3rem 0;
+}
+.tarrif-container img{
+    width: 60%;
+    margin-top: -50px;
+}
+.tarrif-container .inner-box h2{
+    font-size: 30px;
+}
+.tarrif-container .inner-box p{
+    font-size: 1.5rem;
+    padding: 2rem;
+}
+.tarrif-container .inner-box h3{
+    color: #ffc61a;
+    font-size: 2rem;
+}
+.tarrif-container .inner-box a{
+    font-size: 1.5rem;
+    padding: 1rem 3rem;
+
+}
+
+.heading-yellow{
+    color: black;
+}
+.yellw-section{
+    color: black !important;
+}
+.tarrif-container a{
+    color: white;
+    padding: 1rem 3rem;
+    background: black;
+    display: inline-block;
+    margin-top: 1rem;
+
+}
+.fast-booking{
+    background: url(images/secbg.png);
+    background-size: cover;
+    width: 100%;
+    background-position: center;
+}
+.fast-booking .fast-hading{
+    color: #ffc61a;
+    font-size: 38px;
+    text-align: center;
+    padding-top: 2rem;
+}
+.fast-booking  h2{
+    font-size: 31px;
+    color: white;
+    text-align: center;
+}
+.inner-fast{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 3rem 7%;
+    align-items: center;
+}
+.booking-content{
+    flex: 1 1 45rem;
+}
+.booking-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.inner-fast-text h1{
+    font-size: 22px;
+    color: #ffc61a;
+    padding: 2rem;
+}
+.inner-fast-text p{
+    font-size: 1.5rem;
+    padding: 2rem;
+}
+.icon-fast{
+    background-color: #ffc61a;
+    width: 50px;
+    height: 40px;
+    border-radius: 150px;
+    text-align: center;
+}
+.icon-fast span i{
+    line-height: 40px;
+    font-size: 1.5rem;
+}
+
+.testimonials{
+    background: url(images/oldbaguio.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+.testimonials .heading-test{
+    color: #ffc61a;
+    font-size: 38px;
+    padding: 2rem;
+    text-align: center;
+}
+.main-testimonials{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 2rem 7%;
+}
+.inner-test{
+    flex: 1 1 45rem;
+    color: white;
+    background: black;
+    padding: 2rem;
+}
+.inner-test p{
+    font-size: 1.5rem;
+    padding: 2rem;
+}
+.clients{
+    display: flex;
+    align-items: center;
+
+}
+.clients h1{
+    color: #ffc61a;
+    margin-left: 1rem;
+}
+
+
+
+@media (max-width:768px) {
+    html{
+        font-size: 50%;
+    }
+    #menu-bars{
+        display: initial;
+    
+    }
+    .navbar{
+        position: absolute;
+        top: -100%;
+        right: 0;
+        left: 0;
+    }
+    .navbar a{
+        display: block;
+        font-size: 1.5rem;
+        background: #ffc61a;
+        margin: 1rem;
+        padding: 1rem;
+
+    }
+    .header{
+        padding: 2rem;
+    }
+    .tarrif-container{
+        padding-bottom: 4rem;
+    }
+    .tarrif-container img{
+        width: 60%;
+        margin-top: 0px;
+    }
+    .background-text h2{
+        width: 100%;
+        text-align: center;
+    }
+}
+
