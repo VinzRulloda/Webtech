@@ -22,6 +22,5 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = 'block';
 }
 
-// https://leafletjs.com/reference.html#marker-option (documentation for reference)
-//map
+
 
