@@ -461,8 +461,8 @@ html{
     color: white;
     font-size: 50px;
     position: absolute;
-    top: 15%;
-    left: 50%;
+    top: 13%;
+    left: 35%;
 
 }
 .background-text h2 span{
@@ -689,8 +689,6 @@ background: white;
     color: #ffc61a;
     margin-left: 1rem;
 }
-
-
 
 @media (max-width:768px) {
     html{
