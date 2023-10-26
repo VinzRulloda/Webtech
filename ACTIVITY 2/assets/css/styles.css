@@ -94,6 +94,10 @@ body {
     margin: 0 auto 10px;
 }
 
+.header img {
+    padding-right: 25%;
+}"
+
 /* logo container (the circular area) */
 .logo-container {
     position: absolute;
@@ -428,7 +432,7 @@ html{
     scroll-behavior: smooth;
 }
 .main-container{
-    background: url(images/taxi2.jpg);
+    background: url(images/taximain.jpeg);
     background-position: center;
     background-size: cover;
     width: 100%;
@@ -457,9 +461,8 @@ html{
     color: white;
     font-size: 50px;
     position: absolute;
-    top: 50%;
+    top: 15%;
     left: 50%;
-    transform: translate(-50%, -50%);
 
 }
 .background-text h2 span{
