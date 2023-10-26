@@ -6,6 +6,7 @@ body {
 
 /* top navbar */
 .top-navbar {
+    font-size: 18px;
     background-color: rgb(65, 161, 216);
     display: flex;
     justify-content: center;
@@ -144,72 +145,6 @@ img {
     right: 10px;
 }
 
-.section__container {
-    max-width: var(--max-width);
-    margin: auto;
-    padding: 5rem 1rem;
-  }
-  
-  .section__header {
-    font-size: 2.5rem;
-    font-weight: 600;
-    line-height: 3rem;
-    color: #5cb7f0;
-  }
-
-  .header__container .section__header {
-    text-align: center;
-    font-size: 3rem;
-    line-height: 4rem;
-  }
-
-  .travellers__grid {
-    margin-top: 4rem;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
-  }
-  
-  .travellers__card {
-    border-radius: 5rem;
-    overflow: hidden;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
-  }
-  
-  .travellers__card__content {
-    background-color: white;
-    position: relative;
-    padding: 1rem;
-    text-align: center;
-  }
-  
-  .travellers__card__content img {
-    position: absolute;
-    max-width: 70px;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 5px solid var(--extra-light);
-    border-radius: 100%;
-  }
-  
-  .travellers__card__content h4 {
-    margin-top: 1.5rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--text-dark);
-  }
-
-  .travellers__grid, button {
-    font-size: 15px;
-    text-decoration: none;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 5px;
-    letter-spacing: 1px;
-}
-  
-
 /*about us*/
 *{
     margin: 0px;
@@ -218,16 +153,8 @@ img {
     font-family: sans-serif;
 }
 
-/* body {
-    width: 100%;
-    background: rgba(120, 184, 236, 0.8) url('images/carousel1.jpg') center center fixed;
-    background-size: cover;
-    background-blend-mode: darken;
-    scroll-behavior: smooth;
-} */
-
 .title h1 {
-    color: #5cb7f0;
+    color: white;
     text-align: center;
     padding-top: 50px;
     font-size: 40px;
@@ -241,7 +168,6 @@ img {
     display: block;
     margin: auto;
 }
-
 
 .about {
     width: 85%;
@@ -265,8 +191,12 @@ img {
     cursor: pointer;
 }
 
+.card, p{
+    text-transform: none;
+}
+
 .card:hover {
-    background-color: #c94f4f;
+    background-color: yellow;
     transition: 0.5s ease;
 }
 
@@ -297,6 +227,68 @@ img {
 .button:hover {
     background-color: black;
     transition: 0.5s ease;
+}
+
+.aboutUs_title {
+    padding-top: 3rem;
+}
+
+.aboutUs_title{
+    font-size: 25px;
+    text-align: center;
+    background-color: yellow;
+}
+
+.aboutUs_title h1{
+    color: black;
+    margin-bottom: 50px;
+}
+
+.inner-about{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+.about-container{
+    flex: 1 1 250px;
+    text-align: center;
+    padding: 3rem 0;
+}
+.about-container img{
+    width: 60%;
+    margin-top: -50px;
+}
+.about-container .inner-container h2{
+    font-size: 30px;
+}
+.about-container .inner-container p{
+    font-size: 1.5rem;
+    padding: 2rem;
+}
+.about-container .inner-container h3{
+    color: #ffc61a;
+    font-size: 2rem;
+}
+.about-container .inner-container a{
+    font-size: 1.5rem;
+    padding: 1rem 3rem;
+
+}
+
+.heading-yellow{
+    color: black;
+}
+.yellw-section{
+    color: black !important;
+}
+.about-container a{
+    color: white;
+    padding: 1rem 3rem;
+    background: black;
+    display: inline-block;
+    margin-top: 1rem;
+
 }
 
 /*services*/
@@ -342,10 +334,13 @@ body {
 .contact h1 {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     margin-bottom: 20px;
-    color: #5cb7f0;
+    color: white;
     text-align: center;
-    padding-top: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-size: 40px;
+    background-color: #333; 
+
 }
 
 main{
@@ -390,7 +385,7 @@ main{
 
 .cont h2:nth-of-type(2){
     font-weight:bolder;
-    background-color: rgb(65, 161, 216);
+    background-color: yellow;
 }   
 .cont h1,h2,h3{
     text-align: center;
@@ -493,6 +488,7 @@ html{
     font-size: 1.5rem;
     padding-bottom: 1rem;
 }
+
 .inner-content .booknow{
     padding: 1rem 3rem;
     color: black;
