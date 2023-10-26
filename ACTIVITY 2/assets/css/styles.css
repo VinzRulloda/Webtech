@@ -13,6 +13,9 @@ body {
     padding: 10px 0;
 }
 
+.header-logo {
+    padding-left: 2rem;
+}
 .nav-links {
     list-style: none;
     margin: 0;
@@ -200,7 +203,7 @@ img {
 }
 
 .card:hover {
-    background-color: yellow;
+    background-color: rgb(201, 199, 197);
     transition: 0.5s ease;
 }
 
@@ -446,11 +449,14 @@ html{
     align-items: center;
 }
 .header .navbar a{
-    font-size: 1.7rem;
-    margin-left: 1rem;
+    font-size: 30px;
     color: white;
+    margin-left: 200px;
     text-decoration: none;
+    padding: auto;
+    
 }
+
 .header .navbar a:hover{
     background: #ffc61a;
     padding: .5rem 3rem;
@@ -461,7 +467,7 @@ html{
     color: white;
     font-size: 50px;
     position: absolute;
-    top: 5%;
+    top: 192%;
     left: 35%;
 
 }
@@ -698,12 +704,13 @@ background: white;
         display: initial;
     
     }
-    .navbar{
+    .navbar {
         position: absolute;
         top: -100%;
         right: 0;
         left: 0;
     }
+    
     .navbar a{
         display: block;
         font-size: 1.5rem;
@@ -712,6 +719,7 @@ background: white;
         padding: 1rem;
 
     }
+
     .header{
         padding: 2rem;
     }
