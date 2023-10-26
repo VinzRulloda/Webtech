@@ -1,6 +1,6 @@
 // https://leafletjs.com/reference.html#marker-option (documentation for reference)
 //map
-// Put your JavaScript code here
+// Get the destination from the URL query parameters
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6371; // Earth's radius in kilometers
