@@ -23,7 +23,29 @@ html,body{width:100%;height:100%;padding:0;margin:0;}
     .bindPopup('you are here')
     .openPopup();
 maxZoom: 19
+
+
 .addTo(map);
+
+var geocoder = L.Control.geocoder({
+    defaultMarkGeocode: false
+}).on('markgeocode', function(event) {
+    var center = event.geocode.center;
+    map.setView(center, map.getZoom());
+    
+    if (destinationMarker) {
+        map.removeLayer(destinationMarker);
+    }
+
+    destinationMarker = L.marker(center)
+        .addTo(map)
+        .bindPopup('Go here')
+        .openPopup();
+
+    // ... other logic related to setting destination, calculating distance and price ...
+
+}).addTo(map);
+
 </script>
 </body>
 </html>

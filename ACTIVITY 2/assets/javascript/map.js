@@ -24,9 +24,31 @@ function calculatePrice(distance) {
 
 var map = L.map('map').setView([16.4023, 120.5960], 13);
 
+
+
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
+
+var geocoder = L.Control.geocoder({
+    defaultMarkGeocode: false
+}).on('markgeocode', function(event) {
+    var center = event.geocode.center;
+    map.setView(center, map.getZoom());
+    
+    if (destinationMarker) {
+        map.removeLayer(destinationMarker);
+    }
+
+    destinationMarker = L.marker(center)
+        .addTo(map)
+        .bindPopup('Go here')
+        .openPopup();
+
+    // ... other logic related to setting destination, calculating distance and price ...
+
+}).addTo(map);
+
 
 var currentLocationMarker;
 var destinationMarker;
@@ -41,6 +63,7 @@ if ('geolocation' in navigator) {
             .addTo(map)
             .bindPopup('You are Here')
             .openPopup();
+            
 
         function setDestinationManually() {
             if (destinationMarker) {
@@ -102,3 +125,6 @@ if ('geolocation' in navigator) {
 } else {
     console.log('Geolocation is not available in this browser.');
 }
+
+
+

@@ -696,6 +696,11 @@ background: white;
     margin-left: 1rem;
 }
 
+.leaflet-control-geocoder {
+    z-index: 1000; /* adjust this value as needed */
+}
+
+
 @media (max-width:768px) {
     html{
         font-size: 50%;
