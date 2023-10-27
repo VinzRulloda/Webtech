@@ -38,6 +38,7 @@ body {
 }
 
 .nav-links a {
+    
     text-decoration: none;
     color: white;
     font-weight: bold;
@@ -569,6 +570,7 @@ background: white;
 }
 .tarrif-container img{
     width: 60%;
+    border-radius: 20px;
     margin-top: -50px;
 }
 .tarrif-container .inner-box h2{
@@ -583,6 +585,7 @@ background: white;
     font-size: 2rem;
 }
 .tarrif-container .inner-box a{
+    border-radius: 10px;
     font-size: 1.5rem;
     padding: 1rem 3rem;
 

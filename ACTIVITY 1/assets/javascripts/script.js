@@ -26,7 +26,6 @@ fetch('data.xml')
     .catch(error => {
         console.error("Error fetching or parsing XML data:", error);
     });
-
 function getMealList() {
     let searchInputTxt = document.getElementById('search-input').value.trim();
     
