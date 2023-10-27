@@ -102,3 +102,70 @@ if ('geolocation' in navigator) {
 } else {
     console.log('Geolocation is not available in this browser.');
 }
+
+// Get the destination from the URL query parameters
+function getDestinationFromQuery() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const destination = urlParams.get('destination');
+    return destination;
+}
+
+// Function to set the destination on the map
+function setDestinationOnMap(destinationName, lat, lon) {
+    if (destinationMarker) {
+        map.removeLayer(destinationMarker);
+    }
+
+    const destination = L.latLng(lat, lon);
+    
+
+    destinationMarker = L.marker(destination)
+        .addTo(map)
+        .bindPopup('Go here')
+        .openPopup();
+
+    var currentLatLng = currentLocationMarker.getLatLng();
+    var distance = calculateDistance(
+        currentLatLng.lat, currentLatLng.lng,
+        destination.lat, destination.lng
+    );
+
+    document.getElementById('distance-display').textContent = 'Distance to destination: ' + distance.toFixed(2) + ' km';
+
+    var price = calculatePrice(distance);
+    document.getElementById('price-display').textContent = 'Price: ' + price.toFixed(2) + ' PHP';
+
+    control = L.Routing.control({
+        waypoints: [currentLatLng, destination],
+        routeWhileDragging: true,
+    }).addTo(map);
+
+    document.getElementById('remove-destination-button').style.display = 'block';
+    document.getElementById('set-destination-button').disabled = true;
+}
+
+// Check if there is a destination parameter in the URL and set it if found
+const destinationParam = getDestinationFromQuery();
+if (destinationParam) {
+    // Replace these coordinates with the actual coordinates for your destinations
+    if (destinationParam === 'burnham') {
+        setDestinationOnMap('Burnham Park', 16.4023, 120.5935);
+    } else if (destinationParam === 'cathedral') {
+        setDestinationOnMap('Baguio Cathedral', 16.4023, 120.5960);
+    } else if (destinationParam === 'botanical') {
+        setDestinationOnMap('Botanical Garden', 16.4023, 120.6014);
+    }
+}
+
+// Add event listeners to the buttons to set the destination
+document.getElementById('burnham').addEventListener('click', function () {
+    setDestinationOnMap('Burnham Park', 16.4023, 120.5935);
+});
+
+document.getElementById('cathedral').addEventListener('click', function () {
+    setDestinationOnMap('Baguio Cathedral', 16.4023, 120.5960);
+});
+
+document.getElementById('botanical').addEventListener('click', function () {
+    setDestinationOnMap('Botanical Garden', 16.4023, 120.6014);
+});
