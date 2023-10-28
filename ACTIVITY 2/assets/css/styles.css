@@ -316,17 +316,19 @@ body {
 }
 
 .set-destination-button {
-        font-size: 15px;
+        font-size: px;
         text-decoration: none;
         color: white;
         background-color: #2c677c;
-        padding: 8px 12px;
+        padding-left: 2%;
+        padding-right: 2%;
+        margin-left: 500px;
         border-radius: 5px;
         letter-spacing: 1px;
     }
     
     .set-destination-button:hover {
-        background-color: black;
+        background-color: rgb(209, 207, 207);
         transition: 0.5s ease;
     }
 .remove-destination-button {
@@ -340,8 +342,20 @@ body {
 }
 
 .remove-destination-button:hover {
-    background-color: black;
+    background-color: rgb(209, 207, 207);
     transition: 0.5s ease;
+}
+
+.set-destination-button, p {
+    margin-top: 10px;
+    font-size: 30px;
+    text-decoration: none;
+    color: black;
+    padding: 8px 12px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    text-align: center;
+
 }
 
 .wrapper {
