@@ -30,7 +30,6 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-// ito yung i a add
 var geocoder = L.Control.geocoder({
     defaultMarkGeocode: false
 }).on('markgeocode', function(event) {
@@ -46,7 +45,7 @@ var geocoder = L.Control.geocoder({
         .bindPopup('Go here')
         .openPopup();
 
-    
+    // ... other logic related to setting destination, calculating distance and price ...
 
 }).addTo(map);
 
