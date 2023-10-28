@@ -45,7 +45,7 @@ var geocoder = L.Control.geocoder({
         .bindPopup('Go here')
         .openPopup();
 
-    // ... other logic related to setting destination, calculating distance and price ...
+    
 
 }).addTo(map);
 
