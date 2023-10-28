@@ -5,6 +5,12 @@ body {
 }
 
 /* top navbar */
+
+.logo {
+    width: 250px;
+    height: 250px;
+    position: left;
+}
 .top-navbar {
     font-size: 18px;
     background-color: rgb(65, 161, 216);
