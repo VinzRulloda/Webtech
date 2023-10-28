@@ -1,6 +1,5 @@
 // https://leafletjs.com/reference.html#marker-option (documentation for reference)
 //map
-// Get the destination from the URL query parameters
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6371; // Earth's radius in kilometers
@@ -144,10 +143,8 @@ function setDestinationOnMap(destinationName, lat, lon) {
     document.getElementById('set-destination-button').disabled = true;
 }
 
-// Check if there is a destination parameter in the URL and set it if found
 const destinationParam = getDestinationFromQuery();
 if (destinationParam) {
-    // Replace these coordinates with the actual coordinates for your destinations
     if (destinationParam === 'burnham') {
         setDestinationOnMap('Burnham Park', 16.412478, 120.593956);
     } else if (destinationParam === 'cathedral') {
@@ -157,7 +154,6 @@ if (destinationParam) {
     }
 }
 
-// Add event listeners to the buttons to set the destination
 document.getElementById('burnham').addEventListener('click', function () {
     setDestinationOnMap('Burnham Park', 16.412478, 120.593956);
 });
