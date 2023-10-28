@@ -116,7 +116,6 @@ function setDestinationOnMap(destinationName, lat, lon) {
     }
 
     const destination = L.latLng(lat, lon);
-    
 
     destinationMarker = L.marker(destination)
         .addTo(map)
@@ -134,11 +133,26 @@ function setDestinationOnMap(destinationName, lat, lon) {
     var price = calculatePrice(distance);
     document.getElementById('price-display').textContent = 'Price: ' + price.toFixed(2) + ' PHP';
 
-    control = L.Routing.control({
-        waypoints: [currentLatLng, destination],
+    var control = L.Routing.control({
+        waypoints: [
+            L.latLng(currentLatLng.lat, currentLatLng.lng),
+            L.latLng(lat, lon)
+        ],
         routeWhileDragging: true,
-    }).addTo(map);
+        show: true,
+        lineOptions: {
+            styles: [{color: '#007bff', opacity: 1, weight: 5}]
+        },
+        createMarker: function(i, wp, nWps) {
+            if (i === 0) {
+                return currentLocationMarker;
+            } else if (i === nWps - 1) {
+                return destinationMarker;
+            }
+        }
+    });
 
+    control.addTo(map);
     document.getElementById('remove-destination-button').style.display = 'block';
     document.getElementById('set-destination-button').disabled = true;
 }
@@ -154,6 +168,7 @@ if (destinationParam) {
     }
 }
 
+// Add event listeners to the buttons to set the destination
 document.getElementById('burnham').addEventListener('click', function () {
     setDestinationOnMap('Burnham Park', 16.412478, 120.593956);
 });
