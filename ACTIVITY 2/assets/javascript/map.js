@@ -22,8 +22,24 @@ function calculatePrice(distance) {
     return price;
 }
 
-var map = L.map('map').setView([16.4023, 120.5960], 13);
+// Based on Baguio City Rate
+function calculatePrice(distance) {
+    const basePrice = 45; // Starting price in PHP
+    const pricePer100Meters = 2; // Price per 100 meters in PHP
+    const price = basePrice + (distance * 10 * pricePer100Meters); // Convert distance to 100 meters and calculate price
+    return price;
+}
 
+var baguioBounds = [
+    [16.3595, 120.5412], // Southwest corner of Baguio City
+    [16.4474, 120.6335]  // Northeast corner of Baguio City
+];
+
+var map = L.map('map', {
+    maxBounds: baguioBounds, 
+    minZoom: 13,             
+    maxZoom: 16,             
+}).setView([16.4023, 120.5960], 13);
 
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -45,7 +61,6 @@ var geocoder = L.Control.geocoder({
         .bindPopup('Go here')
         .openPopup();
 
-    
 
 }).addTo(map);
 

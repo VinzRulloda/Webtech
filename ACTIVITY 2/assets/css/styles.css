@@ -1,799 +1,694 @@
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #ffb900;
-}
-
-
-.upperContainer .weatherwidget-io {
-    width: 100%;
-    height: 100%;
-    margin-left: 200px;
-    
-}
-/* top navbar */
-
-.logo {
-    width: 250px;
-    height: 50px;
-    position: flex;
-}
-.top-navbar {
-    font-size: 18px;
-    background-color: rgb(65, 161, 216);
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
-}
-
-.header-logo {
-    padding-left: 2rem;
-}
-.nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links li {
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links a, .bottom-nav-links a {
-    display: inline-block;
-    padding: 10px;
-    text-align: center;
-    border-radius: 10px; 
-    transition: background-color 0.3s ease;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
-.nav-links a:hover {
-    background-color: rgb(21, 118, 163); 
-    text-decoration: underline;
-}
-
-/* bottom navbar */
-.bottom-navbar {
-    background-image: url('images/transpoo.jpeg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 0;
-    color: white;
-    height: 100vh;
-}
-
-.bottom-nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-.bottom-nav-links li {
-    margin: 0;
-    padding: 0;
-}
-
-.bottom-nav-links a {
-    text-decoration: none;
-    color: white;
-    font-size: 50px;
-    font-weight: bold;
-    display: inline-block;
-    padding: 50px;
-    text-align: center;
-    border-radius: 20px; 
-    transition: background-color 0.5s ease;
-}
-
-.bottom-nav-links a:hover {
-    margin: 0 10px;
-    background-color: rgb(50, 132, 179); 
-}
-
-.nav-logo {
-    display: block;
-    max-width: 40px;
-    margin: 0 auto 10px;
-}
-
-.header img {
-    padding-right: 25%;
-}
-
-/* logo container (the circular area) */
-.logo-container {
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-/* slideshow */
-.slideshow {
-    margin: 100px 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; 
-}
-
-.slideshow-container {
-    max-width: auto; 
-    text-align: center;
-    position: relative;
-}
-
-.slide {
-    display: none;
-}
-
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
-
-/*about us*/
-*{
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
-
-.title h1 {
-    color: rgb(0, 0, 0);
-    text-align: center;
-    padding-top: 50px;
-    font-size: 40px;
-}
-
-.title h1::after {
-    content: "";
-    height: 5px;
-    width: 230px;
-    background-color: rgb(0, 0, 0);
-    display: block;
-    margin: auto;
-}
-
-.about {
-    width: 85%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 50px auto;
-    text-align: center;
-}
-
-.card {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    margin: 0px 20px;
-    padding: 20px 20px;
-    background-color: white;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-.card, p{
-    text-transform: none;
-}
-
-.card:hover {
-    background-color: rgb(201, 199, 197);
-    transition: 0.5s ease;
-}
-
-.card h2 {
-    font-size: 28px;
-    color: #5cb7f0;
-    margin-bottom: 20px;
-}
-
-.card p {
-    font-size: 16px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin-bottom: 30px;
-    line-height: 1.5;
-    color: #000;
-}
-
-.button {
-    font-size: 15px;
-    text-decoration: none;
-    color: white;
-    background-color: #2c677c;
-    padding: 8px 12px;
-    border-radius: 5px;
-    letter-spacing: 1px;
-}
-
-.button:hover {
-    background-color: black;
-    transition: 0.5s ease;
-}
-
-.aboutUs_title {
-    padding-top: 3rem;
-}
-
-.aboutUs_title{
-    font-size: 25px;
-    text-align: center;
-    background-color: #00aeff;
-}
-
-.aboutUs_title h1{
-    color: black;
-    margin-bottom: 50px;
-}
-
-.inner-about{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-}
-.about-container{
-    flex: 1 1 250px;
-    text-align: center;
-    padding: 3rem 0;
-}
-.about-container img{
-    width: 60%;
-    margin-top: -50px;
-}
-.about-container .inner-container h2{
-    font-size: 20px;
-}
-.about-container .inner-container p{
-    font-size: 1.5rem;
-    padding: 2rem;
-}
-.about-container .inner-container h3{
-    color: #ffc61a;
-    font-size: 2rem;
-}
-.about-container .inner-container a{
-    font-size: 1.5rem;
-    padding: 1rem 3rem;
-
-}
-
-.heading-yellow{
-    color: black;
-}
-.yellw-section{
-    color: black !important;
-}
-.about-container a{
-    color: white;
-    padding: 1rem 3rem;
-    background: black;
-    display: inline-block;
-    margin-top: 1rem;
-
-}
-
-/*services*/
-
-body {
-    margin: 0;
-    padding: 0;
-    height: 90vh;
-    font-family: sans-serif;
-}
-
-.set-destination-button {
-        font-size: 30px;
-        text-decoration: none;
-        color: white;
-        background-color: #2c677c;
-        padding-left: 2%;
-        padding-right: 2%;
-        margin-left: 500px;
-        border-radius: 5px;
-        letter-spacing: 1px;
+    margin : 0;
+    padding : 0;
+    background-color : #ffb900;
     }
-    
+    .upperContainer .weatherwidget-io {
+    width : 100%;
+    height : 100%;
+    margin-left : 200px;
+    }
+    .logo {
+    width : 250px;
+    height : 50px;
+    }
+    .top-navbar {
+    font-size : 18px;
+    background-color : rgb(65, 161, 216);
+    display : flex;
+    justify-content : center;
+    padding : 10px 0;
+    }
+    .header-logo {
+    padding-left : 2rem;
+    }
+    .nav-links {
+    list-style : none;
+    margin : 0;
+    padding : 0;
+    display : flex;
+    gap : 20px;
+    }
+    .nav-links li {
+    margin : 0;
+    padding : 0;
+    }
+    .nav-links a, .bottom-nav-links a {
+    display : inline-block;
+    padding : 10px;
+    text-align : center;
+    border-radius : 10px;
+    transition : background-color 0.3s ease;
+    }
+    .nav-links a {
+    text-decoration : none;
+    color : white;
+    font-weight : bold;
+    }
+    .nav-links a:hover {
+    background-color : rgb(21, 118, 163);
+    text-decoration : underline;
+    }
+    .bottom-navbar {
+    background-image : url("images/transpoo.jpeg");
+    background-size : cover;
+    background-repeat : no-repeat;
+    background-position : center;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    padding : 10px 0;
+    color : white;
+    height : 100vh;
+    }
+    .bottom-nav-links {
+    list-style : none;
+    margin : 0;
+    padding : 0;
+    display : flex;
+    }
+    .bottom-nav-links li {
+    margin : 0;
+    padding : 0;
+    }
+    .bottom-nav-links a {
+    text-decoration : none;
+    color : white;
+    font-size : 50px;
+    font-weight : bold;
+    display : inline-block;
+    padding : 50px;
+    text-align : center;
+    border-radius : 20px;
+    transition : background-color 0.5s ease;
+    }
+    .bottom-nav-links a:hover {
+    margin : 0 10px;
+    background-color : rgb(50, 132, 179);
+    }
+    .nav-logo {
+    display : block;
+    max-width : 40px;
+    margin : 0 auto 10px;
+    }
+    .header img {
+    padding-right : 25%;
+    }
+    .logo-container {
+    position : absolute;
+    top : 100px;
+    left : 50%;
+    transform : translateX(-50%);
+    }
+    .slideshow {
+    margin : 100px 50px;
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    height : 100vh;
+    }
+    .slideshow-container {
+    text-align : center;
+    position : relative;
+    }
+    .slide {
+    display : none;
+    }
+    .prev, .next {
+    position : absolute;
+    top : 50%;
+    transform : translateY(-50%);
+    padding : 10px;
+    background-color : #333;
+    color : #fff;
+    border : none;
+    cursor : pointer;
+    }
+    .prev {
+    left : 10px;
+    }
+    .next {
+    right : 10px;
+    }
+    * {
+    margin : 0;
+    padding : 0;
+    box-sizing : border-box;
+    font-family : sans-serif;
+    }
+    .title h1 {
+    color : rgb(0, 0, 0);
+    text-align : center;
+    padding-top : 50px;
+    font-size : 40px;
+    }
+    .title h1::after {
+    content : "";
+    height : 5px;
+    width : 230px;
+    background-color : rgb(0, 0, 0);
+    display : block;
+    margin : auto;
+    }
+    .about {
+    width : 85%;
+    display : flex;
+    justify-content : space-between;
+    align-items : center;
+    margin : 50px auto;
+    text-align : center;
+    }
+    .card {
+    width : 100%;
+    display : flex;
+    justify-content : space-between;
+    align-items : center;
+    flex-direction : column;
+    margin : 0 20px;
+    padding : 20px 20px;
+    background-color : white;
+    border-radius : 10px;
+    cursor : pointer;
+    }
+    .card, p {
+    text-transform : none;
+    }
+    .card:hover {
+    background-color : rgb(201, 199, 197);
+    transition : 0.5s ease;
+    }
+    .card h2 {
+    font-size : 28px;
+    color : #5cb7f0;
+    margin-bottom : 20px;
+    }
+    .card p {
+    font-size : 16px;
+    font-family : Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom : 30px;
+    line-height : 1.5;
+    color : #000;
+    }
+    .button {
+    font-size : 15px;
+    text-decoration : none;
+    color : white;
+    background-color : #2c677c;
+    padding : 8px 12px;
+    border-radius : 5px;
+    letter-spacing : 1px;
+    }
+    .button:hover {
+    background-color : black;
+    transition : 0.5s ease;
+    }
+    .aboutUs_title {
+    padding-top : 3rem;
+    }
+    .aboutUs_title {
+    font-size : 25px;
+    text-align : center;
+    background-color : #00aeff;
+    }
+    .aboutUs_title h1 {
+    color : black;
+    margin-bottom : 50px;
+    }
+    .inner-about {
+    display : flex;
+    flex-wrap : wrap;
+    justify-content : center;
+    gap : 15px;
+    }
+    .about-container {
+    flex : 1 1 250px;
+    text-align : center;
+    padding : 3rem 0;
+    }
+    .about-container img {
+    width : 60%;
+    margin-top : -50px;
+    }
+    .about-container .inner-container h2 {
+    font-size : 20px;
+    }
+    .about-container .inner-container p {
+    font-size : 1.5rem;
+    padding : 2rem;
+    }
+    .about-container .inner-container h3 {
+    color : #ffc61a;
+    font-size : 2rem;
+    }
+    .about-container .inner-container a {
+    font-size : 1.5rem;
+    padding : 1rem 3rem;
+    }
+    .heading-yellow {
+    color : black;
+    }
+    .yellw-section {
+    color : black !important ;
+    }
+    .about-container a {
+    color : white;
+    padding : 1rem 3rem;
+    background : black;
+    display : inline-block;
+    margin-top : 1rem;
+    }
+    body {
+    margin : 0;
+    padding : 0;
+    height : 90vh;
+    font-family : sans-serif;
+    }
+    .set-destination-button {
+    font-size : 30px;
+    text-decoration : none;
+    color : white;
+    background-color : #2c677c;
+    padding-left : 2%;
+    padding-right : 2%;
+    margin-left : 500px;
+    border-radius : 5px;
+    letter-spacing : 1px;
+    }
     .set-destination-button:hover {
-        background-color: rgb(209, 207, 207);
-        transition: 0.5s ease;
+    background-color : rgb(209, 207, 207);
+    transition : 0.5s ease;
     }
-.remove-destination-button {
-    font-size: 30px;
-    text-decoration: none;
-    color: white;
-    background-color: #2c677c;
-    padding-left: 2%;
-    padding-right: 2%;
-    margin-left: 500px;
-    border-radius: 5px;
-    letter-spacing: 1px;
-}
-
-.remove-destination-button:hover {
-    background-color: rgb(209, 207, 207);
-    transition: 0.5s ease;
-}
-
-.set-destination-button, p {
-    margin-top: 10px;
-    font-size: 30px;
-    text-align: center;
-}
-
-.wrapper {
-    width: 1170px;
-    margin: 5% auto;
-}
-
-.wrapper h2 {
-    text-transform: uppercase;
-    font-weight: bold;
-    text-align: center;
-    font-size: 60px;
-    color: #fff;
-    margin-bottom: 30px;
-}
-
-.single-service {
-    position: relative;
-    width: 30%;
-    height: 320px;
-    background: rgb(65, 161, 216);
-    box-sizing: border-box;
-    padding: 0 15px;
-    transition: .5s;
-    overflow: hidden;
-    float: left;
-    margin: 0 10px;
-    text-align: center;
-}
-
-
-/*contact us*/
-
-.contact h1 {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    margin-bottom: 20px;
-    color: white;
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    font-size: 40px;
-    background-color: #333; 
-
-}
-
-main{
-    
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    row-gap: 20px;
-
-}
-.cont{
-    margin: 0 auto;
-    height: fit-content;
-    width: 40vw;
-    background-color: #f1efefc2;
-    backdrop-filter: opacity(90%);
-    padding: 20px;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
-    align-items: center;
-
-}
-.cont img{
-    width: 70%;
-    height: 60%;
-    border-radius: 8px;
-}
-.cont h1{
-    font-weight: bolder;
-    
-}
-
-.cont h2{
-    font-weight: normal;
-    font-size: 14px;
-}
-.cont h2:first-of-type{
-    font-weight:600;
-}
-
-.cont h2:nth-of-type(2){
-    font-weight:bolder;
-    background-color: yellow;
-}   
-.cont h1,h2,h3{
-    text-align: center;
-    font-size: 14px;
-}
-
-/* map */
-html,body{
-    width:100%;
-    height:100%;
-    padding:0;
-    margin:0;
-}
-
-#map{
-    width: 100%;
-    height:100%;
-}
-
-.leaflet-control-geocoder {
-    z-index: 1000;
-}
-
-#map {
-    position: relative;
-}
-
-/* index */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: .2s linear;
-    text-transform: capitalize;
-    text-decoration: none;
-}
-html{
-    font-size: 62.5%;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-}
-.main-container{
-    background: url(images/taximain.jpeg);
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 100vh;
-}
-.header{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 2rem 7%;
-    align-items: center;
-}
-.header .navbar a{
-    font-size: 30px;
-    color: white;
-    margin-left: 200px;
-    text-decoration: none;
-    padding: auto;
-    
-}
-
-.header .navbar a:hover{
-    background: #ffc61a;
-    padding: .5rem 3rem;
-    border-radius: 15px;
-}
-
-.background-text h1{
-    color: #ffc61a;
-    font-size: 150px;
-    position: absolute;
-    top: 30%;
-    left: 30%;
-}
-
-.background-text h1 span{
-    color:#f75944;
-}
-
-.background-text h2{
-    color: white;
-    font-size: 50px;
-    position: absolute;
-    top: 100%;
-    left: 40%;
-
-}
-.background-text h2 span{
-    color: #ffc61a;
-}
-
-.home-container{
-    background: #ffc61a;
-    padding: 2rem 7%;
-    width: 100%;
-    padding-top: 4rem;
-    
-}
-
-.inner-content{
-    flex: 1 1 45rem;
-    padding: 2rem;
-}
-.inner-content h3{
-    font-size: 31px;
-}
-.inner-content h2{
-    font-size: 38px;
-}
-.inner-content p{
-    font-size: 1.5rem;
-    padding-bottom: 1rem;
-}
-
-.inner-content .booknow{
-    padding: 1rem 3rem;
-    color: black;
-    font-size: 1.5rem;
-    border: 1px solid black;
-}
-.inner-content .booknow:hover{
-padding: 1.5rem 3rem;
-border: 1px solid white;
-border-radius: 15px;
-background: white;
-}
-.form-heading{
-    text-align: center;
-    background: black;
-    padding: 2rem 0;
-}
-.form-heading h1{
-    color: white;
-}
-.contact-form{
-    width: 45rem;
-    background: white;
-    text-align: center;
-    padding: 2rem 1rem;
-    margin: 0 auto;
-}
-.form-fields input{
-    padding: 2rem ;
-    border: none;
-    border-bottom: 1px solid black;
-}
-.contact-form a{
-    background: black;
-    width: 100%;
-    display: inline-block;
-    padding: 2rem 0;
-    color: white;
-    font-size: 1.5rem;
-    
-}
-.submit{
-    padding-top: 2rem;
-
-}
-.main-tariff{
-    padding: 3rem 7%;
-   
-   
-}
-.main-tariff h1{
-    font-size: 38px;
-    text-align: center;
-    padding-bottom: 6rem;
-}
-.main-tariff h1 span{
-    color: #000000;
-}
-.inner-tarrif{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-}
-.tarrif-container{
-    flex: 1 1 250px;
-    text-align: center;
-    padding: 3rem 0;
-}
-.tarrif-container img{
-    width: 60%;
-    margin-top: -50px;
-}
-.tarrif-container .inner-box h2{
-    font-size: 30px;
-}
-.tarrif-container .inner-box p{
-    font-size: 1.5rem;
-    padding: 2rem;
-}
-.tarrif-container .inner-box h3{
-    color: #ffc61a;
-    font-size: 2rem;
-}
-.tarrif-container .inner-box a{
-    font-size: 1.5rem;
-    padding: 1rem 3rem;
-
-}
-
-.heading-yellow{
-    color: black;
-}
-.yellw-section{
-    color: black !important;
-}
-.tarrif-container a{
-    color: white;
-    padding: 1rem 3rem;
-    background: black;
-    display: inline-block;
-    margin-top: 1rem;
-
-}
-.fast-booking{
-    background: url(images/secbg.png);
-    background-size: cover;
-    width: 100%;
-    background-position: center;
-    
-
-}
-.fast-booking .fast-hading{
-    color: #ffc61a;
-    font-size: 38px;
-    text-align: center;
-    padding-top: 2rem;
-}
-.fast-booking  h2{
-    font-size: 31px;
-    color: white;
-    text-align: center;
-}
-.inner-fast{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    padding: 3rem 7%;
-    align-items: center;
-}
-.booking-content{
-    flex: 1 1 45rem;
-}
-.booking-content{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-.inner-fast-text h1{
-    font-size: 22px;
-    color: #ffc61a;
-    padding: 2rem;
-}
-.inner-fast-text p{
-    font-size: 1.5rem;
-    padding: 2rem;
-}
-.icon-fast{
-    background-color: #ffc61a;
-    width: 50px;
-    height: 40px;
-    border-radius: 150px;
-    text-align: center;
-}
-.icon-fast span i{
-    line-height: 40px;
-    font-size: 1.5rem;
-}
-
-.testimonials{
-    background: url(images/oldbaguio.jpg);
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-}
-.testimonials .heading-test{
-    color: #ffc61a;
-    font-size: 38px;
-    padding: 2rem;
-    text-align: center;
-}
-.main-testimonials{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
-    padding: 2rem 7%;
-}
-.inner-test{
-    flex: 1 1 45rem;
-    color: white;
-    background: black;
-    padding: 2rem;
-}
-.inner-test p{
-    font-size: 1.5rem;
-    padding: 2rem;
-}
-.clients{
-    display: flex;
-    align-items: center;
-
-}
-.clients h1{
-    color: #ffc61a;
-    margin-left: 1rem;
-}
-
-@media (max-width:768px) {
-    html{
-        font-size: 50%;
+    .remove-destination-button {
+    font-size : 30px;
+    text-decoration : none;
+    color : white;
+    background-color : #2c677c;
+    padding-left : 2%;
+    padding-right : 2%;
+    margin-left : 500px;
+    border-radius : 5px;
+    letter-spacing : 1px;
     }
-    #menu-bars{
-        display: initial;
-    
+    .remove-destination-button:hover {
+    background-color : rgb(209, 207, 207);
+    transition : 0.5s ease;
+    }
+    .set-destination-button, p {
+    margin-top : 10px;
+    font-size : 30px;
+    text-align : center;
+    }
+    .wrapper {
+    width : 1170px;
+    margin : 5% auto;
+    }
+    .wrapper h2 {
+    text-transform : uppercase;
+    font-weight : bold;
+    text-align : center;
+    font-size : 60px;
+    color : #fff;
+    margin-bottom : 30px;
+    }
+    .single-service {
+    position : relative;
+    width : 30%;
+    height : 320px;
+    background : rgb(65, 161, 216);
+    box-sizing : border-box;
+    padding : 0 15px;
+    transition : 0.5s;
+    overflow : hidden;
+    float : left;
+    margin : 0 10px;
+    text-align : center;
+    }
+    .contact h1 {
+    font-family : Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-bottom : 20px;
+    color : white;
+    text-align : center;
+    padding-top : 10px;
+    padding-bottom : 10px;
+    font-size : 40px;
+    background-color : #333;
+    }
+    main {
+    display : flex;
+    flex-direction : column;
+    justify-items : center;
+    row-gap : 20px;
+    }
+    .cont {
+    margin : 0 auto;
+    height : fit-content;
+    width : 40vw;
+    background-color : #f1efefc2;
+    backdrop-filter : opacity(90%);
+    padding : 20px;
+    border-radius : 8px;
+    display : flex;
+    flex-direction : column;
+    justify-items : center;
+    align-items : center;
+    }
+    .cont img {
+    width : 70%;
+    height : 60%;
+    border-radius : 8px;
+    }
+    .cont h1 {
+    font-weight : bolder;
+    }
+    .cont h2 {
+    font-weight : normal;
+    font-size : 14px;
+    }
+    .cont h2:first-of-type {
+    font-weight : 600;
+    }
+    .cont h2:nth-of-type(2) {
+    font-weight : bolder;
+    background-color : yellow;
+    }
+    .cont h1, h2, h3 {
+    text-align : center;
+    font-size : 14px;
+    }
+    html, body {
+    width : 100%;
+    height : 100%;
+    padding : 0;
+    margin : 0;
+    }
+    #map {
+    width : 100%;
+    height : 100%;
+    }
+    .leaflet-control-geocoder {
+    z-index : 1000;
+    }
+    #map {
+    position : relative;
+    }
+    * {
+    margin : 0;
+    padding : 0;
+    box-sizing : border-box;
+    transition : 0.2s linear;
+    text-transform : capitalize;
+    text-decoration : none;
+    }
+    html {
+    font-size : 62.5%;
+    overflow-x : hidden;
+    scroll-behavior : smooth;
+    }
+    .main-container {
+    background : url(images/taximain.jpeg);
+    background-position : center;
+    background-size : cover;
+    width : 100%;
+    height : 100vh;
+    }
+    .header {
+    display : flex;
+    justify-content : space-between;
+    width : 100%;
+    padding : 2rem 7%;
+    align-items : center;
+    }
+    .header .navbar a {
+    font-size : 30px;
+    color : white;
+    margin-left : 200px;
+    text-decoration : none;
+    }
+    .header .navbar a:hover {
+    background : #ffc61a;
+    padding : 0.5rem 3rem;
+    border-radius : 15px;
+    }
+    .background-text h1 {
+    color : #ffc61a;
+    font-size : 150px;
+    position : absolute;
+    top : 30%;
+    left : 30%;
+    }
+    .background-text h1 span {
+    color : #f75944;
+    }
+    .background-text h2 {
+    color : white;
+    font-size : 50px;
+    position : absolute;
+    top : 100%;
+    left : 40%;
+    }
+    .background-text h2 span {
+    color : #ffc61a;
+    }
+    .home-container {
+    background : #ffc61a;
+    padding : 2rem 7%;
+    width : 100%;
+    padding-top : 4rem;
+    }
+    .inner-content {
+    flex : 1 1 45rem;
+    padding : 2rem;
+    }
+    .inner-content h3 {
+    font-size : 31px;
+    }
+    .inner-content h2 {
+    font-size : 38px;
+    }
+    .inner-content p {
+    font-size : 1.5rem;
+    padding-bottom : 1rem;
+    }
+    .inner-content .booknow {
+    padding : 1rem 3rem;
+    color : black;
+    font-size : 1.5rem;
+    border : black solid 1px;
+    }
+    .inner-content .booknow:hover {
+    padding : 1.5rem 3rem;
+    border : white solid 1px;
+    border-radius : 15px;
+    background : white;
+    }
+    .form-heading {
+    text-align : center;
+    background : black;
+    padding : 2rem 0;
+    }
+    .form-heading h1 {
+    color : white;
+    }
+    .contact-form {
+    width : 45rem;
+    background : white;
+    text-align : center;
+    padding : 2rem 1rem;
+    margin : 0 auto;
+    }
+    .form-fields input {
+    padding : 2rem;
+    border : none;
+    border-bottom : 1px solid black;
+    }
+    .contact-form a {
+    background : black;
+    width : 100%;
+    display : inline-block;
+    padding : 2rem 0;
+    color : white;
+    font-size : 1.5rem;
+    }
+    .submit {
+    padding-top : 2rem;
+    }
+    .main-tariff {
+    padding : 3rem 7%;
+    }
+    .main-tariff h1 {
+    font-size : 38px;
+    text-align : center;
+    padding-bottom : 6rem;
+    }
+    .main-tariff h1 span {
+    color : #000000;
+    }
+    .inner-tarrif {
+    display : flex;
+    flex-wrap : wrap;
+    justify-content : center;
+    gap : 15px;
+    }
+    .tarrif-container {
+    flex : 1 1 250px;
+    text-align : center;
+    padding : 3rem 0;
+    }
+    .tarrif-container img {
+    width : 60%;
+    margin-top : -50px;
+    }
+    .tarrif-container .inner-box h2 {
+    font-size : 30px;
+    }
+    .tarrif-container .inner-box p {
+    font-size : 1.5rem;
+    padding : 2rem;
+    }
+    .tarrif-container .inner-box h3 {
+    color : #ffc61a;
+    font-size : 2rem;
+    }
+    .tarrif-container .inner-box a {
+    font-size : 1.5rem;
+    padding : 1rem 3rem;
+    }
+    .heading-yellow {
+    color : black;
+    }
+    .yellw-section {
+    color : black !important ;
+    }
+    .tarrif-container a {
+    color : white;
+    padding : 1rem 3rem;
+    background : black;
+    display : inline-block;
+    margin-top : 1rem;
+    }
+    .fast-booking {
+    background : url(images/secbg.png);
+    background-size : cover;
+    width : 100%;
+    background-position : center;
+    }
+    .fast-booking .fast-hading {
+    color : #ffc61a;
+    font-size : 38px;
+    text-align : center;
+    padding-top : 2rem;
+    }
+    .fast-booking h2 {
+    font-size : 31px;
+    color : white;
+    text-align : center;
+    }
+    .inner-fast {
+    display : flex;
+    flex-wrap : wrap;
+    justify-content : center;
+    gap : 15px;
+    padding : 3rem 7%;
+    align-items : center;
+    }
+    .booking-content {
+    flex : 1 1 45rem;
+    }
+    .booking-content {
+    display : flex;
+    justify-content : center;
+    align-items : center;
+    color : white;
+    }
+    .inner-fast-text h1 {
+    font-size : 22px;
+    color : #ffc61a;
+    padding : 2rem;
+    }
+    .inner-fast-text p {
+    font-size : 1.5rem;
+    padding : 2rem;
+    }
+    .icon-fast {
+    background-color : #ffc61a;
+    width : 50px;
+    height : 40px;
+    border-radius : 150px;
+    text-align : center;
+    }
+    .icon-fast span i {
+    line-height : 40px;
+    font-size : 1.5rem;
+    }
+    .testimonials {
+    background : url(images/oldbaguio.jpg);
+    background-size : cover;
+    background-position : center;
+    width : 100%;
+    }
+    .testimonials .heading-test {
+    color : #ffc61a;
+    font-size : 38px;
+    padding : 2rem;
+    text-align : center;
+    }
+    .main-testimonials {
+    display : flex;
+    flex-wrap : wrap;
+    justify-content : center;
+    gap : 15px;
+    padding : 2rem 7%;
+    }
+    .inner-test {
+    flex : 1 1 45rem;
+    color : white;
+    background : black;
+    padding : 2rem;
+    }
+    .inner-test p {
+    font-size : 1.5rem;
+    padding : 2rem;
+    }
+    .clients {
+    display : flex;
+    align-items : center;
+    }
+    .clients h1 {
+    color : #ffc61a;
+    margin-left : 1rem;
+    }
+    @media (max-width: 768px) {
+    html {
+    font-size : 50%;
+    }
+    #menu-bars {
+    display : initial;
     }
     .navbar {
-        position: absolute;
-        top: -100%;
-        right: 0;
-        left: 0;
+    position : absolute;
+    top : -100%;
+    right : 0;
+    left : 0;
     }
-    
-    .navbar a{
-        display: block;
-        font-size: 1.5rem;
-        background: #ffc61a;
-        margin: 1rem;
-        padding: 1rem;
-
+    .navbar a {
+    display : block;
+    font-size : 1.5rem;
+    background : #ffc61a;
+    margin : 1rem;
+    padding : 1rem;
     }
-
-    .header{
-        padding: 2rem;
+    .header {
+    padding : 2rem;
     }
-    .tarrif-container{
-        padding-bottom: 4rem;
+    .tarrif-container {
+    padding-bottom : 4rem;
     }
-    .tarrif-container img{
-        width: 60%;
-        margin-top: 0px;
+    .tarrif-container img {
+    width : 60%;
+    margin-top : 0;
     }
-    .background-text h2{
-        width: 100%;
-        text-align: center;
+    .background-text h2 {
+    width : 100%;
+    text-align : center;
     }
-}
-
+    }
