@@ -120,21 +120,8 @@ if ('geolocation' in navigator) {
             document.getElementById('price-display').textContent = ''; // Clear the price display
         }
 
-        document.getElementById('remove-destination-button').addEventListener('click', removeDestination);
-    });
-} else {
-    console.log('Geolocation is not available in this browser.');
-}
-function getDestinationFromQuery() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const destination = urlParams.get('destination');
-    return destination;
-}
-
-
-// Check if there is a destination parameter in the URL and set it if found
-const destinationParam = getDestinationFromQuery();
-if (destinationParam) {
+        const destinationParam = getDestinationFromQuery();
+    if (destinationParam) {
     if (destinationParam === 'burnham') {
         setDestinationOnMap('Burnham Park', 16.412478, 120.59395);
     } else if (destinationParam === 'cathedral') {
@@ -143,6 +130,35 @@ if (destinationParam) {
         setDestinationOnMap('Botanical Garden', 16.414699, 120.613445);
     }
 }
+
+        document.getElementById('remove-destination-button').addEventListener('click', removeDestination);
+    });
+} else {
+    console.log('Geolocation is not available in this browser.');
+}
+
+function setDestinationOnMap(name, lat, lng) {
+    if (destinationMarker) {
+        map.removeLayer(destinationMarker);
+    }
+
+    destinationMarker = L.marker([lat, lng])
+        .addTo(map)
+        .bindPopup(name)
+        .openPopup();
+}
+
+
+function getDestinationFromQuery() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const destination = urlParams.get('destination');
+    return destination;
+}
+
+
+// Check if there is a destination parameter in the URL and set it if found
+
+
 
 // Add event listeners to the buttons to set the destination
 document.getElementById('burnham').addEventListener('click', function () {
@@ -156,8 +172,4 @@ document.getElementById('cathedral').addEventListener('click', function () {
 document.getElementById('botanical').addEventListener('click', function () {
     setDestinationOnMap('Botanical Garden', 16.414699, 120.613445);
 });
-
-
-
-
 
