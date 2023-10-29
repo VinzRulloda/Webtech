@@ -125,6 +125,39 @@ if ('geolocation' in navigator) {
 } else {
     console.log('Geolocation is not available in this browser.');
 }
+function getDestinationFromQuery() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const destination = urlParams.get('destination');
+    return destination;
+}
+
+
+// Check if there is a destination parameter in the URL and set it if found
+const destinationParam = getDestinationFromQuery();
+if (destinationParam) {
+    if (destinationParam === 'burnham') {
+        setDestinationOnMap('Burnham Park', 16.412478, 120.59395);
+    } else if (destinationParam === 'cathedral') {
+        setDestinationOnMap('Baguio Cathedral', 16.412856, 120.598470);
+    } else if (destinationParam === 'botanical') {
+        setDestinationOnMap('Botanical Garden', 16.414699, 120.613445);
+    }
+}
+
+// Add event listeners to the buttons to set the destination
+document.getElementById('burnham').addEventListener('click', function () {
+    setDestinationOnMap('Burnham Park', 16.412478, 120.59395);
+});
+
+document.getElementById('cathedral').addEventListener('click', function () {
+    setDestinationOnMap('Baguio Cathedral', 16.412856, 120.598470);
+});
+
+document.getElementById('botanical').addEventListener('click', function () {
+    setDestinationOnMap('Botanical Garden', 16.414699, 120.613445);
+});
+
+
 
 
 
