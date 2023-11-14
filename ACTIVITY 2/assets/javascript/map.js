@@ -22,14 +22,6 @@ function calculatePrice(distance) {
     return price;
 }
 
-// Based on Baguio City Rate
-function calculatePrice(distance) {
-    const basePrice = 45; // Starting price in PHP
-    const pricePer100Meters = 2; // Price per 100 meters in PHP
-    const price = basePrice + (distance * 10 * pricePer100Meters); // Convert distance to 100 meters and calculate price
-    return price;
-}
-
 var baguioBounds = [
     [16.3595, 120.5412], // Southwest corner of Baguio City
     [16.4474, 120.6335]  // Northeast corner of Baguio City
@@ -169,11 +161,6 @@ function getDestinationFromQuery() {
     const destination = urlParams.get('destination');
     return destination;
 }
-
-
-// Check if there is a destination parameter in the URL and set it if found
-
-
 
 // Add event listeners to the buttons to set the destination
 document.getElementById('burnham').addEventListener('click', function () {
