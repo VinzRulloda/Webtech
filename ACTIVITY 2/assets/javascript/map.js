@@ -13,24 +13,9 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
     return R * c; // Distance in kilometers
 }
 
-// Calculate the price based on distance
-// Based on Baguio City Rate
-function calculatePrice(distance) {
-    const basePrice = 45; // Starting price in PHP
-    const pricePer100Meters = 2; // Price per 100 meters in PHP
-    const price = basePrice + (distance * 10 * pricePer100Meters); // Convert distance to 100 meters and calculate price
-    return price;
-}
-
-var baguioBounds = [
-    [16.3595, 120.5412], // Southwest corner of Baguio City
-    [16.4474, 120.6335]  // Northeast corner of Baguio City
-];
-
 var map = L.map('map', {
-    maxBounds: baguioBounds, 
-    minZoom: 13,             
-    maxZoom: 16,             
+    minZoom: 5,             
+    maxZoom: 25,             
 }).setView([16.4023, 120.5960], 13);
 
 
@@ -96,9 +81,6 @@ if ('geolocation' in navigator) {
 
                 document.getElementById('distance-display').textContent = 'Distance to destination: ' + distance.toFixed(2) + ' km';
 
-                var price = calculatePrice(distance);
-                document.getElementById('price-display').textContent = 'Price: ' + price.toFixed(2) + ' PHP';
-
                 control = L.Routing.control({
                     waypoints: [currentLatLng, destination],
                     routeWhileDragging: true,
@@ -124,7 +106,6 @@ if ('geolocation' in navigator) {
             document.getElementById('remove-destination-button').style.display = 'none';
             document.getElementById('set-destination-button').disabled = false;
             document.getElementById('distance-display').textContent = ''; // Clear the distance display
-            document.getElementById('price-display').textContent = ''; // Clear the price display
         }
 
         const destinationParam = getDestinationFromQuery();
