@@ -1,40 +1,37 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const departureCityInput = document.getElementById('departureCity');
-    const destinationCityInput = document.getElementById('destinationCity');
+function fetchAirports() {
+    const ipAddressInput = document.getElementById("ipAddress").value;
 
-    // Fetch the list of airports for departure and destination
-    fetchCities('departure-cities', departureCityInput);
-    fetchCities('destination-cities', destinationCityInput);
+    const xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
 
-    function fetchCities(datalistId, inputElement) {
-        const xhr = new XMLHttpRequest();
-        xhr.withCredentials = true;
+    xhr.addEventListener('readystatechange', function () {
+        if (this.readyState === this.DONE) {
+            // Parse the response JSON
+            const response = JSON.parse(this.responseText);
 
-        xhr.addEventListener('readystatechange', function () {
-            if (this.readyState === this.DONE) {
-                const airports = JSON.parse(this.responseText);
-                populateDatalist(datalistId, airports, inputElement);
-            }
-        });
+            // Extract airport names from the response (modify this based on the actual response structure)
+            const suggestedAirports = response.map(airport => airport.name);
 
-        xhr.open('GET', 'https://aerodatabox.p.rapidapi.com/airports');
-        xhr.setRequestHeader('X-RapidAPI-Key', '8928dadc3fmshe0e889c98e4439ep1146cbjsn8d149ca76ac0');
-        xhr.setRequestHeader('X-RapidAPI-Host', 'aerodatabox.p.rapidapi.com');
+            // Display suggested airports in the datalist
+            displaySuggestedAirports(suggestedAirports);
+        }
+    });
 
-        xhr.send();
-    }
+    const apiUrl = `https://aerodatabox.p.rapidapi.com/airports/search/ip?q=${ipAddressInput}&radiusKm=50&limit=10&withFlightInfoOnly=true`;
 
-    function populateDatalist(datalistId, airports, inputElement) {
-        const datalist = document.getElementById(datalistId);
-        datalist.innerHTML = '';
+    xhr.open('GET', apiUrl);
+    xhr.setRequestHeader('X-RapidAPI-Key', '8928dadc3fmshe0e889c98e4439ep1146cbjsn8d149ca76ac0');
+    xhr.setRequestHeader('X-RapidAPI-Host', 'aerodatabox.p.rapidapi.com');
+    xhr.send();
+}
 
-        airports.forEach((airport) => {
-            const option = document.createElement('option');
-            option.value = airport.name;
-            datalist.appendChild(option);
-        });
+function displaySuggestedAirports(airports) {
+    const suggestedAirportsDatalist = document.getElementById("suggestedAirports");
+    suggestedAirportsDatalist.innerHTML = "";
 
-        // Enable the input element
-        inputElement.disabled = false;
-    }
-});
+    airports.forEach((airport) => {
+        const option = document.createElement("option");
+        option.value = airport;
+        suggestedAirportsDatalist.appendChild(option);
+    });
+}
