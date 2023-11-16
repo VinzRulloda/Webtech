@@ -14,10 +14,11 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
 }
 
 var map = L.map('map', {
-    minZoom: 5,             
-    maxZoom: 25,             
+    minZoom: 0,
+    maxZoom: 25,
 }).setView([16.4023, 120.5960], 13);
 
+var destinationMarker;
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -25,10 +26,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 var geocoder = L.Control.geocoder({
     defaultMarkGeocode: false
-}).on('markgeocode', function(event) {
+}).on('markgeocode', function (event) {
     var center = event.geocode.center;
     map.setView(center, map.getZoom());
-    
+
     if (destinationMarker) {
         map.removeLayer(destinationMarker);
     }
@@ -38,12 +39,9 @@ var geocoder = L.Control.geocoder({
         .bindPopup('Go here')
         .openPopup();
 
-
 }).addTo(map);
 
-
 var currentLocationMarker;
-var destinationMarker;
 var control;
 
 if ('geolocation' in navigator) {
@@ -55,7 +53,6 @@ if ('geolocation' in navigator) {
             .addTo(map)
             .bindPopup('You are Here')
             .openPopup();
-            
 
         function setDestinationManually() {
             if (destinationMarker) {
@@ -89,6 +86,9 @@ if ('geolocation' in navigator) {
                 document.getElementById('remove-destination-button').style.display = 'block';
                 document.getElementById('set-destination-button').disabled = true;
 
+                // Center the map on the destination coordinates
+                map.setView(destination, 13);
+
                 map.off('click');
             });
         }
@@ -109,15 +109,15 @@ if ('geolocation' in navigator) {
         }
 
         const destinationParam = getDestinationFromQuery();
-    if (destinationParam) {
-    if (destinationParam === 'burnham') {
-        setDestinationOnMap('Burnham Park', 16.412478, 120.59395);
-    } else if (destinationParam === 'cathedral') {
-        setDestinationOnMap('Baguio Cathedral', 16.412856, 120.598470);
-    } else if (destinationParam === 'botanical') {
-        setDestinationOnMap('Botanical Garden', 16.414699, 120.613445);
-    }
-}
+        if (destinationParam) {
+            if (destinationParam === 'new-york') {
+                setDestinationOnMap('New York City', 40.7128, -74.0060);
+            } else if (destinationParam === 'tokyo') {
+                setDestinationOnMap("Tokyo", 35.6764, 139.6500)
+            } else if (destinationParam === 'canada') {
+                setDestinationOnMap("Canada", 49.290558518378916, -123.11816952293671)
+            }
+        }
 
         document.getElementById('remove-destination-button').addEventListener('click', removeDestination);
     });
@@ -134,8 +134,10 @@ function setDestinationOnMap(name, lat, lng) {
         .addTo(map)
         .bindPopup(name)
         .openPopup();
-}
 
+    // Center the map on the destination coordinates
+    map.setView([lat, lng], 13);
+}
 
 function getDestinationFromQuery() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -144,15 +146,14 @@ function getDestinationFromQuery() {
 }
 
 // Add event listeners to the buttons to set the destination
-document.getElementById('burnham').addEventListener('click', function () {
-    setDestinationOnMap('Burnham Park', 16.412478, 120.59395);
+document.getElementById('new-york').addEventListener('click', function () {
+    setDestinationOnMap('New York City', 40.7128, -74.0060);
 });
 
-document.getElementById('cathedral').addEventListener('click', function () {
-    setDestinationOnMap('Baguio Cathedral', 16.412856, 120.598470);
+document.getElementById('tokyo').addEventListener('click', function () {
+    setDestinationOnMap('Tokyo', 35.6764, 139.6500);
 });
 
-document.getElementById('botanical').addEventListener('click', function () {
-    setDestinationOnMap('Botanical Garden', 16.414699, 120.613445);
+document.getElementById('canada').addEventListener('click', function () {
+    setDestinationOnMap('Canada', 49.290558518378916, -123.11816952293671);
 });
-
