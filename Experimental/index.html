@@ -3,15 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XHR Example</title>
+    <title>XHR Form</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Button to trigger the API request -->
-    <button id="getDataButton">Get Data</button>
+    <div class="container">
+        <h2>XHR Form</h2>
 
-    <!-- Link to the external JavaScript file -->
-    <script src="aero.js"></script>
+        <form id="xhrForm">
+            <label for="searchTerm">Search Term:</label>
+            <input type="text" id="searchTerm" name="searchTerm" required>
+            <button type="submit">Search</button>
+        </form>
+
+        <div id="suggestedAirports">
+            <label for="airportList">Suggested Airports:</label>
+            <select id="airportList"></select>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 
 </body>
 </html>
