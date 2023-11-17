@@ -1,4 +1,4 @@
-const apiKey = 'YOUR_API_KEY'; // Replace with your valid API key
+const apiKey = '8928dadc3fmshe0e889c98e4439ep1146cbjsn8d149ca76ac0'; // Replace with your valid API key
 const searchForm = document.getElementById('search-form');
 const flightResultsList = document.getElementById('flight-list');
 
