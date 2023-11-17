@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XHR Form</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Booking Website</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div class="container">
-        <h2>XHR Form</h2>
-
-        <form id="xhrForm">
-            <label for="searchTerm">Search Term:</label>
-            <input type="text" id="searchTerm" name="searchTerm" required>
-            <button type="submit">Search</button>
-        </form>
-
-        <div id="suggestedAirports">
-            <label for="airportList">Suggested Airports:</label>
-            <select id="airportList"></select>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
-
+  <header>
+    <h1>Flight Booking</h1>
+  </header>
+  <main>
+    <section class="search-form">
+      <form id="search-form">
+        <label for="departure-city">Departure City:</label>
+        <input type="text" id="departure-city" placeholder="Enter Departure City">
+        <label for="arrival-city">Arrival City:</label>
+        <input type="text" id="arrival-city" placeholder="Enter Arrival City">
+        <label for="travel-date">Travel Date:</label>
+        <input type="date" id="travel-date">
+        <label for="passengers">Number of Passengers:</label>
+        <select id="passengers">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+        <button type="submit">Search Flights</button>
+      </form>
+    </section>
+    <section class="flight-results">
+      <ul id="flight-list"></ul>
+    </section>
+  </main>
+  <script src="script.js"></script>
 </body>
 </html>

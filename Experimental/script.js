@@ -1,40 +1,49 @@
-document.getElementById('xhrForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevents the default form submission
+const apiKey = 'YOUR_API_KEY'; // Replace with your valid API key
+const searchForm = document.getElementById('search-form');
+const flightResultsList = document.getElementById('flight-list');
 
-    const searchTerm = document.getElementById('searchTerm').value;
-    const url = `https://aerodatabox.p.rapidapi.com/airports/search/term?q=${searchTerm}&limit=10`;
+searchForm.addEventListener('submit', handleSearch);
 
-    const xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
+function handleSearch(event) {
+  event.preventDefault();
 
-    xhr.addEventListener('readystatechange', function () {
-        if (this.readyState === this.DONE) {
-            const airports = JSON.parse(this.responseText);
-            updateDropdown(airports);
-        }
+  const departureCity = document.getElementById('departure-city').value;
+  const arrivalCity = document.getElementById('arrival-city').value;
+  const travelDate = document.getElementById('travel-date').value;
+  const numberOfPassengers = document.getElementById('passengers').value;
+
+  const url = `https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/browseroutes/v1.0/US/USD/en-US/${departureCity}-sky/${arrivalCity}-sky/${travelDate}?adults=${numberOfPassengers}`;
+
+  fetch(url, {
+    method: 'GET',
+    headers: {
+      'X-RapidAPI-Key': apiKey,
+    },
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.Quotes) { // Check if 'Quotes' property exists
+        displayFlightResults(data); // Process flight data if available
+      } else {
+        console.error('No flight results found'); // Handle no results case
+      }
+    })
+    .catch(error => {
+      if (error.status === 403) {
+        console.error('API access forbidden. Check your API key');
+      } else if (error.status === 429) {
+        console.error('API request throttled. Implement rate limiting');
+      } else {
+        console.error('API error:', error);
+      }
     });
+}
 
-    xhr.open('GET', url);
-    xhr.setRequestHeader('X-RapidAPI-Key', '8928dadc3fmshe0e889c98e4439ep1146cbjsn8d149ca76ac0');
-    xhr.setRequestHeader('X-RapidAPI-Host', 'aerodatabox.p.rapidapi.com');
+function displayFlightResults(data) {
+  flightResultsList.innerHTML = '';
 
-    xhr.send();
-});
-
-function updateDropdown(airports) {
-    const airportList = document.getElementById('airportList');
-    airportList.innerHTML = ''; // Clear existing options
-
-    if (airports.length > 0) {
-        airports.forEach(airport => {
-            const option = document.createElement('option');
-            option.value = airport.iataCode;
-            option.textContent = `${airport.name} (${airport.iataCode})`;
-            airportList.appendChild(option);
-        });
-    } else {
-        const option = document.createElement('option');
-        option.textContent = 'No airports found';
-        airportList.appendChild(option);
-    }
+  for (const quote of data.Quotes) { // Iterate over 'Quotes' array
+    const flightResultHTML = `<li>${quote.MinPrice}</li>`;
+    flightResultsList.innerHTML += flightResultHTML;
+  }
 }
