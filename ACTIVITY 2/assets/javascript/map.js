@@ -157,3 +157,7 @@ document.getElementById('tokyo').addEventListener('click', function () {
 document.getElementById('canada').addEventListener('click', function () {
     setDestinationOnMap('Canada', 49.290558518378916, -123.11816952293671);
 });
+
+function setDestinationOnMapFromCoordinates(latitude, longitude) {
+    setDestinationOnMap('Selected Airport', latitude, longitude);
+}

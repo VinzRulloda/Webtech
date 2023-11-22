@@ -32,11 +32,11 @@
     <div class="findAirport">
         <h1>Find an Airport</h1>
         <label for="Airport">Search an Airport</label>
-        <input type="text" id="Airport" name="Airport" list="AirportName" required>
+        <input type="text" id="Airport" name="Airport" list="AirportName" required onchange="captureSelectedAirport()">
         <datalist id="AirportName"></datalist>
         <button type="nearest" onclick="getAirportsNearMe()">Airports near you</button>
         <button type="all" onclick="getAvailableAirports()">Airports available</button>
-        <button type="check">Check on Map</button>
+        <button type="button" onclick="checkOnMap()">Check on Map</button>
     </div>
 
     <!-- our tariff -->
@@ -145,7 +145,7 @@
         </div>
     </div>
     
-    <script src="assets/javascript/flight-booking.js"></script>
+    <script src="assets/javascript/airportCheck.js"></script>
     <script type="text/javascript" src="assets/javascript/weather.js"></script>
 </body>
 </html>
