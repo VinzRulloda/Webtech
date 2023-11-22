@@ -1,37 +1,74 @@
-function fetchAirports() {
-    const ipAddressInput = document.getElementById("ipAddress").value;
+async function getAirportsNearMe() {
+    try {
+        const position = await getCurrentLocation();
+        const url = `https://timetable-lookup.p.rapidapi.com/airports/nearest/${position.coords.latitude}/${position.coords.longitude}/`;
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '904c800692msh67b20dfff139d47p19851ejsn672c7563cfb0',
+                'X-RapidAPI-Host': 'timetable-lookup.p.rapidapi.com'
+            }
+        };
 
-    const xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-
-    xhr.addEventListener('readystatechange', function () {
-        if (this.readyState === this.DONE) {
-            // Parse the response JSON
-            const response = JSON.parse(this.responseText);
-
-            // Extract airport names from the response (modify this based on the actual response structure)
-            const suggestedAirports = response.map(airport => airport.name);
-
-            // Display suggested airports in the datalist
-            displaySuggestedAirports(suggestedAirports);
-        }
-    });
-
-    const apiUrl = `https://aerodatabox.p.rapidapi.com/airports/search/ip?q=${ipAddressInput}&radiusKm=50&limit=10&withFlightInfoOnly=true`;
-
-    xhr.open('GET', apiUrl);
-    xhr.setRequestHeader('X-RapidAPI-Key', '8928dadc3fmshe0e889c98e4439ep1146cbjsn8d149ca76ac0');
-    xhr.setRequestHeader('X-RapidAPI-Host', 'aerodatabox.p.rapidapi.com');
-    xhr.send();
+        const response = await fetch(url, options);
+        const result = await response.text();
+        displayResults(result);
+    } catch (error) {
+        console.error(error);
+    }
 }
 
-function displaySuggestedAirports(airports) {
-    const suggestedAirportsDatalist = document.getElementById("suggestedAirports");
-    suggestedAirportsDatalist.innerHTML = "";
+function getCurrentLocation() {
+    return new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(resolve, reject);
+    });
+}
+
+function displayResults(result) {
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(result, 'text/xml');
+    const airports = xmlDoc.querySelectorAll('Airport');
+
+    const airportList = document.getElementById('AirportName');
+    airportList.innerHTML = '';
 
     airports.forEach((airport) => {
-        const option = document.createElement("option");
-        option.value = airport;
-        suggestedAirportsDatalist.appendChild(option);
+        const option = document.createElement('option');
+        option.value = airport.getAttribute('AirportName');
+        airportList.appendChild(option);
+    });
+}
+
+async function getAvailableAirports() {
+    try {
+        const url = 'https://timetable-lookup.p.rapidapi.com/airports/';
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '904c800692msh67b20dfff139d47p19851ejsn672c7563cfb0',
+                'X-RapidAPI-Host': 'timetable-lookup.p.rapidapi.com'
+            }
+        };
+
+        const response = await fetch(url, options);
+        const result = await response.text();
+        displayAirportNames(result);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function displayAirportNames(result) {
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(result, 'text/xml');
+    const airports = xmlDoc.querySelectorAll('Airport');
+
+    const airportList = document.getElementById('AirportName');
+    airportList.innerHTML = '';
+
+    airports.forEach((airport) => {
+        const option = document.createElement('option');
+        option.value = airport.getAttribute('Name');
+        airportList.appendChild(option);
     });
 }
