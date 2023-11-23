@@ -120,11 +120,11 @@ function captureSelectedAirport() {
             const selectedLatitude = selectedOption.getAttribute('data-latitude');
             const selectedLongitude = selectedOption.getAttribute('data-longitude');
 
+            localStorage.setItem('selectedLatitude', selectedLatitude);
+            localStorage.setItem('selectedLongitude', selectedLongitude);
+
             console.log(`Selected Latitude: ${selectedLatitude}`);
             console.log(`Selected Longitude: ${selectedLongitude}`);
-
-            setDestinationOnMapFromCoordinates(parseFloat(selectedLatitude), parseFloat(selectedLongitude));
-
         } else {
             console.error("Selected option not found.");
         }
@@ -133,7 +133,8 @@ function captureSelectedAirport() {
     }
 }
 
-function checkOnMap() {
-    window.location.href = 'services.html';
-}
+const savedLatitude = localStorage.getItem('selectedLatitude');
+const savedLongitude = localStorage.getItem('selectedLongitude');
+console.log(`Saved Latitude: ${savedLatitude}`);
+console.log(`Saved Longitude: ${savedLongitude}`);
 
