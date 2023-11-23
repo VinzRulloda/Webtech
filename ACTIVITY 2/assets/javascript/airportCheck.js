@@ -48,7 +48,6 @@ function displayResults(result) {
 function captureSelectedAirport() {
     const selectedAirportInput = document.getElementById('Airport');
 
-    // Check if there is a value selected
     if (selectedAirportInput.value) {
         const selectedOption = Array.from(document.querySelectorAll('#AirportName option')).find(option =>
             option.value.toLowerCase() === selectedAirportInput.value.toLowerCase()
@@ -57,8 +56,6 @@ function captureSelectedAirport() {
         if (selectedOption) {
             const selectedLatitude = selectedOption.getAttribute('data-latitude');
             const selectedLongitude = selectedOption.getAttribute('data-longitude');
-
-            // Log the selected airport's latitude and longitude to the console
             console.log(`Selected Latitude: ${selectedLatitude}`);
             console.log(`Selected Longitude: ${selectedLongitude}`);
 

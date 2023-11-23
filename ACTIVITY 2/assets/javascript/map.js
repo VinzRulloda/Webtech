@@ -1,6 +1,5 @@
 // https://leafletjs.com/reference.html#marker-option (documentation for reference)
 //map
-// Get the destination from the URL query parameters
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6378; // Earth's radius in kilometers
@@ -145,7 +144,6 @@ function getDestinationFromQuery() {
     return destination;
 }
 
-// Add event listeners to the buttons to set the destination
 document.getElementById('new-york').addEventListener('click', function () {
     setDestinationOnMap('New York City', 40.7128, -74.0060);
 });
@@ -159,5 +157,30 @@ document.getElementById('canada').addEventListener('click', function () {
 });
 
 function setDestinationOnMapFromCoordinates(latitude, longitude) {
-    setDestinationOnMap('Selected Airport', latitude, longitude);
+    if (destinationMarker) {
+        map.removeLayer(destinationMarker);
+    }
+
+    destinationMarker = L.marker([latitude, longitude])
+        .addTo(map)
+        .bindPopup('Custom Destination')
+        .openPopup();
+
+    // Center the map on the destination coordinates
+    map.setView([latitude, longitude], 13);
+}
+
+function checkOnMap() {
+    const selectedLatitude = localStorage.getItem('selectedLatitude');
+    const selectedLongitude = localStorage.getItem('selectedLongitude');
+
+    if (selectedLatitude && selectedLongitude) {
+        setDestinationOnMapFromCoordinates(parseFloat(selectedLatitude), parseFloat(selectedLongitude));
+
+        setTimeout(function () {
+            window.location.href = `services.html?lat=${selectedLatitude}&lng=${selectedLongitude}`;
+        }, 500);
+    } else {
+        console.error('Latitude or longitude not found in local storage.');
+    }
 }
