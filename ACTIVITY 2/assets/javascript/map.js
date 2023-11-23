@@ -53,44 +53,46 @@ if ('geolocation' in navigator) {
             .bindPopup('You are Here')
             .openPopup();
 
-        function setDestinationManually() {
-            if (destinationMarker) {
-                map.removeLayer(destinationMarker);
-            }
-
-            map.on('click', function (e) {
-                var destination = e.latlng;
+            function setDestinationManually() {
                 if (destinationMarker) {
                     map.removeLayer(destinationMarker);
                 }
-
-                destinationMarker = L.marker(destination)
-                    .addTo(map)
-                    .bindPopup('Go here')
-                    .openPopup();
-
-                var currentLatLng = currentLocationMarker.getLatLng();
-                var distance = calculateDistance(
-                    currentLatLng.lat, currentLatLng.lng,
-                    destination.lat, destination.lng
-                );
-
-                document.getElementById('distance-display').textContent = 'Distance to destination: ' + distance.toFixed(2) + ' km';
-
-                control = L.Routing.control({
-                    waypoints: [currentLatLng, destination],
-                    routeWhileDragging: true,
-                }).addTo(map);
-
-                document.getElementById('remove-destination-button').style.display = 'block';
-                document.getElementById('set-destination-button').disabled = true;
-
-                // Center the map on the destination coordinates
-                map.setView(destination, 13);
-
+            
+                var selectedLatitude = localStorage.getItem('selectedLatitude');
+                var selectedLongitude = localStorage.getItem('selectedLongitude');
+            
+                if (selectedLatitude && selectedLongitude) {
+                    var destination = L.latLng(selectedLatitude, selectedLongitude);
+            
+                    destinationMarker = L.marker(destination)
+                        .addTo(map)
+                        .bindPopup('Go here')
+                        .openPopup();
+            
+                    var currentLatLng = currentLocationMarker.getLatLng();
+                    var distance = calculateDistance(
+                        currentLatLng.lat, currentLatLng.lng,
+                        destination.lat, destination.lng
+                    );
+            
+                    document.getElementById('distance-display').textContent = 'Distance to destination: ' + distance.toFixed(2) + ' km';
+            
+                    control = L.Routing.control({
+                        waypoints: [currentLatLng, destination],
+                        routeWhileDragging: true,
+                    }).addTo(map);
+            
+                    document.getElementById('remove-destination-button').style.display = 'block';
+                    document.getElementById('set-destination-button').disabled = true;
+            
+                    // Center the map on the destination coordinates
+                    map.setView(destination, 13);
+                } else {
+                    alert('Please select a destination first.');
+                }
+            
                 map.off('click');
-            });
-        }
+            }
 
         document.getElementById('set-destination-button').addEventListener('click', setDestinationManually);
 
@@ -156,31 +158,8 @@ document.getElementById('canada').addEventListener('click', function () {
     setDestinationOnMap('Canada', 49.290558518378916, -123.11816952293671);
 });
 
-function setDestinationOnMapFromCoordinates(latitude, longitude) {
-    if (destinationMarker) {
-        map.removeLayer(destinationMarker);
-    }
-
-    destinationMarker = L.marker([latitude, longitude])
-        .addTo(map)
-        .bindPopup('Custom Destination')
-        .openPopup();
-
-    // Center the map on the destination coordinates
-    map.setView([latitude, longitude], 13);
+function selectLocation(latitude, longitude) {
+    localStorage.setItem('selectedLatitude', latitude);
+    localStorage.setItem('selectedLongitude', longitude);
 }
 
-function checkOnMap() {
-    const selectedLatitude = localStorage.getItem('selectedLatitude');
-    const selectedLongitude = localStorage.getItem('selectedLongitude');
-
-    if (selectedLatitude && selectedLongitude) {
-        setDestinationOnMapFromCoordinates(parseFloat(selectedLatitude), parseFloat(selectedLongitude));
-
-        setTimeout(function () {
-            window.location.href = `services.html?lat=${selectedLatitude}&lng=${selectedLongitude}`;
-        }, 500);
-    } else {
-        console.error('Latitude or longitude not found in local storage.');
-    }
-}

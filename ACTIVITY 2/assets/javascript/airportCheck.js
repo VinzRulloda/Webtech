@@ -56,6 +56,8 @@ function captureSelectedAirport() {
         if (selectedOption) {
             const selectedLatitude = selectedOption.getAttribute('data-latitude');
             const selectedLongitude = selectedOption.getAttribute('data-longitude');
+
+            // Log the selected airport's latitude and longitude to the console
             console.log(`Selected Latitude: ${selectedLatitude}`);
             console.log(`Selected Longitude: ${selectedLongitude}`);
 
@@ -117,6 +119,7 @@ function captureSelectedAirport() {
             const selectedLatitude = selectedOption.getAttribute('data-latitude');
             const selectedLongitude = selectedOption.getAttribute('data-longitude');
 
+            // Save to local storage
             localStorage.setItem('selectedLatitude', selectedLatitude);
             localStorage.setItem('selectedLongitude', selectedLongitude);
 
@@ -130,8 +133,13 @@ function captureSelectedAirport() {
     }
 }
 
+// Access saved latitude and longitude from local storage wherever needed.
 const savedLatitude = localStorage.getItem('selectedLatitude');
 const savedLongitude = localStorage.getItem('selectedLongitude');
 console.log(`Saved Latitude: ${savedLatitude}`);
 console.log(`Saved Longitude: ${savedLongitude}`);
+
+function checkOnMap() {
+    window.location.href = 'services.html';
+}
 
