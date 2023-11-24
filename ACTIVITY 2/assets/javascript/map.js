@@ -1,6 +1,5 @@
 // https://leafletjs.com/reference.html#marker-option (documentation for reference)
 //map
-// Get the destination from the URL query parameters
 
 function calculateDistance(lat1, lon1, lat2, lon2) {
     const R = 6378; // Earth's radius in kilometers
@@ -54,44 +53,46 @@ if ('geolocation' in navigator) {
             .bindPopup('You are Here')
             .openPopup();
 
-        function setDestinationManually() {
-            if (destinationMarker) {
-                map.removeLayer(destinationMarker);
-            }
-
-            map.on('click', function (e) {
-                var destination = e.latlng;
+            function setDestinationManually() {
                 if (destinationMarker) {
                     map.removeLayer(destinationMarker);
                 }
-
-                destinationMarker = L.marker(destination)
-                    .addTo(map)
-                    .bindPopup('Go here')
-                    .openPopup();
-
-                var currentLatLng = currentLocationMarker.getLatLng();
-                var distance = calculateDistance(
-                    currentLatLng.lat, currentLatLng.lng,
-                    destination.lat, destination.lng
-                );
-
-                document.getElementById('distance-display').textContent = 'Distance to destination: ' + distance.toFixed(2) + ' km';
-
-                control = L.Routing.control({
-                    waypoints: [currentLatLng, destination],
-                    routeWhileDragging: true,
-                }).addTo(map);
-
-                document.getElementById('remove-destination-button').style.display = 'block';
-                document.getElementById('set-destination-button').disabled = true;
-
-                // Center the map on the destination coordinates
-                map.setView(destination, 13);
-
+            
+                var selectedLatitude = localStorage.getItem('selectedLatitude');
+                var selectedLongitude = localStorage.getItem('selectedLongitude');
+            
+                if (selectedLatitude && selectedLongitude) {
+                    var destination = L.latLng(selectedLatitude, selectedLongitude);
+            
+                    destinationMarker = L.marker(destination)
+                        .addTo(map)
+                        .bindPopup('Go here')
+                        .openPopup();
+            
+                    var currentLatLng = currentLocationMarker.getLatLng();
+                    var distance = calculateDistance(
+                        currentLatLng.lat, currentLatLng.lng,
+                        destination.lat, destination.lng
+                    );
+            
+                    document.getElementById('distance-display').textContent = 'Distance to destination: ' + distance.toFixed(2) + ' km';
+            
+                    control = L.Routing.control({
+                        waypoints: [currentLatLng, destination],
+                        routeWhileDragging: true,
+                    }).addTo(map);
+            
+                    document.getElementById('remove-destination-button').style.display = 'block';
+                    document.getElementById('set-destination-button').disabled = true;
+            
+                    // Center the map on the destination coordinates
+                    map.setView(destination, 13);
+                } else {
+                    alert('Please select a destination first.');
+                }
+            
                 map.off('click');
-            });
-        }
+            }
 
         document.getElementById('set-destination-button').addEventListener('click', setDestinationManually);
 
@@ -145,7 +146,6 @@ function getDestinationFromQuery() {
     return destination;
 }
 
-// Add event listeners to the buttons to set the destination
 document.getElementById('new-york').addEventListener('click', function () {
     setDestinationOnMap('New York City', 40.7128, -74.0060);
 });
@@ -158,6 +158,8 @@ document.getElementById('canada').addEventListener('click', function () {
     setDestinationOnMap('Canada', 49.290558518378916, -123.11816952293671);
 });
 
-function setDestinationOnMapFromCoordinates(latitude, longitude) {
-    setDestinationOnMap('Selected Airport', latitude, longitude);
+function selectLocation(latitude, longitude) {
+    localStorage.setItem('selectedLatitude', latitude);
+    localStorage.setItem('selectedLongitude', longitude);
 }
+
