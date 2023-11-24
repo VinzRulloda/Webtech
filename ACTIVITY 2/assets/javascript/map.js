@@ -192,3 +192,4 @@ if ('geolocation' in navigator) {
     console.log('Geolocation is not available in this browser.');
 }
 
+console.log('patanggal nalang to')
