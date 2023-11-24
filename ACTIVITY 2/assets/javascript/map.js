@@ -126,9 +126,6 @@ if ('geolocation' in navigator) {
     console.log('Geolocation is not available in this browser.');
 }
 
-
-
-// This function sets the destination marker on the map using the provided latitude and longitude
 function setDestinationOnMap(lat, lng) {
     if (destinationMarker) {
         map.removeLayer(destinationMarker);
@@ -144,7 +141,6 @@ function setDestinationOnMap(lat, lng) {
     map.setView(destination, 13);
 }
 
-// This function retrieves latitude and longitude from the URL parameters and sets the destination on the map
 function setDestinationFromUrlParams() {
     const urlParams = new URLSearchParams(window.location.search);
     const latitude = urlParams.get('lat');
@@ -154,7 +150,6 @@ function setDestinationFromUrlParams() {
     }
 }
 
-// Call setDestinationFromUrlParams when the map is initialized to set the marker
 setDestinationFromUrlParams();
 
 
@@ -181,12 +176,9 @@ function selectLocation(latitude, longitude) {
     localStorage.setItem('selectedLongitude', longitude);
 }
 
-// The navigator.geolocation.getCurrentPosition call and related functionality
 if ('geolocation' in navigator) {
     navigator.geolocation.getCurrentPosition(function (position) {
-        // ... Your existing geolocation success callback code ...
     }, function (error) {
-        // ... Your existing geolocation error callback code ...
     });
 } else {
     console.log('Geolocation is not available in this browser.');

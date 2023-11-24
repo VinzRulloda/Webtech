@@ -133,7 +133,6 @@ function captureSelectedAirport() {
     }
 }
 
-// Access saved latitude and longitude from local storage wherever needed.
 const savedLatitude = localStorage.getItem('selectedLatitude');
 const savedLongitude = localStorage.getItem('selectedLongitude');
 console.log(`Saved Latitude: ${savedLatitude}`);
