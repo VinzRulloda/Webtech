@@ -5,7 +5,7 @@ async function getAirportsNearMe() {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '8928dadc3fmshe0e889c98e4439ep1146cbjsn8d149ca76ac0',
+                'X-RapidAPI-Key': 'a491a8003cmsh330640d9ad6fa09p1c936ajsn21f63ccaba91',
                 'X-RapidAPI-Host': 'timetable-lookup.p.rapidapi.com'
             }
         };
@@ -77,7 +77,7 @@ async function getAvailableAirports() {
         const options = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '8928dadc3fmshe0e889c98e4439ep1146cbjsn8d149ca76ac0',
+                'X-RapidAPI-Key': 'a491a8003cmsh330640d9ad6fa09p1c936ajsn21f63ccaba91',
                 'X-RapidAPI-Host': 'timetable-lookup.p.rapidapi.com'
             }
         };
@@ -140,6 +140,24 @@ console.log(`Saved Latitude: ${savedLatitude}`);
 console.log(`Saved Longitude: ${savedLongitude}`);
 
 function checkOnMap() {
-    window.location.href = 'services.html';
+    const selectedAirportInput = document.getElementById('Airport');
+    if (selectedAirportInput.value) {
+        const selectedOption = Array.from(document.querySelectorAll('#AirportName option')).find(option =>
+            option.value.toLowerCase() === selectedAirportInput.value.toLowerCase()
+        );
+        if (selectedOption) {
+            const selectedLatitude = selectedOption.getAttribute('data-latitude');
+            const selectedLongitude = selectedOption.getAttribute('data-longitude');
+            // Store the selected airport's coordinates in local storage
+            localStorage.setItem('selectedLatitude', selectedLatitude);
+            localStorage.setItem('selectedLongitude', selectedLongitude);
+            // Redirect to services.html and include the coordinates as URL parameters
+            window.location.href = `services.html?lat=${selectedLatitude}&lng=${selectedLongitude}`;
+        } else {
+            console.error("Selected option not found.");
+        }
+    } else {
+        console.error("No airport selected.");
+    }
 }
 

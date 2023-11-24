@@ -126,19 +126,37 @@ if ('geolocation' in navigator) {
     console.log('Geolocation is not available in this browser.');
 }
 
-function setDestinationOnMap(name, lat, lng) {
+
+
+// This function sets the destination marker on the map using the provided latitude and longitude
+function setDestinationOnMap(lat, lng) {
     if (destinationMarker) {
         map.removeLayer(destinationMarker);
     }
 
-    destinationMarker = L.marker([lat, lng])
+    var destination = L.latLng(lat, lng);
+    destinationMarker = L.marker(destination)
         .addTo(map)
-        .bindPopup(name)
+        .bindPopup('Selected Airport')
         .openPopup();
 
     // Center the map on the destination coordinates
-    map.setView([lat, lng], 13);
+    map.setView(destination, 13);
 }
+
+// This function retrieves latitude and longitude from the URL parameters and sets the destination on the map
+function setDestinationFromUrlParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const latitude = urlParams.get('lat');
+    const longitude = urlParams.get('lng');
+    if (latitude && longitude) {
+        setDestinationOnMap(parseFloat(latitude), parseFloat(longitude));
+    }
+}
+
+// Call setDestinationFromUrlParams when the map is initialized to set the marker
+setDestinationFromUrlParams();
+
 
 function getDestinationFromQuery() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -161,5 +179,16 @@ document.getElementById('canada').addEventListener('click', function () {
 function selectLocation(latitude, longitude) {
     localStorage.setItem('selectedLatitude', latitude);
     localStorage.setItem('selectedLongitude', longitude);
+}
+
+// The navigator.geolocation.getCurrentPosition call and related functionality
+if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition(function (position) {
+        // ... Your existing geolocation success callback code ...
+    }, function (error) {
+        // ... Your existing geolocation error callback code ...
+    });
+} else {
+    console.log('Geolocation is not available in this browser.');
 }
 
