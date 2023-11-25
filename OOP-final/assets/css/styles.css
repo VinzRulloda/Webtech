@@ -170,8 +170,8 @@ main {
     margin: 0.5in;
 }
 
-.video-container {
-    border: 0.5cm solid #000000; 
+.content-container {
+    border: 0.5cm solid #ff0000; 
     overflow: hidden;
 }
 
