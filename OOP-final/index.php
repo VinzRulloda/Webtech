@@ -5,6 +5,7 @@ $user="root";
 $password="";
 $db="users";
 
+session_start();
 
 $data=mysqli_connect($host, $user, $password, $db);
 if($data===false){
@@ -24,10 +25,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     $row=mysqli_fetch_array($result);
 
     if($row["usertype"]=="user"){
+        $_SESSION["username"]=$username;
         header("location:manager.php");
     }
 
     if($row["usertype"]=="admin"){
+        $_SESSION["username"]=$username;
         header("location:admin.php");
     }
 
@@ -61,7 +64,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         </div>
 
         <div class="login-form" id="loginForm">
-            <form method="post" action="login.php">
+            <form method="post" action="#">
                 <div class="form-title">OOP</div>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" placeholder="Email/username" required>
