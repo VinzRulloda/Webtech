@@ -12,30 +12,33 @@ if($data===false){
     die("connection failed");
 }
 
-if($_SERVER["REQUEST_METHOD"]=="POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
 
-    $username=$_POST["username"];
-    $password=$_POST["password"];
+    $sql = "SELECT * FROM acc WHERE username='" . $username . "' AND password='" . $password . "'";
+    $result = mysqli_query($data, $sql);
 
-    $sql="select * from acc where username='".$username."' AND password='".$password."' 
-    ";
+    if ($result) {
+        $row = mysqli_fetch_array($result);
 
-    $result=mysqli_query($data, $sql);
-
-    $row=mysqli_fetch_array($result);
-
-    if($row["usertype"]=="user"){
-        $_SESSION["username"]=$username;
-        header("location:manager.php");
-    }
-
-    if($row["usertype"]=="admin"){
-        $_SESSION["username"]=$username;
-        header("location:admin.php");
-    }
-
-    else {
-        echo "username / password incorrect";
+        if ($row && isset($row["usertype"])) {
+            if ($row["usertype"] == "user") {
+                $_SESSION["username"] = $username;
+                header("location: manager.php");
+                exit();
+            } elseif ($row["usertype"] == "admin") {
+                $_SESSION["username"] = $username;
+                header("location: admin.php");
+                exit();
+            } else {
+                echo '<script src = "assets/javascript/error-login.js"></script>';
+            }
+        } else {
+            echo '<script src = "assets/javascript/error-login.js"></script>';
+        }
+    } else {
+        echo '<script src = "assets/javascript/error-login.js"></script>';
     }
 }
 
