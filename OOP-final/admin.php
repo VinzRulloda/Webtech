@@ -24,10 +24,37 @@ session_start();
     </nav>
 
     <main>
-        <div class="content-container">
-            <video controls>
-                <source src="assets/videos/sample.mp4" type="video/mp4">
-            </video>
+    <div class="content-container">
+            <h2>User Table</h2>
+            <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "users";
+
+            $conn = new mysqli($servername, $username, $password, $dbname);
+
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+
+            $sql = "SELECT id, fname, lname, username, password, usertype FROM acc";
+            $result = $conn->query($sql);
+
+            if ($result->num_rows > 0) {
+                echo "<table><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Username</th><th>Password</th><th>User Type</th></tr>";
+
+                while($row = $result->fetch_assoc()) {
+                    echo "<tr><td>".$row["id"]."</td><td>".$row["fname"]."</td><td>".$row["lname"]."</td><td>".$row["username"]."</td><td>".$row["password"]."</td><td>".$row["usertype"]."</td></tr>";
+                }
+
+                echo "</table>";
+            } else {
+                echo "0 results";
+            }
+
+            $conn->close();
+            ?>
         </div>
     </main>
 

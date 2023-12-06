@@ -53,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>OOP-Final</title>
     <script src="assets/javascript/login.js"></script>
+    <script src="assets/javascript/videoControl.js"></script>
 </head>
 <body>
     <nav>
@@ -89,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <main>
         <div class="content-container">
-            <video controls>
+            <video id="vidPlayer" controls>
                 <source src="assets/videos/sample.mp4" type="video/mp4">
             </video>
         </div>

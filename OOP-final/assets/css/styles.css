@@ -199,13 +199,39 @@ main {
 }
 
 .content-container {
-    border: 0.5cm solid #ff0000; 
+    border: 0.5cm solid #000000; 
     overflow: hidden;
 }
 
 video {
     width: 100%;
     height: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+th, td {
+   border: 1px solid #dddddd;
+    padding: 12px;
+   text-align: left;
+}
+
+th {
+   background-color: #6fa9cf;
+   font-weight: bold;
+   text-transform: uppercase;
+}
+
+tr:hover {
+  background-color:#6394b4
 }
 
 footer {
