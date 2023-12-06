@@ -72,7 +72,7 @@ session_start();
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
-                echo "<table><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Username</th><th>Password</th><th>User Type</th><th>Actions</th></tr>";
+                echo "<table><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Username</th><th>Password</th><th>User Type</th><th>Status</th><th>Actions</th></tr>";
 
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>";
@@ -82,6 +82,9 @@ session_start();
                     echo "<td>".$row["username"]."</td>";
                     echo "<td>".$row["password"]."</td>";
                     echo "<td>".$row["usertype"]."</td>";
+
+                    echo "<td><div class='status-text' data-user-id='{$row["id"]}'></div></td>";
+
                     echo "<td>";
                     echo "<button onclick='editUser(".$row["id"].")'>Edit</button>";
                     echo "<button onclick='removeUser(".$row["id"].")'>Remove</button>";

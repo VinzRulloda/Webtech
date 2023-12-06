@@ -25,10 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($row && isset($row["usertype"])) {
             if ($row["usertype"] == "user") {
                 $_SESSION["username"] = $username;
+                $_SESSION["user_id"] = $row["id"]; // Set the user_id in the session
                 header("location: manager.php");
                 exit();
             } elseif ($row["usertype"] == "admin") {
                 $_SESSION["username"] = $username;
+                $_SESSION["user_id"] = $row["id"]; // Set the user_id in the session
                 header("location: admin.php");
                 exit();
             } else {
@@ -54,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>OOP-Final</title>
     <script src="assets/javascript/login.js"></script>
     <script src="assets/javascript/videoControl.js"></script>
+    <script src="assets/javascript/admin-script.js"></script>
 </head>
 <body>
     <nav>

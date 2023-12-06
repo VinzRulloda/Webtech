@@ -64,19 +64,53 @@ function removeUser(userId) {
     }
 }
 
-function sendAjaxRequest(url, data) {
+function sendAjaxRequest(url, data, callback) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
             alert(xhr.responseText);
-            location.reload();
+            if (callback) {
+                callback();
+            }
         }
     };
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    var params = "";
-    for (var key in data) {
-        params += key + "=" + encodeURIComponent(data[key]) + "&";
-    }
+    var params = Object.keys(data).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])).join('&');
     xhr.send(params);
 }
+
+var userActivity ={};
+
+function isUserConnected(userId) {
+    if (userActivity[userId]) {
+        var inactiveTime = 15 * 60 * 1000; // 15 minutes of inactivity in milliseconds
+        return (Date.now() - userActivity[userId] <= inactiveTime);
+    }
+
+    return false;
+}
+
+function updateStatusText() {
+    var userIds = [...document.querySelectorAll('.status-text')].map(text => text.dataset.userId);
+
+    userIds.forEach(userId => {
+        var statusText = isUserConnected(userId) ? 'Online' : 'Offline';
+        console.log(`User ${userId}: ${statusText}`);
+        var textElement = document.querySelector(`.status-text[data-user-id="${userId}"]`);
+        if (textElement) {
+            textElement.textContent = statusText;
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    updateStatusText();
+
+    // Update user activity every 5 seconds
+    setInterval(function () {
+        sendAjaxRequest('update_activity.php', {}, function () {
+            updateStatusText();
+        });
+    }, 15000);
+});
