@@ -9,9 +9,10 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>OOP-Final Admin</title>
+    <script src="assets/javascript/admin-script.js"></script>
 </head>
 <body>
-<nav>
+    <nav>
         <div class="logo">OOP</div>
 
         <div class="navbar">
@@ -24,8 +25,37 @@ session_start();
     </nav>
 
     <main>
-    <div class="content-container">
-            <h2>User Table</h2>
+        <div class="content-container">
+
+            <div class="table-header">
+                <h2>User Table</h2>
+                <button id="addbutton" onclick="toggleAddUserForm()">Add User</button>
+            </div>
+            
+            <form id="addUserForm" class="login-form" style="display:none;">
+            <div class="form-title">OOP</div>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required><br>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required><br>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <label for="userType">User Type:</label>
+            <select id="userType" name="userType" required>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+            <br>
+
+            <button type="button" onclick="addUserToTable()">Submit</button>
+            </form>
+
             <?php
             $servername = "localhost";
             $username = "root";
@@ -38,14 +68,25 @@ session_start();
                 die("Connection failed: " . $conn->connect_error);
             }
 
-            $sql = "SELECT id, fname, lname, username, password, usertype FROM acc";
+            $sql = "SELECT id, fname, lname, username, password, usertype FROM acc ORDER BY id";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
-                echo "<table><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Username</th><th>Password</th><th>User Type</th></tr>";
+                echo "<table><tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Username</th><th>Password</th><th>User Type</th><th>Actions</th></tr>";
 
                 while($row = $result->fetch_assoc()) {
-                    echo "<tr><td>".$row["id"]."</td><td>".$row["fname"]."</td><td>".$row["lname"]."</td><td>".$row["username"]."</td><td>".$row["password"]."</td><td>".$row["usertype"]."</td></tr>";
+                    echo "<tr>";
+                    echo "<td>".$row["id"]."</td>";
+                    echo "<td>".$row["fname"]."</td>";
+                    echo "<td>".$row["lname"]."</td>";
+                    echo "<td>".$row["username"]."</td>";
+                    echo "<td>".$row["password"]."</td>";
+                    echo "<td>".$row["usertype"]."</td>";
+                    echo "<td>";
+                    echo "<button onclick='editUser(".$row["id"].")'>Edit</button>";
+                    echo "<button onclick='removeUser(".$row["id"].")'>Remove</button>";
+                    echo "</td>";
+                    echo "</tr>";
                 }
 
                 echo "</table>";
@@ -59,7 +100,7 @@ session_start();
     </main>
 
     <footer>
-        <h3>OOP ON TOP</p>
+        <h3>OOP ON TOP</h3>
         <p>weh</p>
         <p>hihu</p>
     </footer>

@@ -173,6 +173,10 @@ a {
     background-color: #bdc3c7;
 }
 
+.login-form #userType {
+    margin-bottom: 20px;
+}
+
 .profile-btn {
     width: 50px;
     height: 50px;
@@ -183,6 +187,25 @@ a {
     cursor: pointer;
     position: relative;
 }
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin: 0; 
+    flex-grow: 1;
+}
+
+.addbutton {
+    background-color: blue;
+    margin-left: 10px;
+}
+
 
 .profile-btn img {
     width: 80%;
@@ -212,10 +235,6 @@ table {
     border-collapse: collapse;
     width: 100%;
     margin-top: 20px;
-}
-
-h2 {
-    text-align: center;
 }
 
 th, td {
