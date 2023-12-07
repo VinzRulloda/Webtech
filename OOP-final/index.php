@@ -56,7 +56,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>OOP-Final</title>
     <script src="assets/javascript/login.js"></script>
     <script src="assets/javascript/videoControl.js"></script>
-    <script src="assets/javascript/admin-script.js"></script>
 </head>
 <body>
     <nav>
