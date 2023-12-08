@@ -47,7 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 <script>
-    // Function to update timestamp in the database
     function updateTimestamp() {
         var video = document.getElementById('vidPlayer');
         var timestamp = video.currentTime;
@@ -57,7 +56,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         xhr.send('timestamp=' + timestamp);
     }
 
-    // Function to set the video to the latest timestamp
     function setVideoTimestamp() {
         var video = document.getElementById('vidPlayer');
         var xhr = new XMLHttpRequest();
@@ -71,7 +69,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         xhr.send();
     }
 
-    // Event listener for video time update
     document.getElementById('vidPlayer').addEventListener('timeupdate', updateTimestamp);
     window.onload = setVideoTimestamp;
 </script>
