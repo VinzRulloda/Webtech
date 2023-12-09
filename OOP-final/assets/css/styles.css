@@ -11,7 +11,7 @@ body {
 }
 
 .navbar nav {
-    margin-left: auto;
+    margin-left: auto; /* Adjusted to push the nav to the right */
     text-align: center;
 }
 
@@ -24,7 +24,7 @@ nav ul {
     transition: filter 0.3s ease; 
 }
 nav li:hover {
-    background-color: rgb(32, 141, 213);
+    background-color: rgb(32, 141, 213); /* Set the desired gray background color */
 }
 
 nav {
@@ -56,7 +56,7 @@ ul {
 }
 
 li {
-    margin: 0 10px;
+    margin: 0 10px; /* Adjusted margin */
     display: inline-block;
 }
 
@@ -71,6 +71,7 @@ a {
     width: 65px;
     height: 65px; 
 }
+
 
 .login-form {
     display: none;
@@ -219,9 +220,16 @@ main {
     margin: 0.5in;
 }
 
-.content-container {
+.m-container {
     border: 0.5cm solid #000000; 
     overflow: hidden;
+    
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio for the video */
 }
 
 video {
