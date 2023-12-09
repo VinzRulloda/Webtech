@@ -1,35 +1,4 @@
-function editUser(userId) {
-    var newFirstName = prompt("Enter new first name:");
-    var newLastName = prompt("Enter new last name:");
-    var newUsername = prompt("Enter new username:");
-    var newPassword = prompt("Enter new password:");
-    var newUserType = prompt("Enter new user type (admin or user):");
-
-    if (newFirstName !== null) {
-        sendAjaxRequest('edit_user.php', { userId: userId, newFirstName: newFirstName });
-    }
-
-    if (newLastName !== null) {
-        sendAjaxRequest('edit_user.php', { userId: userId, newLastName: newLastName });
-    }
-
-    if (newUsername !== null) {
-        sendAjaxRequest('edit_user.php', { userId: userId, newUsername: newUsername });
-    }
-
-    if (newPassword !== null) {
-        sendAjaxRequest('edit_user.php', { userId: userId, newPassword: newPassword });
-    }
-
-    if (newUserType !== null) {
-        sendAjaxRequest('edit_user.php', { userId: userId, newUserType: newUserType });
-    }
-    window.setTimeout( function() {
-        window.location.reload();
-      }, 1000);
-}
-
-function openEditUserForm(userId, firstName, lastName, username, password, userType) {
+function editUser(userId, firstName, lastName, username, password, userType) {
     document.getElementById("editUserId").value = userId;
     document.getElementById("editFirstName").value = firstName;
     document.getElementById("editLastName").value = lastName;
@@ -39,10 +8,6 @@ function openEditUserForm(userId, firstName, lastName, username, password, userT
 
     var editUserForm = document.getElementById("editUserForm");
     editUserForm.style.display = "block";
-}
-
-function editUser(userId, firstName, lastName, username, password, userType) {
-    openEditUserForm(userId, firstName, lastName, username, password, userType);
 }
 
 function updateUser() {
@@ -67,11 +32,8 @@ function updateUser() {
     });
 
     document.getElementById("editUserForm").style.display = "none";
-    window.setTimeout( function() {
-        window.location.reload();
-      }, 1000);
-    
 }
+
 
 function toggleAddUserForm() {
     var addUserForm = document.getElementById("addUserForm");
