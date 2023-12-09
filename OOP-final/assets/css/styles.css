@@ -200,7 +200,6 @@ a {
 
 h2 {
     text-align: center;
-    text-transform: uppercase;
     margin: 0; 
     margin-bottom: 10px;
     flex-grow: 1;
@@ -277,6 +276,9 @@ main {
 }
 
 .content-container {
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
 
 }
 
