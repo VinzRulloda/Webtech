@@ -277,9 +277,9 @@ main {
 }
 
 .content-container {
-    display: contents;
+    display: flex;
     align-items: center;
-    
+    justify-content: center;      
 }
 
 video {
