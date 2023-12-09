@@ -277,7 +277,8 @@ main {
 }
 
 .content-container {
-    margin-left: 50px;
+    display: contents;
+    align-items: center;
     
 }
 
