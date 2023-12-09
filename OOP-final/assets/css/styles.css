@@ -11,7 +11,7 @@ body {
 }
 
 .navbar nav {
-    margin-left: auto; /* Adjusted to push the nav to the right */
+    margin-left: auto;
     text-align: center;
 }
 
@@ -24,7 +24,7 @@ nav ul {
     transition: filter 0.3s ease; 
 }
 nav li:hover {
-    background-color: rgb(32, 141, 213); /* Set the desired gray background color */
+    background-color: rgb(32, 141, 213);
 }
 
 nav {
@@ -56,7 +56,7 @@ ul {
 }
 
 li {
-    margin: 0 10px; /* Adjusted margin */
+    margin: 0 10px;
     display: inline-block;
 }
 
@@ -71,7 +71,6 @@ a {
     width: 65px;
     height: 65px; 
 }
-
 
 .login-form {
     display: none;

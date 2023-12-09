@@ -2,7 +2,6 @@
 session_start()
 ?>
 <script>
-    // Function to update timestamp in the database
     function updateTimestamp() {
         var video = document.getElementById('vidPlayer');
         var timestamp = video.currentTime;
@@ -12,7 +11,6 @@ session_start()
         xhr.send('timestamp=' + timestamp);
     }
 
-    // Function to set the video to the latest timestamp
     function setVideoTimestamp() {
         var video = document.getElementById('vidPlayer');
         var xhr = new XMLHttpRequest();
@@ -26,7 +24,6 @@ session_start()
         xhr.send();
     }
 
-    // Event listener for video time update
     document.getElementById('vidPlayer').addEventListener('timeupdate', updateTimestamp);
     window.onload = setVideoTimestamp;
 </script>

@@ -24,6 +24,53 @@ function editUser(userId) {
     if (newUserType !== null) {
         sendAjaxRequest('edit_user.php', { userId: userId, newUserType: newUserType });
     }
+    window.setTimeout( function() {
+        window.location.reload();
+      }, 1000);
+}
+
+function openEditUserForm(userId, firstName, lastName, username, password, userType) {
+    document.getElementById("editUserId").value = userId;
+    document.getElementById("editFirstName").value = firstName;
+    document.getElementById("editLastName").value = lastName;
+    document.getElementById("editUsername").value = username;
+    document.getElementById("editPassword").value = password;
+    document.getElementById("editUserType").value = userType;
+
+    var editUserForm = document.getElementById("editUserForm");
+    editUserForm.style.display = "block";
+}
+
+function editUser(userId, firstName, lastName, username, password, userType) {
+    openEditUserForm(userId, firstName, lastName, username, password, userType);
+}
+
+function updateUser() {
+    var userId = document.getElementById("editUserId").value;
+    var firstName = document.getElementById("editFirstName").value;
+    var lastName = document.getElementById("editLastName").value;
+    var username = document.getElementById("editUsername").value;
+    var password = document.getElementById("editPassword").value;
+    var userType = document.getElementById("editUserType").value;
+
+    var data = {
+        userId: userId,
+        newFirstName: firstName,
+        newLastName: lastName,
+        newUsername: username,
+        newPassword: password,
+        newUserType: userType
+    };
+
+    sendAjaxRequest('edit_user.php', data, function () {
+        window.location.reload();
+    });
+
+    document.getElementById("editUserForm").style.display = "none";
+    window.setTimeout( function() {
+        window.location.reload();
+      }, 1000);
+    
 }
 
 function toggleAddUserForm() {
@@ -50,6 +97,9 @@ function addUserToTable() {
         password: password,
         userType: userType
     };
+    window.setTimeout( function() {
+        window.location.reload();
+      }, 1000);
 
     sendAjaxRequest('add_user.php', data);
     toggleAddUserForm();
@@ -58,10 +108,12 @@ function addUserToTable() {
 function removeUser(userId) {
     var confirmDelete = confirm("Are you sure you want to remove this user?");
     if (confirmDelete) {
-        // Send an AJAX request to remove_user.php
         var data = { userId: userId };
         sendAjaxRequest('remove_user.php', data);
     }
+    window.setTimeout( function() {
+        window.location.reload();
+      }, 1000);
 }
 
 function sendAjaxRequest(url, data, callback) {

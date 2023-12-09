@@ -8,6 +8,11 @@ session_start();
 $userId = isset($_POST['userId']) ? $_POST['userId'] : null;
 $errorMessage = "";
 
+if (empty($_POST['firstName']) || empty($_POST['lastName']) || empty($_POST['username']) || empty($_POST['password']) || empty($_POST['userType'])) {
+    echo "Please fill in all fields.";
+    exit();
+}
+
 $conn = new mysqli($host, $user, $password, $db);
 
 if ($conn->connect_error) {

@@ -56,6 +56,30 @@ session_start();
             <button type="button" onclick="addUserToTable()">Submit</button>
             </form>
 
+            <form id="editUserForm" class="login-form" style="display:none;">
+            <div class="form-title">Edit User</div>
+            <label for="editFirstName">First Name:</label>
+            <input type="text" id="editFirstName" name="editFirstName" required><br>
+
+            <label for="editLastName">Last Name:</label>
+            <input type="text" id="editLastName" name="editLastName" required><br>
+
+            <label for="editUsername">Username:</label>
+            <input type="text" id="editUsername" name="editUsername" required><br>
+
+            <label for="editPassword">Password:</label>
+            <input type="password" id="editPassword" name="editPassword" required><br>
+
+            <label for="editUserType">User Type:</label>
+            <select id="editUserType" name="editUserType" required>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+            <br>
+
+            <button type="button" onclick="updateUser()">Update</button>
+            </form>
+
             <?php
             $servername = "localhost";
             $username = "root";
@@ -82,9 +106,6 @@ session_start();
                     echo "<td>".$row["username"]."</td>";
                     echo "<td>".$row["password"]."</td>";
                     echo "<td>".$row["usertype"]."</td>";
-
-                    echo "<td><div class='status-text' data-user-id='{$row["id"]}'></div></td>";
-
                     echo "<td>";
                     echo "<button onclick='editUser(".$row["id"].")'>Edit</button>";
                     echo "<button onclick='removeUser(".$row["id"].")'>Remove</button>";
