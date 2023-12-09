@@ -285,6 +285,12 @@ video {
     height: auto;
 }
 
+button {
+    width: 80px;
+    height: 30px;
+    border-radius: 3pc;
+}
+
 .m-container{
     flex: 1;
     position: relative;
@@ -307,11 +313,6 @@ table {
     margin-top: 20px;
 }
 
-button {
-    width: 80px;
-    height: 30px;
-    border-radius: 3pc;
-}
 
 th, td {
    border: 1px solid #dddddd;
