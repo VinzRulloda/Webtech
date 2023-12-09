@@ -277,7 +277,7 @@ main {
 }
 
 .content-container {
-    display: flex;
+    margin-left: 50px;
     
 }
 
@@ -315,7 +315,7 @@ button {
 }
 
 button:hover {
-    background-color: lightgray;
+    background-color: #3498db;
 }
 
 th, td {
@@ -331,7 +331,7 @@ th {
 }
 
 tr:hover {
-  background-color:#6394b4
+  background-color:lightgray;
 }
 
 footer {
