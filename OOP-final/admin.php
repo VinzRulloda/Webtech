@@ -58,6 +58,7 @@ session_start();
 
             <form id="editUserForm" class="login-form" style="display:none;">
             <div class="form-title">Edit User</div>
+            <input type="hidden" id="editUserId" name="editUserId">
             <label for="editFirstName">First Name:</label>
             <input type="text" id="editFirstName" name="editFirstName" required><br>
 

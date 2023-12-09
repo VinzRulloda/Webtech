@@ -1,57 +1,43 @@
 <?php
-$host = "localhost";
-$user = "root";
+$servername = "localhost";
+$username = "root";
 $password = "";
-$db = "users";
+$dbname = "users";
 
-session_start();
-
-$userId = $_POST['userId'];
-$alertMessages = [];
-
-$conn = new mysqli($host, $user, $password, $db);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
-    $alertMessages[] = "Connection failed: " . $conn->connect_error;
+    die("Connection failed: " . $conn->connect_error);
 }
 
-function updateField($field, $value, $userId, $conn) {
-    global $alertMessages;
-    $stmt = $conn->prepare("UPDATE acc SET $field = ? WHERE id = ?");
-    $stmt->bind_param("si", $value, $userId);
-    $stmt->execute();
-    $stmt->close();
-    if ($conn->error) {
-        $alertMessages[] = "SQL Error: " . $conn->error;
+if ($_POST['action'] === 'getUserById') {
+    $id = $_POST['id'];
+
+    $sql = "SELECT * FROM acc WHERE id = $id";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        echo json_encode($user);
+    } else {
+        echo json_encode(['error' => 'User not found']);
     }
-}
+} elseif ($_POST['action'] === 'updateUserById') {
+    $id = $_POST['id'];
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $userType = $_POST['userType'];
 
-$fieldsToUpdate = ['newFirstName' => 'fname', 'newLastName' => 'lname', 'newUsername' => 'username', 'newPassword' => 'password', 'newUserType' => 'usertype'];
+    $sql = "UPDATE acc SET fname='$firstName', lname='$lastName', username='$username', password='$password', usertype='$userType' WHERE id = $id";
 
-foreach ($fieldsToUpdate as $postKey => $dbField) {
-    if (isset($_POST[$postKey])) {
-        $fieldValue = $_POST[$postKey];
-
-        if (empty($fieldValue)) {
-            $alertMessages[] = "Error: $postKey cannot be empty.";
-        } else {
-            if ($postKey === 'newUserType') {
-                $newUserType = $_POST['newUserType'];
-                if ($newUserType !== 'admin' && $newUserType !== 'user') {
-                    $alertMessages[] = "Invalid userType. Please enter 'admin' or 'user'.";
-                } else {
-                    updateField($dbField, $newUserType, $userId, $conn);
-                }
-            } else {
-                updateField($dbField, $fieldValue, $userId, $conn);
-            }
-        }
+    if ($conn->query($sql) === TRUE) {
+        echo json_encode(['success' => 'User updated successfully']);
+    } else {
+        echo json_encode(['error' => 'Error updating user: ' . $conn->error]);
     }
 }
 
 $conn->close();
-
-foreach ($alertMessages as $message) {
-    echo "('$message')";
-}
 ?>

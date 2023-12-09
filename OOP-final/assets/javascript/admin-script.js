@@ -1,37 +1,48 @@
-function editUser(firstName, lastName, username, password, userType) {
-    document.getElementById("editFirstName").value = "";
-    document.getElementById("editLastName").value = "";
-    document.getElementById("editUsername").value = "";
-    document.getElementById("editPassword").value = "";
-    document.getElementById("editUserType").value = "";
+function editUser(id) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'edit_user.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var user = JSON.parse(xhr.responseText);
 
-    var editUserForm = document.getElementById("editUserForm");
-    editUserForm.style.display = "block";
+            document.getElementById("editUserId").value = user.id;
+            document.getElementById("editFirstName").value = user.fname;
+            document.getElementById("editLastName").value = user.lname;
+            document.getElementById("editUsername").value = user.username;
+            document.getElementById("editPassword").value = user.password;
+            document.getElementById("editUserType").value = user.usertype;
+            document.getElementById("editUserForm").style.display = "block";
+        }
+    };
+    xhr.send('action=getUserById&id=' + id);
 }
 
-
 function updateUser() {
-    var userId
+    var id = document.getElementById("editUserId").value;
     var firstName = document.getElementById("editFirstName").value;
     var lastName = document.getElementById("editLastName").value;
     var username = document.getElementById("editUsername").value;
     var password = document.getElementById("editPassword").value;
     var userType = document.getElementById("editUserType").value;
 
-    var data = {
-        userId: userId,
-        newFirstName: firstName,
-        newLastName: lastName,
-        newUsername: username,
-        newPassword: password,
-        newUserType: userType
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'edit_user.php', true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+
+            document.getElementById("editUserForm").style.display = "none";
+            updateTableRow(id, firstName, lastName, username, password, userType);
+
+            alert(response.success);
+        }
     };
-
-    sendAjaxRequest('update_user.php', data, function () {
+    window.setTimeout( function() {
         window.location.reload();
-    });
-
-    document.getElementById("editUserForm").style.display = "none";
+      }, 1000);
+    xhr.send('action=updateUserById&id=' + id + '&firstName=' + firstName + '&lastName=' + lastName + '&username=' + username + '&password=' + password + '&userType=' + userType);
 }
 
 
