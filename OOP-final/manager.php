@@ -35,6 +35,7 @@ session_start()
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/javascript/manager-script.js"></script>
 
     <title>OOP-Final Manager</title>
 </head>
@@ -45,10 +46,10 @@ session_start()
         <div class="navbar">
             <nav>
                 <ul>
-                    <li><a href="#" class="icon"><img src="assets\images\arrangement.png" alt="Arrangement"></a></li>
-                    <li><a href="#" class="icon"><img src="assets\images\history.png" alt="History"></a></li>
-                    <li><a href="#" class="icon"><img src="assets\images\live.png" alt="Live"></a></li>
-                    <li><a href="logout.php" class="icon"><img src="assets\images\logout.png" alt="logout"></a></li>
+                <li><a href="#" class="icon arrangement-btn"><img src="assets\images\arrangement.png" alt="Arrangement"></a></li>
+                <li><a href="#" class="icon history-btn"><img src="assets\images\history.png" alt="History"></a></li>
+                <li><a href="#" class="icon live-btn"><img src="assets\images\live.png" alt="Live"></a></li>
+                <li><a href="logout.php" class="icon"><img src="assets\images\logout.png" alt="logout"></a></li>
                 </ul>
             </nav>
         </div>
@@ -56,9 +57,13 @@ session_start()
 
     <main>
         <div class="m-container">
-            <video controls>
+            <video controls id="vidPlayer">
                 <source src="assets/videos/sample.mp4" type="video/mp4">
             </video>
+        </div>
+
+        <div class="container-right">
+            <p>main view</p>
         </div>
     </main>
 
