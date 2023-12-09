@@ -1,33 +1,6 @@
 <?php
 session_start()
 ?>
-<script>
-    function updateTimestamp() {
-        var video = document.getElementById('vidPlayer');
-        var timestamp = video.currentTime;
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'update_timestamp.php', true);
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.send('timestamp=' + timestamp);
-    }
-
-    function setVideoTimestamp() {
-        var video = document.getElementById('vidPlayer');
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'get_timestamp.php', true);
-        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        xhr.onload = function() {
-            if (xhr.status == 200) {
-                video.currentTime = parseFloat(xhr.responseText);
-            }
-        };
-        xhr.send();
-    }
-
-    document.getElementById('vidPlayer').addEventListener('timeupdate', updateTimestamp);
-    window.onload = setVideoTimestamp;
-</script>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,6 +29,10 @@ session_start()
     </nav>
 
     <main>
+        <div class="popup-container" id="uploadPopup">
+            <div id="popupContent"></div>
+        </div>
+
         <div class="m-container">
             <video controls id="vidPlayer">
                 <source src="assets/videos/sample.mp4" type="video/mp4">
@@ -63,7 +40,6 @@ session_start()
         </div>
 
         <div class="container-right">
-            <p>main view</p>
         </div>
     </main>
 
