@@ -220,21 +220,20 @@ main {
     margin: 0.5in;
 }
 
-.m-container {
+.content-container {
     border: 0.5cm solid #000000; 
     overflow: hidden;
     
 }
 
-.video-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio for the video */
-}
-
 video {
     width: 100%;
     height: auto;
+}
+
+.m-container{
+    width: 1250px;
+    height: 600px;
 }
 
 table {

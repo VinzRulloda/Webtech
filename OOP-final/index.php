@@ -25,12 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($row && isset($row["usertype"])) {
             if ($row["usertype"] == "user") {
                 $_SESSION["username"] = $username;
-                $_SESSION["user_id"] = $row["id"]; // Set the user_id in the session
+                $_SESSION["user_id"] = $row["id"];
                 header("location: manager.php");
                 exit();
             } elseif ($row["usertype"] == "admin") {
                 $_SESSION["username"] = $username;
-                $_SESSION["user_id"] = $row["id"]; // Set the user_id in the session
+                $_SESSION["user_id"] = $row["id"];
                 header("location: admin.php");
                 exit();
             } else {
@@ -43,8 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo '<script src = "assets/javascript/error-login.js"></script>';
     }
 }
-
-
 ?>
 <script>
     function updateTimestamp() {
@@ -124,10 +122,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <source src="assets/videos/sample.mp4" type="video/mp4">
             </video>
         </div>
-
-        <div class="another-container">
-        </div>
-
     </main>
 
     <footer>
