@@ -200,6 +200,7 @@ a {
 
 h2 {
     text-align: center;
+    text-transform: uppercase;
     margin: 0; 
     margin-bottom: 10px;
     flex-grow: 1;
@@ -276,19 +277,13 @@ main {
 }
 
 .content-container {
-    overflow: hidden;
+    display: flex;
     
 }
 
 video {
     width: 100%;
     height: auto;
-}
-
-button {
-    width: 80px;
-    height: 30px;
-    border-radius: 3pc;
 }
 
 .m-container{
@@ -313,6 +308,15 @@ table {
     margin-top: 20px;
 }
 
+button {
+    width: 80px;
+    height: 30px;
+    border-radius: 3pc;
+}
+
+button:hover {
+    background-color: lightgray;
+}
 
 th, td {
    border: 1px solid #dddddd;
