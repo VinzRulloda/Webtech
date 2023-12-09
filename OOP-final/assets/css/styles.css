@@ -308,6 +308,13 @@ table {
     margin-top: 20px;
 }
 
+button {
+    width: 80px;
+    height: 30px;
+    border-radius: 3pc;
+    margin-left: 10px;
+}
+
 th, td {
    border: 1px solid #dddddd;
     padding: 12px;
