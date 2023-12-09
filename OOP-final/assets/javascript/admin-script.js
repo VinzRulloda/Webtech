@@ -1,17 +1,17 @@
-function editUser(userId, firstName, lastName, username, password, userType) {
-    document.getElementById("editUserId").value = userId;
-    document.getElementById("editFirstName").value = firstName;
-    document.getElementById("editLastName").value = lastName;
-    document.getElementById("editUsername").value = username;
-    document.getElementById("editPassword").value = password;
-    document.getElementById("editUserType").value = userType;
+function editUser(firstName, lastName, username, password, userType) {
+    document.getElementById("editFirstName").value = "";
+    document.getElementById("editLastName").value = "";
+    document.getElementById("editUsername").value = "";
+    document.getElementById("editPassword").value = "";
+    document.getElementById("editUserType").value = "";
 
     var editUserForm = document.getElementById("editUserForm");
     editUserForm.style.display = "block";
 }
 
+
 function updateUser() {
-    var userId = document.getElementById("editUserId").value;
+    var userId
     var firstName = document.getElementById("editFirstName").value;
     var lastName = document.getElementById("editLastName").value;
     var username = document.getElementById("editUsername").value;
@@ -27,12 +27,13 @@ function updateUser() {
         newUserType: userType
     };
 
-    sendAjaxRequest('edit_user.php', data, function () {
+    sendAjaxRequest('update_user.php', data, function () {
         window.location.reload();
     });
 
     document.getElementById("editUserForm").style.display = "none";
 }
+
 
 
 function toggleAddUserForm() {
@@ -81,15 +82,21 @@ function removeUser(userId) {
 function sendAjaxRequest(url, data, callback) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            alert(xhr.responseText);
-            if (callback) {
-                callback();
+        if (xhr.readyState == 4) {
+            console.log('Response:', xhr.responseText);
+            if (xhr.status == 200) {
+                if (callback) {
+                    callback();
+                }
+            } else {
+                console.error('Error:', xhr.status);
             }
         }
     };
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     var params = Object.keys(data).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])).join('&');
+    console.log('Request:', params); // Log the data being sent
     xhr.send(params);
 }
+
