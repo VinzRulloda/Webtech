@@ -15,8 +15,6 @@ if($data===false){
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
-
-    // Prevent SQL Injection
     $username = mysqli_real_escape_string($data, $username);
     $password = mysqli_real_escape_string($data, $password);
 
@@ -79,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
 
         <div class="login-form" id="loginForm">
-            <form method="post" action="#">
+            <form method="post" action="/execute-php">
                 <div class="form-title">OOP</div>
                 <label for="username">Username:</label>
                 <input type="text" id="username" name="username" placeholder="Email/username" required>
@@ -87,7 +85,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" placeholder="Password" required>
 
-                <!-- Add this inside your form -->
                 <div class="remember-forgot">
                 <input type="checkbox" id="rememberMe" name="rememberMe">
                 <label for="rememberMe"> Remember me </label>
@@ -114,13 +111,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </footer>
     <script src="assets/javascript/timestamp.js"></script>
 </body>
-<!-- Add this script at the end of your HTML body -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-    // Check if the 'rememberMe' cookie exists
     var rememberMeChecked = getCookie("rememberMe") === "true";
 
-    // If 'rememberMe' is checked, autofill the username and password
     if (rememberMeChecked) {
         var storedUsername = getCookie("username");
         var storedPassword = getCookie("password");
@@ -131,11 +125,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Check the 'Remember Me' checkbox if needed
     document.getElementById('rememberMe').checked = rememberMeChecked;
 });
 
-// Function to set a cookie
 function setCookie(name, value, days) {
     var expires = "";
     if (days) {
@@ -146,7 +138,6 @@ function setCookie(name, value, days) {
     document.cookie = name + "=" + value + expires + "; path=/";
 }
 
-// Function to get the value of a cookie
 function getCookie(name) {
     var nameEQ = name + "=";
     var cookies = document.cookie.split(';');
@@ -161,20 +152,15 @@ function getCookie(name) {
     }
     return null;
 }
-
-// Add an event listener to handle changes in the 'Remember Me' checkbox
 document.getElementById('rememberMe').addEventListener('change', function () {
-    // Save the state of 'Remember Me' checkbox in a cookie
     setCookie("rememberMe", this.checked, 365);
 
-    // If the checkbox is checked, save the username and password in cookies
     if (this.checked) {
         var username = document.getElementById('username').value;
         var password = document.getElementById('password').value;
         setCookie("username", username, 365);
         setCookie("password", password, 365);
     } else {
-        // If the checkbox is unchecked, clear the username and password cookies
         setCookie("username", "", -1);
         setCookie("password", "", -1);
     }
