@@ -15,6 +15,7 @@ session_start()
 <body>
     <nav>
         <div class="logo">OOP</div>
+        <img src="../assets/images/slulog.png" id="slulog">
 
         <div class="navbar">
             <nav>
@@ -44,9 +45,8 @@ session_start()
     </main>
 
     <footer>
-        <h3>OOP ON TOP</p>
-        <p>weh</p>
-        <p>hihu</p>
+    <img src="../assets/images/EDITED-FOOTER.png" id="slufooter">
+    
     </footer>
     <script src="assets/javascript/timestamp.js"></script>
 </body>
