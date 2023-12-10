@@ -74,26 +74,26 @@ function closePopup() {
 function uploadVideo() {
     var fileInput = document.getElementById('videoInput');
     var file = fileInput.files[0];
-        
+
     if (file) {
         var formData = new FormData();
         formData.append('video', file);
-        
+        formData.append('title', videoTitle);
+        formData.append('uploaded_by', '<?php echo isset($_SESSION["username"]) ? $_SESSION["username"] : ""; ?>');
+
         var xhr = new XMLHttpRequest();
         xhr.open('POST', 'upload_video.php', true);
-        
+
         xhr.onload = function () {
             if (xhr.status == 200) {
                 updateVideoTable();
                 closePopup();
             }
         };
-        
+
         xhr.send(formData);
     }
 }
-
-    
 
     document.querySelector('.history-btn').addEventListener('click', function () {
         var historyContent = '<h2>History Content</h2><p>This is the history content.</p>';
@@ -103,20 +103,24 @@ function uploadVideo() {
     function uploadVideo() {
         var fileInput = document.getElementById('videoInput');
         var file = fileInput.files[0];
-    
+
+
         if (file) {
             var formData = new FormData();
             formData.append('video', file);
-    
+            formData.append('title', videoTitle);
+            formData.append('uploaded_by', '<?php echo isset($_SESSION["username"]) ? $_SESSION["username"] : ""; ?>');
+
             var xhr = new XMLHttpRequest();
             xhr.open('POST', 'upload_video.php', true);
-    
+
             xhr.onload = function () {
                 if (xhr.status == 200) {
                     updateVideoTable();
+                    closePopup();
                 }
             };
-    
+
             xhr.send(formData);
         }
     }

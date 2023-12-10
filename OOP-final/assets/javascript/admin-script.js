@@ -107,7 +107,7 @@ function sendAjaxRequest(url, data, callback) {
     xhr.open("POST", url, true);
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     var params = Object.keys(data).map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])).join('&');
-    console.log('Request:', params); // Log the data being sent
+    console.log('Request:', params);
     xhr.send(params);
 }
 

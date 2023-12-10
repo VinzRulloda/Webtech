@@ -41,6 +41,12 @@ session_start()
         </div>
 
         <div class="container-right">
+            <h2>Arrangement Content</h2> 
+            <div class="button-container"> 
+            <input type="file" id="videoInput" accept="video/*">' 
+            <button class="action-button" onclick="uploadVideo()">Add</button>' 
+            </div>
+            <table class="data-table" id="videoTable"></table>
         </div>
     </main>
 

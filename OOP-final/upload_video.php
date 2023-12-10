@@ -1,28 +1,33 @@
 <?php
 session_start();
 
-if ($_FILES['video']['error'] === UPLOAD_ERR_OK && isset($_SESSION['username'])) {
-    $uploadDir = 'uploads/';
-    $uploadFile = $uploadDir . basename($_FILES['video']['name']);
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "video";
 
-    if (move_uploaded_file($_FILES['video']['tmp_name'], $uploadFile)) {
-        require 'db_connection.php';
+$conn = new mysqli($servername, $username, $password, $dbname);
 
-        $title = basename($_FILES['video']['name']);
-        $filePath = $uploadFile;
-        $uploadedBy = $_SESSION['username'];
-
-        $duration = getVideoDuration($filePath);
-
-        $stmt = $pdo->prepare('INSERT INTO videos (title, file_path, uploaded_by, duration) VALUES (?, ?, ?, ?)');
-        $stmt->execute([$title, $filePath, $uploadedBy, $duration]);
-
-        var_dump($_FILES);
-    }
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 
-function getVideoDuration($file) {
-    $output = shell_exec('ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 ' . $file);
-    return gmdate('H:i:s', round($output));
+$title = $_POST['title'];
+$duration = $_POST['duration'];
+$uploaded_by = $_POST['uploaded_by'];
+
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES['video']['name']);
+
+move_uploaded_file($_FILES['video']['tmp_name'], $target_file);
+
+$sql = "INSERT INTO uploads (title, duration, uploaded_by) VALUES ('$title', $duration, '$uploaded_by')";
+if ($conn->query($sql) === TRUE) {
+    echo "Video uploaded successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
 }
+
+$conn->close();
 ?>
+
