@@ -16,6 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
+    // Prevent SQL Injection
+    $username = mysqli_real_escape_string($data, $username);
+    $password = mysqli_real_escape_string($data, $password);
+
     $sql = "SELECT * FROM acc WHERE username='" . $username . "' AND password='" . $password . "'";
     $result = mysqli_query($data, $sql);
 
@@ -34,15 +38,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("location: admin.php");
                 exit();
             } else {
-                echo '<script src = "assets/javascript/error-login.js"></script>';
+                
+                echo '<script>alert("Incorrect username or password.");</script>';
             }
         } else {
-            echo '<script src = "assets/javascript/error-login.js"></script>';
+          
+            echo '<script>alert("Incorrect username or password.");</script>';
         }
     } else {
-        echo '<script src = "assets/javascript/error-login.js"></script>';
+       
+        echo '<script>alert("Error executing query.");</script>';
     }
 }
+
 ?>
 
 <!DOCTYPE html>
