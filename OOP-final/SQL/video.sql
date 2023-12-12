@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 10, 2023 at 03:24 PM
+-- Generation Time: Dec 12, 2023 at 02:28 PM
 -- Server version: 8.2.0
 -- PHP Version: 8.2.13
 
@@ -35,7 +35,16 @@ CREATE TABLE IF NOT EXISTS `uploads` (
   `file_path` varchar(255) NOT NULL,
   `uploaded_by` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `uploads`
+--
+
+INSERT INTO `uploads` (`id`, `title`, `duration`, `file_path`, `uploaded_by`) VALUES
+(8, 'Hello Im Under The Water... - Trim.mp4', '00:00:09', '', '<?php echo isset($_SESSION[\"username\"]) ? $_SESSION[\"username\"] : \"\"; ?>'),
+(7, 'Hello Im Under The Water... - Trim.mp4', '00:00:09', '', '<?php echo isset($_SESSION[\"username\"]) ? $_SESSION[\"username\"] : \"\"; ?>'),
+(6, 'Hello Im Under The Water... - Trim.mp4', '00:00:09', '', '<?php echo isset($_SESSION[\"username\"]) ? $_SESSION[\"username\"] : \"\"; ?>');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
