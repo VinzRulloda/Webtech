@@ -1,7 +1,7 @@
 <?php
 require 'db_connection.php';
 
-$stmt = $pdo->query('SELECT * FROM videos');
+$stmt = $pdo->query('SELECT * FROM uploads');
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($rows as $row) {
@@ -9,7 +9,7 @@ foreach ($rows as $row) {
     echo '<td>' . $row['title'] . '</td>';
     echo '<td>' . $row['uploaded_by'] . '</td>';
     echo '<td>' . $row['duration'] . '</td>';
-    echo '<td><video width="320" height="240" controls><source src="' . $row['file_path'] . '" type="video/mp4"></video></td>';
+    echo '<td><video width="320" height="240" controls><source src="' . $row['title'] . '" type="video/mp4"></video></td>';
     echo '</tr>';
 }
 ?>

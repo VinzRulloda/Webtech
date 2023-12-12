@@ -12,12 +12,18 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+
+
+
 $title = $_POST['title'];
 $duration = $_POST['duration'];
 $uploaded_by = $_POST['uploaded_by'];
 
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES['video']['name']);
+$target_dir = $_SERVER['DOCUMENT_ROOT']."\\assets\\videos\\";
+$target_file = $target_dir . $title;
+
+
+
 
 move_uploaded_file($_FILES['video']['tmp_name'], $target_file);
 
