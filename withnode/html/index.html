@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/FINALEXP/assets/css/styles.css">
+    <title>OOP-Final</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">OOP</div>
+        <img src="../assets/images/slulog.png" id="slulog">
+
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li><a href="#" class="icon" onclick="toggleLoginForm()"><img src="assets\images\profile.png" alt="Login"></a></li>
+                </ul>
+            </nav>
+        </div>
+
+            <div class="login-form" id="loginForm">
+                <div class="slulogo">
+                    
+                </div>
+                <form>
+                    
+                    <div class="form-title">OOP</div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" placeholder="Email/username" required>
+                
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+
+                    <div class="remember-forgot">
+                        <input type="checkbox" id="rememberMe" name="rememberMe">
+                        <label for="rememberMe"> Remember me </label>
+                        <a href="#" class="forgot-password">Forgot Password?</a>
+                    </div>
+                
+                    <button type="button" class="close-btn" onclick="toggleLoginForm()">Close</button>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+</nav>
+    <main>
+        <div class="content-container">
+            <video controls>
+                <source src="assets/videos/sample.mp4" type="video/mp4">
+            </video>
+        </div>
+    </main>
+
+    <footer>
+        <img src="../assets/images/EDITED-FOOTER.png" id="slufooter">
+    </footer>
+
+    <script src = "assets/javascript/login.js"></script>
+</body>
+</html>

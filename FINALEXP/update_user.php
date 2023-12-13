@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $newUserType = $_POST["newUserType"];
 
     $stmt = $conn->prepare("UPDATE acc SET fname=?, lname=?, username=?, password=?, usertype=? WHERE id=?");
-    $stmt->bind_param("sssssi", $newFirstName, $newLastName, $newUsername, $newPassword, $newUserType, $userId);
+    $stmt->bind_param("ssssssi", $newFirstName, $newLastName, $newUsername, $newPassword, $newUserType, $userId);
     
     if ($stmt->execute()) {
         echo "User updated successfully";

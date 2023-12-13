@@ -33,13 +33,13 @@ function initializeContent() {
    // initializeContent();
 
     document.querySelector('.arrangement-btn').addEventListener('click', function () {
-        /*var arrangementContent = '<h2>Arrangement Content</h2>' +
+        var arrangementContent = '<h2>Arrangement Content</h2>' +
             '<div class="button-container">' +
             '<input type="file" id="videoInput" accept="video/*">' +
             '<button class="action-button" onclick="uploadVideo()">Add</button>' +
             '</div>' +
             '<table class="data-table" id="videoTable"></table>';
-        document.querySelector('.container-right').innerHTML = arrangementContent;*/
+        document.querySelector('.container-right').innerHTML = arrangementContent;
         window.location.href="http://localhost/manager.php#";
     });
     document.addEventListener('click', function (event) {
@@ -84,10 +84,6 @@ function uploadVideo() {
     
     var fileInput = document.getElementById('videoInput');
     var file = fileInput.files[0];
-    
-
-   
-
     if (file) {
         
         var video = document.createElement('video');
