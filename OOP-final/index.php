@@ -105,9 +105,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <main>
         <div class="content-container">
-            <video id="vidPlayer" autoplay controls mute>
-                <source src="assets/videos/sample.mp4" type="video/mp4">
-            </video>
+            <video id="vidPlayer" type="video/mp4" src="assets/videos/sample.mp4" allow="autoplay" id="music" loop autoplay muted></video>
         </div>
     </main>
 
