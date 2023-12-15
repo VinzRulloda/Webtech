@@ -1,9 +1,3 @@
-<?php
-
-require 'db_connection.php';
-session_start()
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +11,7 @@ session_start()
 <body>
     <nav>
         <div class="logo">OOP</div>
-        <img src="../assets/images/slulog.png" id="slulog">
+        <img src="assets/images/slulog.png" id="slulog">
 
         <div class="navbar">
             <nav>
@@ -49,27 +43,13 @@ session_start()
             <button class="action-button" onclick="uploadVideo()">Add</button>' 
             </div>
             <table class="data-table" id="videoTable">
-                <?php
-                $stmt = $pdo->query('SELECT * FROM uploads');
-                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                
-                foreach ($rows as $row) {
-                    
-                ?>
-                    <tr>
-                    <td><?php  echo $row['title'];  ?> </td>
-                    <td><?php  echo $row['uploaded_by'];  ?> </td>
-                    <td><?php  echo $row['duration'];  ?> </td>
-                    <td><video width="320" height="240" controls><source src="<?php echo  "assets/videos/".$row['title']?>" type="video/mp4"></video></td>
-
-                    </tr>
-                <?php }?>
+             
             </table>
         </div>
     </main>
 
     <footer>
-    <img src="../assets/images/EDITED-FOOTER.png" id="slufooter">
+    <img src="assets/images/EDITED-FOOTER.png" id="slufooter">
     
     </footer>
     <script src="assets/javascript/timestamp.js"></script>

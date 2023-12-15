@@ -7,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+app.use(express.static('assets'));
 app.use(express.static('views'));
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -125,7 +125,7 @@ app.post('/login', (req, res) => {
             res.redirect('/admin');
             // return res.send({ success: true, message: 'Login successful', usertype: row.usertype });
           } else if (row.usertype === 'user') {
-            res.redirect("http://localhost/webtech/withnode/manager.php")
+            res.redirect("http://localhost/webtech/FINAL/manager.php")
           } else {
             return res.status(401).send({ success: false, message: 'Unexpected user type.' });
           }
