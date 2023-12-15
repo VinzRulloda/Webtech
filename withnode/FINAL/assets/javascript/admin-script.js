@@ -56,6 +56,15 @@ function toggleAddUserForm() {
     }
 }
 
+function toggleEditUserForm() {
+    var addUserForm = document.getElementById("editUserForm");
+    if (addUserForm.style.display === "none" || addUserForm.style.display === "") {
+        addUserForm.style.display = "block";
+    } else {
+        addUserForm.style.display = "none";
+    }
+}
+
 function addUserToTable() {
     var firstName = document.getElementById("firstName").value;
     var lastName = document.getElementById("lastName").value;

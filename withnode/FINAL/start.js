@@ -45,12 +45,45 @@ app.get('/admin', (req, res) => {
   });
 });
 
+app.get('/logout', (req, res) => {
+  res.redirect("/");
+});
+
 // USERS
 app.post('/add_user' , (req, res) => {
   const {firstName, lastName, userType, username, password} = req.body
   const query = `INSERT INTO acc (fname, lname, username, password, usertype) VALUES (?, ?, ?, ?, ?)`;
   
   connection.query(query, [firstName, lastName, username, password, userType], (err, results) => {
+    if (err) {
+      console.log(err)
+      
+    }
+
+    res.redirect('/admin');
+  });
+});
+
+app.get('/user/:id', (req, res) => {
+  const query = `SELECT * FROM acc where id=`+req.params.id;
+  
+  connection.query(query, (err, results) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      return res.status(500).send({ success: false, message: 'Error executing query.' });
+    }
+
+    res.json(results[0])
+  
+  });
+});
+
+app.post('/edit_user' , (req, res) => {
+
+  const {firstName, lastName, userType, username, password, userid} = req.body
+  const query = `UPDATE acc SET fname = ?, lname = ?, username = ?, password = ?, usertype = ?  WHERE id = ?;`;
+  
+  connection.query(query, [firstName, lastName, username, password, userType, userid], (err, results) => {
     if (err) {
       console.log(err)
       

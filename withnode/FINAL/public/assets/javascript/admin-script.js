@@ -45,8 +45,6 @@ function updateUser() {
     xhr.send('action=updateUserById&id=' + id + '&firstName=' + firstName + '&lastName=' + lastName + '&username=' + username + '&password=' + password + '&userType=' + userType);
 }
 
-
-
 function toggleAddUserForm() {
     var addUserForm = document.getElementById("addUserForm");
     if (addUserForm.style.display === "none" || addUserForm.style.display === "") {
@@ -56,6 +54,29 @@ function toggleAddUserForm() {
     }
 }
 
+function toggleEditUserForm(id) {
+    
+    
+    fetch("/user/"+id)
+    .then((response) => response.json())
+    .then((data) => {
+        document.getElementById("editFirstName").value = data.fname;
+        document.getElementById("editLastName").value = data.lname;
+        document.getElementById("editUsername").value = data.username;
+        document.getElementById("editPassword").value = data.password;
+        document.getElementById("editUserType").value = data.usertype;
+        document.getElementById("userid").value = data.id;
+    });
+
+
+
+    var addUserForm = document.getElementById("editUserForm");
+    if (addUserForm.style.display === "none" || addUserForm.style.display === "") {
+        addUserForm.style.display = "block";
+    } else {
+        addUserForm.style.display = "none";
+    }
+}
 function addUserToTable() {
     var firstName = document.getElementById("firstName").value;
     var lastName = document.getElementById("lastName").value;

@@ -15,7 +15,7 @@
         <div class="navbar">
             <nav>
                 <ul>
-                    <li><a href="logout.php" class="icon"><img src="assets\images\logout.png" alt="logout"></a></li>
+                    <li><a href="/logout" class="icon"><img src="assets\images\logout.png" alt="logout"></a></li>
                 </ul>
             </nav>
         </div>
@@ -37,6 +37,7 @@
                       <th>Last Name</th>
                       <th>Username</th>
                       <th>User Type</th>
+                      <th>Action</th>
                     </tr>
                     <% for(var i=0; i<data.length; i++) {%>
                         <tr>
@@ -45,6 +46,7 @@
                             <td><%= data[i]['lname'] %></td>
                             <td><%= data[i]['username'] %></td>
                             <td><%= data[i]['usertype'] %></td>
+                            <td><button onclick="toggleEditUserForm(<%= data[i]["id"] %>)" class="btn">Edit</button></td>
                         </tr>
                      <% } %>
                   </table>
@@ -74,29 +76,29 @@
             <button type="submit">Submit</button>
             </form>
 
-            <form id="editUserForm" class="login-form" style="display:none;">
+            <form method="POST" action="/edit_user" id="editUserForm" class="login-form" style="display:none;">
             <div class="form-title">Edit User</div>
             <input type="hidden" id="editUserId" name="editUserId">
             <label for="editFirstName">First Name:</label>
-            <input type="text" id="editFirstName" name="editFirstName" required><br>
+            <input type="text" id="editFirstName" name="firstName" required><br>
 
             <label for="editLastName">Last Name:</label>
-            <input type="text" id="editLastName" name="editLastName" required><br>
+            <input type="text" id="editLastName" name="lastName" required><br>
 
             <label for="editUsername">Username:</label>
-            <input type="text" id="editUsername" name="editUsername" required><br>
+            <input type="text" id="editUsername" name="username" required><br>
 
             <label for="editPassword">Password:</label>
-            <input type="password" id="editPassword" name="editPassword" required><br>
+            <input type="password" id="editPassword" name="password" required><br>
 
             <label for="editUserType">User Type:</label>
-            <select id="editUserType" name="editUserType" required>
+            <select id="editUserType" name="userType" required>
                 <option value="user">User</option>
                 <option value="admin">Admin</option>
             </select>
             <br>
 
-            <button type="button" onclick="updateUser()">Update</button>
+            <button id="userid" name="userid" type="submit">Update</button>
             </form>
         </div>
     </main>
