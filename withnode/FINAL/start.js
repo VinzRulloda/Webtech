@@ -93,6 +93,20 @@ app.post('/edit_user' , (req, res) => {
   });
 });
 
+app.post('/delete_user' , (req, res) => {
+
+  const {userid} = req.body
+  const query = `DELETE from acc where id=?`;
+  
+  connection.query(query, [userid], (err, results) => {
+    if (err) {
+      console.log(err)
+    }
+
+    res.redirect('/admin');
+  });
+});
+
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
   

@@ -46,7 +46,10 @@
                             <td><%= data[i]['lname'] %></td>
                             <td><%= data[i]['username'] %></td>
                             <td><%= data[i]['usertype'] %></td>
-                            <td><button onclick="toggleEditUserForm(<%= data[i]["id"] %>)" class="btn">Edit</button></td>
+                            <td>
+                                <button onclick="toggleEditUserForm(<%= data[i]["id"] %>)" class="btn">Edit</button>
+                                <button onclick="toggleDeleteUserForm(<%= data[i]["id"] %>)" class="btn">Delete</button>
+                            </td>
                         </tr>
                      <% } %>
                   </table>
@@ -99,6 +102,15 @@
             <br>
 
             <button id="userid" name="userid" type="submit">Update</button>
+            </form>
+        </div>
+
+        <form method="POST" action="/delete_user" id="deleteUserForm" class="login-form" style="display:none;">
+            <div class="form-title">Delete User</div>
+            <p>You are deleteing user <span id="Name"></span>. Do you want to continue?</p>
+
+            <button>No</button>
+            <button id="deleteuserid" name="userid" type="submit">Yes</button>
             </form>
         </div>
     </main>

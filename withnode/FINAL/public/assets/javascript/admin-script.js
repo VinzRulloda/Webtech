@@ -55,8 +55,6 @@ function toggleAddUserForm() {
 }
 
 function toggleEditUserForm(id) {
-    
-    
     fetch("/user/"+id)
     .then((response) => response.json())
     .then((data) => {
@@ -68,13 +66,27 @@ function toggleEditUserForm(id) {
         document.getElementById("userid").value = data.id;
     });
 
-
-
-    var addUserForm = document.getElementById("editUserForm");
-    if (addUserForm.style.display === "none" || addUserForm.style.display === "") {
-        addUserForm.style.display = "block";
+    var editUserForm = document.getElementById("editUserForm");
+    if (editUserForm.style.display === "none" || editUserForm.style.display === "") {
+        editUserForm.style.display = "block";
     } else {
-        addUserForm.style.display = "none";
+        editUserForm.style.display = "none";
+    }
+}
+
+function toggleDeleteUserForm(id) {
+    fetch("/user/"+id)
+    .then((response) => response.json())
+    .then((data) => {
+        document.getElementById("Name").innerHTML = data.fname+" "+data.lname;
+        document.getElementById("deleteuserid").value = data.id;
+    });
+
+    var deleteUserForm = document.getElementById("deleteUserForm");
+    if (deleteUserForm.style.display === "none" || deleteUserForm.style.display === "") {
+        deleteUserForm.style.display = "block";
+    } else {
+        deleteUserForm.style.display = "none";
     }
 }
 function addUserToTable() {
