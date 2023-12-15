@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>OOP-Final</title>
-    <script src="assets/javascript/index-script.js"></script>
+    <!-- <script src="assets/javascript/index-script.js"></script> -->
     
 
 </head>
@@ -101,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <main>
         <div class="content-container">
-            <video id="vidPlayer" autoplay controls mute>
+            <video id="vidPlayer" autoplay mute>
                 <source src="assets/videos/sample.mp4" type="video/mp4">
             </video>
         </div>

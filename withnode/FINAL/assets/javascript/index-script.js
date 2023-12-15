@@ -39,34 +39,34 @@ function errorLogin() {
     })
 }
 
-function updateTimestamp() {
-    var video = document.getElementById('vidPlayer');
-    localStorage.setItem('videoTimestamp', video.currentTime);
-}
+// function updateTimestamp() {
+//     var video = document.getElementById('vidPlayer');
+//     localStorage.setItem('videoTimestamp', video.currentTime);
+// }
 
-function setVideoTimestamp() {
-    var video = document.getElementById('vidPlayer');
-    var timestamp = localStorage.getItem('videoTimestamp');
-    if (timestamp) {
-        video.currentTime = parseFloat(timestamp);
-    }
-}
+// function setVideoTimestamp() {
+//     var video = document.getElementById('vidPlayer');
+//     var timestamp = localStorage.getItem('videoTimestamp');
+//     if (timestamp) {
+//         video.currentTime = parseFloat(timestamp);
+//     }
+// }
 
-document.getElementById('vidPlayer').addEventListener('timeupdate', updateTimestamp);
-window.onload = setVideoTimestamp;
+// document.getElementById('vidPlayer').addEventListener('timeupdate', updateTimestamp);
+// window.onload = setVideoTimestamp;
 
-document.addEventListener("DOMContentLoaded", function () {
-    var video = document.getElementById("vidPlayer")
-    video.play();
+// document.addEventListener("DOMContentLoaded", function () {
+//     var video = document.getElementById("vidPlayer")
+//     video.play();
   
-    video.addEventListener("ended", function () {
-      video.src = "assets/videos/sample2.mp4"
+//     video.addEventListener("ended", function () {
+//       video.src = "assets/videos/sample2.mp4"
 
-      video.onload();
+//       video.onload();
   
-      video.play();
-    })
-  })
+//       video.play();
+//     })
+//   })
 
   document.addEventListener("DOMContentLoaded", function () {
     var rememberMeChecked = getCookie("rememberMe") === "true";

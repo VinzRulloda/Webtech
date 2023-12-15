@@ -39,7 +39,7 @@
 
             
                 <button type="button" class="close-btn" onclick="toggleLoginForm()">Close</button>
-                <button type="submit" id="login-button" onclick="goToPage()" value="Login">Login</button>
+                <button type="submit" id="login-button" onclick="" value="Login">Login</button>
             </form>
         </div>
 
@@ -47,7 +47,7 @@
 
     <main>
         <div class="content-container">
-            <video id="vidPlayer" autoplay controls mute>
+            <video id="vidPlayer" autoplay mute>
                 <source src="assets/videos/sample.mp4" type="video/mp4">
             </video>
         </div>
@@ -58,26 +58,26 @@
     </footer>
 </body>
 <script>
-    function goToPage() {
-        fetch('/gotologs')
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    if (data.usertype === 'admin') {
-                        window.location.href = './admin.html';
-                    } else if (data.usertype === 'user') {
-                        window.location.href = './manager.html';
-                    } else {
-                        alert('Unexpected user type: ' + data.usertype);
-                    }
-                } else {
-                    alert('Failed to go to the desired page');
-                }
-            })
-            .catch(error => {
-                console.error('Error during request to go to Logs:', error);
-            });
-    }
+    // function goToPage() {
+    //     fetch('/gotologs')
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             if (data.success) {
+    //                 if (data.usertype === 'admin') {
+    //                     window.location.href = './admin.html';
+    //                 } else if (data.usertype === 'user') {
+    //                     window.location.href = './manager.html';
+    //                 } else {
+    //                     alert('Unexpected user type: ' + data.usertype);
+    //                 }
+    //             } else {
+    //                 alert('Failed to go to the desired page');
+    //             }
+    //         })
+    //         .catch(error => {
+    //             console.error('Error during request to go to Logs:', error);
+    //         });
+    // }
 </script>
 
 </html>

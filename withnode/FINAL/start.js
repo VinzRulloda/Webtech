@@ -6,6 +6,7 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.static('views'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,6 +30,21 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
 
+app.get('/admin', (req, res) => {
+
+  const query = `SELECT * FROM acc`;
+  
+  connection.query(query, (err, results) => {
+    if (err) {
+      console.error('Error executing query:', err);
+      return res.status(500).send({ success: false, message: 'Error executing query.' });
+    }
+
+    res.render('admin', {data: results})
+  
+  });
+});
+
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
   
@@ -43,8 +59,11 @@ app.post('/login', (req, res) => {
       if (results.length > 0) {
         const row = results[0];
         if (row && row.usertype) {
-          if (row.usertype === 'user' || row.usertype === 'admin') {
-            return res.send({ success: true, message: 'Login successful', usertype: row.usertype });
+          if (row.usertype === 'admin') {
+            res.redirect('/admin');
+            // return res.send({ success: true, message: 'Login successful', usertype: row.usertype });
+          } else if (row.usertype === 'user') {
+            res.redirect("http://localhost/webtech/withnode/manager.php")
           } else {
             return res.status(401).send({ success: false, message: 'Unexpected user type.' });
           }
