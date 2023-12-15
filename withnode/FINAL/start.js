@@ -45,6 +45,21 @@ app.get('/admin', (req, res) => {
   });
 });
 
+// USERS
+app.post('/add_user' , (req, res) => {
+  const {firstName, lastName, userType, username, password} = req.body
+  const query = `INSERT INTO acc (fname, lname, username, password, usertype) VALUES (?, ?, ?, ?, ?)`;
+  
+  connection.query(query, [firstName, lastName, username, password, userType], (err, results) => {
+    if (err) {
+      console.log(err)
+      
+    }
+
+    res.redirect('/admin');
+  });
+});
+
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
   
