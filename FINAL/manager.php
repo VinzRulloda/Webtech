@@ -1,3 +1,7 @@
+<?php
+
+require 'db_connection.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,17 +36,54 @@
 
         <div class="m-container">
             <video controls id="vidPlayer">
-                <source src="assets/videos/sample.mp4" type="video/mp4">
+                <?php
+                    $stmt = $pdo->query('SELECT * FROM uploads');
+                    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach ($rows as $row) {
+                        echo "<source src='". $row['file_path'] . "' type='video/mp4'>";
+                    }
+                ?>
+                
             </video>
         </div>
 
         <div class="container-right">
             <h2>Arrangement Content</h2> 
-            <div class="button-container"> 
-            <input type="file" id="videoInput" accept="video/*">' 
-            <button class="action-button" onclick="uploadVideo()">Add</button>' 
-            </div>
+            
+            <form action="upload.php" method="post" enctype="multipart/form-data">
+                    <label>Video Title:</label>
+                    <input type="text" name="title" id="videotitle">
+                <div class="button-container"> 
+                    
+                    <input type="file" name="fileToUpload" id="videoInput">
+                    <button name="submit" type="submit">Add</button>
+                </div>
+            </form>
             <table class="data-table" id="videoTable">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Uploaded By</th>
+                <th>Duration</th>
+                <th>File path</th>
+                <th>Action</th>
+            </tr>
+            <?php
+                $stmt = $pdo->query('SELECT * FROM uploads');
+                $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($rows as $row) {
+                    echo '<tr>';
+                    echo '<td>' . $row['id'] . '</td>';
+                    echo '<td>' . $row['title'] . '</td>';
+                    echo '<td>' . $row['uploaded_by'] . '</td>';
+                    echo '<td>' . $row['duration'] . '</td>';
+                    echo '<td>' . $row['file_path'] . '</td>';
+                    echo '<td><button>Move</button></td>';
+                    echo '</tr>';
+                }
+            ?>
              
             </table>
         </div>
