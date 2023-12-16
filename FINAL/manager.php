@@ -35,17 +35,11 @@ require 'db_connection.php';
         </div>
 
         <div class="m-container">
-            <video controls id="vidPlayer">
-                <?php
-                    $stmt = $pdo->query('SELECT * FROM uploads');
-                    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        <video type="video/mp4" id="vidPlayer" allow="autoplay" id="music" autoplay muted>
+        </video>
 
-                    foreach ($rows as $row) {
-                        echo "<source src='". $row['file_path'] . "' type='video/mp4'>";
-                    }
-                ?>
                 
-            </video>
+              
         </div>
 
         <div class="container-right">
@@ -53,10 +47,10 @@ require 'db_connection.php';
             
             <form action="upload.php" method="post" enctype="multipart/form-data">
                     <label>Video Title:</label>
-                    <input type="text" name="title" id="videotitle">
+                    <input type="text" name="title" id="videotitle" required>
                 <div class="button-container"> 
                     
-                    <input type="file" name="fileToUpload" id="videoInput">
+                    <input type="file" name="fileToUpload" id="videoInput" required>
                     <button name="submit" type="submit">Add</button>
                 </div>
             </form>
@@ -80,19 +74,30 @@ require 'db_connection.php';
                     echo '<td>' . $row['uploaded_by'] . '</td>';
                     echo '<td>' . $row['duration'] . '</td>';
                     echo '<td>' . $row['file_path'] . '</td>';
-                    echo '<td><button>Move</button></td>';
+                    echo '<td><button onclick="remove_video('.$row['id'].')">Remove</button></td>';
                     echo '</tr>';
                 }
             ?>
              
             </table>
+
+
+            <form method="POST" action="remove_video.php" id="deleteVideo" style="display:none;">
+            <div class="form-title">Delete Video</div>
+            <p>Do you want to continue?</p>
+
+            <button type="button" class="close-btn" onclick="toggleDeleteVideo()">No</button>
+            <button id="videoid" name="id" type="submit">Yes</button>
+            </form>
         </div>
     </main>
 
+
+
+
     <footer>
     <img src="assets/images/EDITED-FOOTER.png" id="slufooter">
-    
+   
     </footer>
-    <script src="assets/javascript/timestamp.js"></script>
 </body>
 </html>
