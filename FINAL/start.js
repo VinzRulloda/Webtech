@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const path = require('path');
 
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -10,6 +11,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('assets'));
 app.use(express.static('views'));
 app.use(bodyParser.urlencoded({ extended: true }));
+
 
 const connection = mysql.createConnection({
   host: "localhost",
@@ -27,7 +29,7 @@ connection.connect((err) => {
 });
 
 app.get('/', (req, res) => {
-    res.render('index')
+  res.render('index')
 });
 
 app.get('/admin', (req, res) => {
@@ -125,7 +127,7 @@ app.post('/login', (req, res) => {
             res.redirect('/admin');
             // return res.send({ success: true, message: 'Login successful', usertype: row.usertype });
           } else if (row.usertype === 'user') {
-            res.redirect("http://localhost/webtech/FINAL/manager.php")
+            res.redirect(`http://${req.hostname}/webtech/FINAL/manager.php`)
           } else {
             return res.status(401).send({ success: false, message: 'Unexpected user type.' });
           }
