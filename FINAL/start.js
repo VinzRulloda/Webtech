@@ -127,7 +127,7 @@ app.post('/login', (req, res) => {
             res.redirect('/admin');
             // return res.send({ success: true, message: 'Login successful', usertype: row.usertype });
           } else if (row.usertype === 'user') {
-            res.redirect(`http://${req.hostname}/webtech/FINAL/manager.php`)
+            res.redirect(`http://${req.hostname}/manager.php`)
           } else {
             return res.status(401).send({ success: false, message: 'Unexpected user type.' });
           }
