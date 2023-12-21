@@ -12,11 +12,21 @@ function setVideoTimestamp() {
 }   
 function toggleDeleteVideo(id) {
     var deleteVideoForm = document.getElementById("deleteVideo");
-    document.getElementById("videoid").value = id
-    if (deleteVideoForm.style.display === "none" || deleteVideoForm.style.display === "") {
-        deleteVideoForm.style.display = "block";
+    deleteVideoForm.classList.toggle("show");
+
+    deleteVideoForm.style.display = deleteVideoForm.classList.contains("show") ? "block" : "none";
+
+    if (deleteVideoForm.classList.contains("show")) {
+        deleteVideoForm.style.left = "40%";
+        deleteVideoForm.style.transform = "translateX(-40%)";
+
+        deleteVideoForm.style.top = "40%";
+        deleteVideoForm.style.transform = "translateY(-40%)";
+
     } else {
-        deleteVideoForm.style.display = "none";
+        deleteVideoForm.style.top = null;
+        deleteVideoForm.style.left = null;
+        deleteVideoForm.style.transform = null;
     }
 }
 
@@ -65,5 +75,7 @@ function remove_video(id) {
         headers: {
             "Content-type": "application/json"
         }
+        }).then(() => {
+            window.location.reload();
         });
 }
