@@ -41,10 +41,10 @@ require 'db_connection.php';
 
                 <div class="col">
                     <h2>Arrangement Content</h2> 
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addVideoModal">
-                        Add
+                    <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addVideoModal">
+                        ADD
                     </button>
-                    <table class="table data-table" id="videoTable">
+                    <table class="table table-responsive" id="videoTable">
                         <tr>
                             <th>ID</th>
                             <th>Title</th>
@@ -98,6 +98,10 @@ require 'db_connection.php';
                     </div>
                     <div class="input-group mb-3"> 
                         <input class="form-control" type="file" name="files[]" id="videoInput" required multiple>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Schedule:</span>
+                        <input class="form-control" type="datetime-local" name="title" id="videotitle" required>
                     </div>
                 </form>     
             </div>
