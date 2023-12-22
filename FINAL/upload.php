@@ -5,7 +5,7 @@ function upload($file, $tmp_name) {
   $servername = "localhost";
   $username = "root";
   $password = "";
-  $dbname = "video";
+  $dbname = "oop";
 
   $conn = new mysqli($servername, $username, $password, $dbname);
 

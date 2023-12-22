@@ -1,5 +1,5 @@
 <?php
-$dsn = 'mysql:host=localhost;dbname=video';
+$dsn = 'mysql:host=localhost;dbname=oop';
 $username = 'root';
 $password = '';
 

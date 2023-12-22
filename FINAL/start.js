@@ -17,7 +17,7 @@ const connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "users"
+  database: "oop"
 });
 
 connection.connect((err) => {
@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
 
 app.get('/admin', (req, res) => {
 
-  const query = `SELECT * FROM acc`;
+  const query = `SELECT * FROM users`;
   
   connection.query(query, (err, results) => {
     if (err) {
@@ -54,7 +54,7 @@ app.get('/logout', (req, res) => {
 // USERS
 app.post('/add_user' , (req, res) => {
   const {firstName, lastName, userType, username, password} = req.body
-  const query = `INSERT INTO acc (fname, lname, username, password, usertype) VALUES (?, ?, ?, ?, ?)`;
+  const query = `INSERT INTO users (fname, lname, username, password, usertype) VALUES (?, ?, ?, ?, ?)`;
   
   connection.query(query, [firstName, lastName, username, password, userType], (err, results) => {
     if (err) {
@@ -67,7 +67,7 @@ app.post('/add_user' , (req, res) => {
 });
 
 app.get('/user/:id', (req, res) => {
-  const query = `SELECT * FROM acc where id=`+req.params.id;
+  const query = `SELECT * FROM users where id=`+req.params.id;
   
   connection.query(query, (err, results) => {
     if (err) {
@@ -83,7 +83,7 @@ app.get('/user/:id', (req, res) => {
 app.post('/edit_user' , (req, res) => {
 
   const {firstName, lastName, userType, username, password, userid} = req.body
-  const query = `UPDATE acc SET fname = ?, lname = ?, username = ?, password = ?, usertype = ?  WHERE id = ?;`;
+  const query = `UPDATE users SET fname = ?, lname = ?, username = ?, password = ?, usertype = ?  WHERE id = ?;`;
   
   connection.query(query, [firstName, lastName, username, password, userType, userid], (err, results) => {
     if (err) {
@@ -98,7 +98,7 @@ app.post('/edit_user' , (req, res) => {
 app.post('/delete_user' , (req, res) => {
 
   const {userid} = req.body
-  const query = `DELETE from acc where id=?`;
+  const query = `DELETE from users where id=?`;
   
   connection.query(query, [userid], (err, results) => {
     if (err) {
@@ -112,7 +112,7 @@ app.post('/delete_user' , (req, res) => {
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
   
-    const query = `SELECT * FROM acc WHERE username='${username}' AND password='${password}'`;
+    const query = `SELECT * FROM users WHERE username='${username}' AND password='${password}'`;
   
     connection.query(query, (err, results) => {
       if (err) {

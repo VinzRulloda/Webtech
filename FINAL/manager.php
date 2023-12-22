@@ -74,27 +74,17 @@ require 'db_connection.php';
                     echo '<td>' . $row['uploaded_by'] . '</td>';
                     echo '<td>' . $row['duration'] . '</td>';
                     echo '<td>' . $row['file_path'] . '</td>';
-                    echo '<td><button onclick="remove_video('.$row['id'].')">Remove</button></td>';
+                    echo '<td>
+                            <button onclick="remove_video('.$row['id'].')">Remove</button>
+                          </td>';
                     echo '</tr>';
                 }
             ?>
              
             </table>
-
-
-            <form method="POST" action="remove_video.php" id="deleteVideo" style="display:none;">
-            <div class="form-title">Delete Video</div>
-            <p>Do you want to continue?</p>
-
-            <button type="button" class="close-btn" onclick="toggleDeleteVideo()">No</button>
-            <button id="videoid" name="id" type="submit">Yes</button>
-            </form>
         </div>
     </main>
-
-
-
-
+    
     <footer>
     <img src="assets/images/EDITED-FOOTER.png" id="slufooter">
    

@@ -79,3 +79,17 @@ function remove_video(id) {
             window.location.reload();
         });
 }
+
+function schedule_video(id) {
+    fetch("schedule_video.php", {
+        method: "POST",
+        body: JSON.stringify({
+            videoid: id,
+        }),
+        headers: {
+            "Content-type": "application/json"
+        }
+        }).then(() => {
+            window.location.reload();
+        });
+}
