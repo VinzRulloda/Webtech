@@ -51,38 +51,23 @@ function setVideoTimestamp() {
         video.currentTime = parseFloat(timestamp);
     }
 }
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById('vidPlayer').addEventListener('timeupdate', updateTimestamp);
-    window.onload = setVideoTimestamp;
 
-    var video = document.getElementById("vidPlayer")
-    video.play();
-  
-    video.addEventListener("ended", function () {
-      video.src = "assets/videos/sample2.mp4"
-
-      video.onload();
-  
-      video.play();
-    })
-  })
-
-document.addEventListener("DOMContentLoaded", function () {
+// document.addEventListener("DOMContentLoaded", function () {
     
-    var rememberMeChecked = getCookie("rememberMe") === "true";
+//     var rememberMeChecked = getCookie("rememberMe") === "true";
 
-    if (rememberMeChecked) {
-        var storedUsername = getCookie("username");
-        var storedPassword = getCookie("password");
+//     if (rememberMeChecked) {
+//         var storedUsername = getCookie("username");
+//         var storedPassword = getCookie("password");
 
-        if (storedUsername && storedPassword) {
-            document.getElementById('username').value = storedUsername;
-            document.getElementById('password').value = storedPassword;
-        }
-    }
+//         if (storedUsername && storedPassword) {
+//             document.getElementById('username').value = storedUsername;
+//             document.getElementById('password').value = storedPassword;
+//         }
+//     }
 
-    document.getElementById('rememberMe').checked = rememberMeChecked;
-});
+//     document.getElementById('rememberMe').checked = rememberMeChecked;
+// });
 
 function setCookie(name, value, days) {
     var expires = "";
@@ -112,3 +97,46 @@ function getCookie(name) {
 function showForgotPassword() {
     alert("Contact your administrator");
 }
+
+function toggleMute() {
+    var video = document.querySelector('video');
+    if (video.muted) {
+      video.muted = false;
+      // Change the icon to unmute
+      document.querySelector('#muteButton i').className = 'fa-solid fa-volume-high';
+    } else {
+      video.muted = true;
+      // Change the icon to mute
+      document.querySelector('#muteButton i').className = 'fa-solid fa-volume-xmark';
+
+    }
+}
+
+const form = document.getElementById('login');
+
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+  const formData = new FormData(form);
+  const searchParams = new URLSearchParams(formData);
+  try {
+    const res = await fetch(
+      '/login',
+      {
+        method: 'POST',
+        body: searchParams,
+        cache: "no-cache",
+      },
+    );
+
+    const {success, message, endpoint} = await res.json();
+    
+    if (success) {
+        window.location.replace(endpoint);
+    } else {
+        alert(message);
+    }
+    
+  } catch (err) {
+    alert(err.message);
+  }
+});
