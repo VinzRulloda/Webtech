@@ -7,7 +7,7 @@ const cors = require('cors');
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const PORT = process.env.PORT || 3000;
-const manager_endpoint = `/oop/FINAL/manager.php`
+const manager_endpoint = "/oop/FINAL/manager.php"
 
 
 const app = express();
@@ -270,9 +270,9 @@ app.post('/add_user' , (req, res) => {
 });
 
 app.get('/user/:id', (req, res) => {
-  const query = `SELECT * FROM users where id=`+req.params.id;
+  const query = "SELECT * FROM users where id=?";
   
-  connection.query(query, (err, results) => {
+  connection.query(query,[req.params.id], (err, results) => {
     if (err) {
       console.error('Error executing query:', err);
       return res.status(500).send({ success: false, message: 'Error executing query.' });
@@ -286,9 +286,9 @@ app.get('/user/:id', (req, res) => {
 app.post('/edit_user' , (req, res) => {
 
   const {firstName, lastName, userType, username, password, userid} = req.body
-  const query = `UPDATE users SET fname = ?, lname = ?, username = ?, password = ?, usertype = ?  WHERE id = ?;`;
+  const query = `UPDATE users SET fname = ?, lname = ?, username = ?, usertype = ?  WHERE id = ?;`;
   
-  connection.query(query, [firstName, lastName, username, password, userType, userid], (err, results) => {
+  connection.query(query, [firstName, lastName, username, userType, userid], (err, results) => {
     if (err) {
       console.log(err)
       
@@ -301,7 +301,7 @@ app.post('/edit_user' , (req, res) => {
 app.post('/delete_user' , (req, res) => {
 
   const {userid} = req.body
-  const query = `DELETE from users where id=?`;
+  const query = "DELETE from users where id=?";
   
   connection.query(query, [userid], (err, results) => {
     if (err) {

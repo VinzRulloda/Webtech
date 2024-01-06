@@ -39,12 +39,10 @@ function upload($file, $tmp_name) {
     if (!move_uploaded_file($tmp_name, $target_file)) {
       echo "<script>alert('Sorry, there was an error uploading your file.')</script>";
     } else {
-      $sql = "INSERT INTO uploads (title,file_path, duration, uploaded_by) VALUES ('$title','$target_file', $duration, '$uploaded_by')";
-          if ($conn->query($sql) !== TRUE) {
-              echo "<script> alert('Error: $sql: $conn->error')</script>";
-          } 
-      
-
+      // $sql = "INSERT INTO uploads (title,file_path, duration, uploaded_by) VALUES ('$title','$target_file', $duration, '$uploaded_by')";
+      $stmt = $conn->prepare("INSERT INTO uploads (title,file_path, duration, uploaded_by) VALUES (?,?, ?, ?)");
+      $stmt->bind_param("ssss", $title, $target_file, $duration, $uploaded_by);
+      $stmt->execute();
     }
   } 
 

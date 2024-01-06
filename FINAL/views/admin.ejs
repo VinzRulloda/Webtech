@@ -53,6 +53,7 @@
                             <td><%= data[i]['usertype'] %></td>
                             <td>
                                 <button class="btn btn-primary" onclick="toggleEditUserForm(<%= data[i]["id"] %>)" class="btn">Edit</button>
+                                <button class="btn btn-primary" onclick="toggleDisableUser(<%= data[i]["id"] %>)" class="btn">Disable</button>
                                 <button class="btn btn-danger" onclick="toggleDeleteUserForm(<%= data[i]["id"] %>)" class="btn">Delete</button>
                             </td>
                         </tr>
@@ -95,9 +96,6 @@
 
             <label for="editUsername">Username:</label>
             <input type="text" id="editUsername" name="username" required><br>
-
-            <label for="editPassword">Password:</label>
-            <input type="password" id="editPassword" name="password" required><br>
 
             <label for="editUserType">User Type:</label>
             <select id="editUserType" name="userType" required>
