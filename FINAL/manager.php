@@ -1,5 +1,6 @@
 <?php
     require 'db_connection.php';
+    require 'session.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +22,7 @@
                 <li><a href="#" class="icon arrangement-btn"><img src="assets\images\arrangement.png" alt="Arrangement"></a></li>
                 <li><a href="#" class="icon history-btn"><img src="assets\images\history.png" alt="History"></a></li>
                 <li><a href="#" class="icon live-btn"><img src="assets\images\live.png" alt="Live"></a></li>
-                <li><a href="http://localhost:3000/logout" class="icon"><img src="assets\images\logout.png" alt="logout"></a></li>
+                <li><a href="logout.php" class="icon"><img src="assets\images\logout.png" alt="logout"></a></li>
                 </ul>
             </nav>
         </div>
