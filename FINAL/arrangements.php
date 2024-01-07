@@ -19,9 +19,9 @@
         <div class="navbar">
             <nav>
                 <ul>
-                <li><a href="arrangements.php" class="icon arrangement-btn"><img src="assets\images\arrangement.png" alt="Arrangement"></a></li>
+                <li><a href="#" class="icon arrangement-btn"><img src="assets\images\arrangement.png" alt="Arrangement"></a></li>
                 <li><a href="#" class="icon history-btn"><img src="assets\images\history.png" alt="History"></a></li>
-                <li><a href="live.php" class="icon live-btn"><img src="assets\images\live.png" alt="Live"></a></li>
+                <li><a href="#" class="icon live-btn"><img src="assets\images\live.png" alt="Live"></a></li>
                 <li><a href="logout.php" class="icon"><img src="assets\images\logout.png" alt="logout"></a></li>
                 </ul>
             </nav>
@@ -35,16 +35,9 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <video type="video/mp4" id="videoPlayer" allow="autoplay" autoplay controls>
-                        <source id="videoSource">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-
-                <div class="col">
                     <h2>Arrangement Content</h2> 
-                    <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addVideoModal">
-                        ADD
+                    <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addScheduleModal">
+                        NEW
                     </button>
                     <table class="table table-responsive table-hover " id="videoTable">
                         <thead class="thead-dark">
@@ -84,34 +77,35 @@
 
      
     <!-- Modal -->
-    <div class="modal fade" id="addVideoModal" tabindex="-1" role="dialog" aria-labelledby="addVideoModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addScheduleModal" tabindex="-1" role="dialog" aria-labelledby="addScheduleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addVideoModalLabel">Add Video</h5>
+                <h5 class="modal-title" id="addScheduleModalLabel">Add Schedule</h5>
                 <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form id="uploadVideoForm" action="upload.php" method="post" enctype="multipart/form-data">
+                <form id="addScheduleForm" action="schedule.php" method="post">
     
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Title:</span>
-                        <input class="form-control" type="text" name="title" id="videotitle" required>
-                    </div>
-                    <div class="input-group mb-3"> 
-                        <input class="form-control" type="file" name="files[]" id="videoInput" required multiple>
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Schedule Name:</span>
+                        <input class="form-control" type="text" name="schedule_name" id="schedule_name" required>
                     </div>
                     <div class="input-group mb-3">
-                        <span class="input-group-text" id="inputGroup-sizing-sm">Schedule:</span>
-                        <input class="form-control" type="datetime-local" name="title" id="videotitle" required>
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Start Time:</span>
+                        <input class="form-control" type="time" name="start_time" id="start_time" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">End Time:</span>
+                        <input class="form-control" type="time" name="end_time" id="end_time" required>
                     </div>
                 </form>     
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button form="uploadVideoForm" type="submit" class="btn btn-primary">Save changes</button>
+                <button form="addScheduleForm" type="submit" class="btn btn-success">ADD</button>
             </div>
             </div>
         </div>
