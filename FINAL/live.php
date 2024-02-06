@@ -7,22 +7,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/styles.css">
+    <link rel="stylesheet" href="public/css/bootstrap.min.css">
     <title>OOP-Final Manager</title>
 </head>
 <body>
     <nav>
         <div class="logo">OOP</div>
-        <img src="assets/images/slulog.png" id="slulog">
+        <img src="public/images/slulog.png" id="slulog">
 
         <div class="navbar">
             <nav>
                 <ul>
-                <li><a href="#" class="icon arrangement-btn"><img src="assets\images\arrangement.png" alt="Arrangement"></a></li>
-                <li><a href="#" class="icon history-btn"><img src="assets\images\history.png" alt="History"></a></li>
-                <li><a href="#" class="icon live-btn"><img src="assets\images\live.png" alt="Live"></a></li>
-                <li><a href="logout.php" class="icon"><img src="assets\images\logout.png" alt="logout"></a></li>
+                <li><a href="manager.php" class="icon arrangement-btn"><img src="public/images/arrangement.png" alt="Arrangement"></a></li>
+                <li><a href="history.php" class="icon history-btn"><img src="public/images/history.png" alt="History"></a></li>
+                <li><a href="live.php" class="icon live-btn"><img src="public/images/live.png" alt="Live"></a></li>
+                <li><a hrefref="logout.php" class="icon"><img src="public\images\logout.png" alt="logout"></a></li>
                 </ul>
             </nav>
         </div>
@@ -35,9 +35,9 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <button class="btn btn-success" id="startStream">Start Stream</button>
-                    <button class="btn btn-danger" id="stopStream">Stop Stream</button>
-                    <video id="videoElement" autoplay></video>
+                    <!-- <button class="btn btn-success" id="startStream">Start Stream</button> -->
+                    <!-- <button class="btn btn-danger" id="stopStream">Stop Stream</button> -->
+                    <video autoplay muted id="streamerVideo"></video>
                 </div>
                 </div>
             </div>
@@ -83,9 +83,9 @@
 
 </body>
 <footer>
-    <img src="assets/images/EDITED-FOOTER.png" id="slufooter">
-    <script src="assets/javascript/socket.io.min.js"></script>
-    <script src="assets/javascript/live-stream.js"></script>
-    <script src="assets/javascript/bootstrap.min.js"></script>
+    <img src="public/images/EDITED-FOOTER.png" id="slufooter">
+    <script src="public/javascript/socket.io.min.js"></script>
+    <script src="public/javascript/live-stream.js"></script>
+    <script src="public/javascript/bootstrap.min.js"></script>
 </footer>
 </html>

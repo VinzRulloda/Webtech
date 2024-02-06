@@ -1,18 +1,15 @@
 <?php
 require 'db_connection.php';
+session_start();
 
 
-function upload($file, $tmp_name) {
-  $target_dir = "assets/videos/";
+function upload($conn, $file, $tmp_name) {
+
+  $target_dir = "public/videos/";
 
   $target_file = $target_dir . $file;
   $uploadOk = 1;
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-
-  $title = $_POST['title'];
-  $duration = "60";
-  $uploaded_by = "Test";
-
 
   // Check if file already exists
   if (file_exists($target_file)) {
@@ -31,8 +28,8 @@ function upload($file, $tmp_name) {
       echo "<script>alert('Sorry, there was an error uploading your file.')</script>";
     } else {
       // $sql = "INSERT INTO uploads (title,file_path, duration, uploaded_by) VALUES ('$title','$target_file', $duration, '$uploaded_by')";
-      $stmt = $conn->prepare("INSERT INTO uploads (title,file_path, duration, uploaded_by) VALUES (?,?, ?, ?)");
-      $stmt->bind_param("ssss", $title, $target_file, $duration, $uploaded_by);
+      $stmt = $conn->prepare("INSERT INTO uploads (title,file_path, schedule_id, user_id) VALUES (?,?,?,?)");
+      $stmt->bind_param("ssii", $_POST['title'], $target_file, $_POST['schedule_id'], $_SESSION['uid']);
       $stmt->execute();
     }
   } 
@@ -43,7 +40,7 @@ $tmp_names = $_FILES['files']['tmp_name'];
 $filecount = count($names);
 
 for ($x = 0; $x < $filecount; $x++) {
-  upload($names[$x], $tmp_names[$x]);
+  upload($conn, $names[$x], $tmp_names[$x]);
 }
 
 echo "<script>window.location.href = 'manager.php';</script>";

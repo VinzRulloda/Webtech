@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>OOP-Final Admin</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">OOP</div>
+        <img src="images/slulog.png" id="slulog">
+
+        <div class="navbar">
+            <nav>
+                <ul>
+                    <li><a href="/logout" class="icon"><img src="images\logout.png" alt="logout"></a></li>
+                </ul>
+            </nav>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="row">
+                <h2>User Table</h2>
+            </div>
+            <div class="row">
+                <div class="col text-right">
+                    <button class="btn btn-primary float-end" id="addbutton" onclick="toggleAddUserForm()">Add User</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <table class="table table-responsive table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Username</th>
+                        <th>User Type</th>
+                        <th>Action</th>
+                        </tr>
+                    </thead>
+                    <% for(var i=0; i<data.length; i++) {%>
+                        <tr>
+                            <td><%= data[i]['id'] %></td>
+                            <td><%= data[i]['fname'] %></td>
+                            <td><%= data[i]['lname'] %></td>
+                            <td><%= data[i]['username'] %></td>
+                            <td><%= data[i]['usertype'] %></td>
+                            <td>
+                                <button class="btn btn-primary" onclick="toggleEditUserForm(<%= data[i]["id"] %>)" class="btn">Edit</button>
+                                <button class="btn btn-primary" onclick="toggleChangePasswordForm(<%= data[i]["id"] %>)" class="btn">Change Password</button>
+                                <button onclick="toggleDisableUser(<%= data[i]["id"] %>)"
+                                <% if(data[i]['status'] == 1){ %>
+                                    class="btn btn-danger">Disable
+                                <% } else{ %>  
+                                    class="btn btn-success">Enable
+                                <% } %>
+                                </button>
+                                <button class="btn btn-danger" onclick="toggleDeleteUserForm(<%= data[i]["id"] %>)" class="btn">Delete</button>
+                            </td>
+                        </tr>
+                     <% } %>
+                  </table>
+            </div>
+            
+            <form id="addUserForm" method="POST" action="/add_user" class="login-form" style="display:none;">
+            <div class="form-title">OOP</div>
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" required><br>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" required><br>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br>
+
+            <label for="userType">User Type:</label>
+            <select id="userType" name="userType" required>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+            <br>
+            <button type="button" class="close-btn" onclick="toggleAddUserForm()">Close</button>
+            <button type="submit">Submit</button>
+            </form>
+
+            <form method="POST" action="/edit_user" id="editUserForm" class="login-form" style="display:none;">
+            <div class="form-title">Edit User</div>
+            <input type="hidden" id="editUserId" name="editUserId">
+            <label for="editFirstName">First Name:</label>
+            <input type="text" id="editFirstName" name="firstName" required><br>
+
+            <label for="editLastName">Last Name:</label>
+            <input type="text" id="editLastName" name="lastName" required><br>
+
+            <label for="editUsername">Username:</label>
+            <input type="text" id="editUsername" name="username" required><br>
+
+            <label for="editUserType">User Type:</label>
+            <select id="editUserType" name="userType" required>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+            <br>
+            <button type="button" class="close-btn" onclick="toggleEditUserForm()">Close</button>
+            <button id="userid" name="userid" type="submit">Update</button>
+            </form>
+
+            <form method="POST" action="/change_password" id="changePasswordForm" class="login-form" style="display:none;">
+                <div class="form-title">Change Password</div>
+
+                <input type="password" placeholder="Password" id="new_password" name="new_password" required>
+                <input type="password" placeholder="Confirm Password" id="confirm_password" required>
+               
+                <button type="button" class="close-btn" onclick="toggleChangePasswordForm()">Cancel</button>
+                <button id="changeuserid" name="changeuserid" type="submit">Confirm</button>
+                </form>
+
+            <form method="POST" action="/delete_user" id="deleteUserForm" class="login-form" style="display:none;">
+                <div class="form-title">Delete User</div>
+                <p>You are deleteing user <span id="Name"></span>. Do you want to continue?</p>
+    
+                <button type="button" class="close-btn" onclick="toggleDeleteUserForm()">No</button>
+                <button id="deleteuserid" name="userid" type="submit">Yes</button>
+            </form>
+
+            <form method="POST" action="/toggle_user_status" id="toggleDisableForm" class="login-form" style="display:none;">
+                <div class="form-title">Toggle User Status</div>
+                <p>You are <span id="action"></span> user <span id="Name"></span>. Do you want to continue?</p>
+                <input type="hidden" id="status" name="status">
+                <button type="button" class="close-btn" onclick="toggleDisableUser()">No</button>
+                <button id="disableuserid" name="userid" type="submit">Yes</button>
+            </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+    <img src="images/EDITED-FOOTER.png" id="slufooter">
+    <script src="javascript/admin-script.js"></script>
+    </footer>
+</body>
+</html>
