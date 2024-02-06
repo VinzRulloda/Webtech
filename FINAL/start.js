@@ -153,7 +153,7 @@ app.post('/login', (req, res) => {
             return res.send({
                success: true, 
                message: 'Login successful', 
-               endpoint: `http://${req.hostname}${manager_endpoint}`
+               endpoint: `http://${req.hostname}${manager_endpoint}?uid=${req.session.uid}`
             });
         } else {
             return res.send({ 
