@@ -63,12 +63,12 @@ li {
     display: inline-block;
 }
 
-a {
+/* a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
     font-size: 14px;
-}
+} */
 
 .icon img {
     width: 65px;
@@ -351,3 +351,22 @@ footer {
    width: auto;
 
 }
+
+.video-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+.video-container video {
+    width: 100%;
+}
+  
+  .mute-button {
+    position: absolute;
+    top: 10px; /* Adjust top position */
+    right: 10px; /* Adjust right position */
+    z-index: 1; /* Ensure the button is above the video */
+    background: none;
+    border: none;
+    cursor: pointer;
+  }

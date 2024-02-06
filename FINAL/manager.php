@@ -1,6 +1,5 @@
 <?php
-
-require 'db_connection.php';
+    require 'db_connection.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +21,7 @@ require 'db_connection.php';
                 <li><a href="#" class="icon arrangement-btn"><img src="assets\images\arrangement.png" alt="Arrangement"></a></li>
                 <li><a href="#" class="icon history-btn"><img src="assets\images\history.png" alt="History"></a></li>
                 <li><a href="#" class="icon live-btn"><img src="assets\images\live.png" alt="Live"></a></li>
-                <li><a href="logout.php" class="icon"><img src="assets\images\logout.png" alt="logout"></a></li>
+                <li><a href="http://localhost:3000/logout" class="icon"><img src="assets\images\logout.png" alt="logout"></a></li>
                 </ul>
             </nav>
         </div>
@@ -35,7 +34,9 @@ require 'db_connection.php';
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <video type="video/mp4" id="vidPlayer" allow="autoplay" id="music" autoplay muted>
+                    <video type="video/mp4" id="videoPlayer" allow="autoplay" autoplay controls>
+                        <source id="videoSource">
+                        Your browser does not support the video tag.
                     </video>
                 </div>
 
@@ -44,15 +45,17 @@ require 'db_connection.php';
                     <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#addVideoModal">
                         ADD
                     </button>
-                    <table class="table table-responsive" id="videoTable">
-                        <tr>
-                            <th>ID</th>
-                            <th>Title</th>
-                            <th>Uploaded By</th>
-                            <th>Duration</th>
-                            <th>File path</th>
-                            <th>Action</th>
-                        </tr>
+                    <table class="table table-responsive table-hover " id="videoTable">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Title</th>
+                                <th>Uploaded By</th>
+                                <th>Duration</th>
+                                <th>File path</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
                         <?php
                             $stmt = $pdo->query('SELECT * FROM uploads');
                             $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -65,7 +68,7 @@ require 'db_connection.php';
                                 echo '<td>' . $row['duration'] . '</td>';
                                 echo '<td>' . $row['file_path'] . '</td>';
                                 echo '<td>
-                                        <button class="btn btn-danger btn-sm" onclick="remove_video('.$row['id'].')">Remove</button>
+                                        <button class="btn btn-danger btn-sm" onclick="remove_video('.$row['id'].',\''. $row['file_path'] .'\')">Remove</button>
                                     </td>';
                                 echo '</tr>';
                             }
@@ -117,6 +120,8 @@ require 'db_connection.php';
 </body>
 <footer>
     <img src="assets/images/EDITED-FOOTER.png" id="slufooter">
+    <script src="assets/javascript/socket.io.min.js"></script>
+    <script src="assets/javascript/video.js"></script>
     <script src="assets/javascript/manager-script.js"></script>
     <script src="assets/javascript/bootstrap.min.js"></script>
 </footer>
