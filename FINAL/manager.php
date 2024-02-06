@@ -50,7 +50,7 @@ require 'db_connection.php';
                     <input type="text" name="title" id="videotitle" required>
                 <div class="button-container"> 
                     
-                    <input type="file" name="fileToUpload" id="videoInput" required>
+                    <input type="file" name="files[]" id="videoInput" required multiple>
                     <button name="submit" type="submit">Add</button>
                 </div>
             </form>
