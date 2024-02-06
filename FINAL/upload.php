@@ -1,17 +1,8 @@
 <?php
+require 'db_connection.php';
+
 
 function upload($file, $tmp_name) {
-
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "oop";
-
-  $conn = new mysqli($servername, $username, $password, $dbname);
-
-  if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-  }
   $target_dir = "assets/videos/";
 
   $target_file = $target_dir . $file;

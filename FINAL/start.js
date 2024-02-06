@@ -41,82 +41,6 @@ connection.connect((err) => {
 });
 
 
-io.on('connection', (socket) => {
-
-  connection.query('SELECT id, file_path FROM uploads', (err, results) => {
-    if (err) {
-      console.error('Error fetching video list:', err);
-      return;
-    }
-
-    const videoIDList = results.map((row) => row.id);
-    const videoPathList = results.map((row) => row.file_path);
-    let currentVideoIndex = 0;
-
-    // Check if the video file exists
-    if (!fs.existsSync(videoPathList[currentVideoIndex])) {
-      socket.emit('video-not-available');
-      return;
-    }
-
-    function sendNextVideo() {
-      if (currentVideoIndex < videoIDList.length) {
-        const nextVideoURL = `http://localhost:3000/video/${videoIDList[currentVideoIndex]}`;
-        socket.emit('videoFile', { url: nextVideoURL });
-        currentVideoIndex++;
-      } else {
-        // If all videos played, send a signal or handle as per your requirement
-        socket.emit('allVideosPlayed');
-      }
-    }
-
-    function deleteVideo(id){
-      const index = videoIDList.indexOf(id);
-      console.log(`Trying to unlink ${videoPathList[index]}`);
-
-      fs.close(videoPathList[index], (err)=>{
-        if (err) console.log(err);
-
-        console.log(`${videoPathList[index]} was deleted`);
-        const removedID = videoIDList.splice(index, 1); 
-        const removedVideo = videoPathList.splice(index, 1); 
-        console.log(`Removed from video id list: ${removedID}`);
-        console.log(`Removed from video video list: ${removedVideo}`);
-
-
-      })
-
-      // if (videoPathList[index]) {
-      //   fs.chmod(videoPathList[index], '0777', () => {
-      //     fs.unlink(videoPathList[index], (err) => {
-      //       if (err) console.log(err);
-
-      //     }); 
-      //   })
-      // }
-    }
-
-
-    socket.on('requestVideo', () => {
-      // console.log(currentVideoIndex);
-      sendNextVideo();
-    });
-
-    socket.on('videoEnded', () => {
-      console.log('All video playlist ended.');
-      sendNextVideo();
-    });
-
-    socket.on('disconnect', () => {
-      console.log('A client disconnected');
-    });
-
-    socket.on('video-removed', (id) => {
-      deleteVideo(id);
-    });
-  });
-});
-
 // INDEX
 app.get('/', (req, res) => {
   if (req.session.uid) {
@@ -314,4 +238,84 @@ app.post('/delete_user' , (req, res) => {
 
 server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
+});
+
+io.on('connection', (socket) => {
+
+  connection.query('SELECT id, file_path FROM uploads', (err, results) => {
+    if (err) {
+      console.error('Error fetching video list:', err);
+      return;
+    }
+
+    const videoIDList = results.map((row) => row.id);
+    const videoPathList = results.map((row) => row.file_path);
+    let currentVideoIndex = 0;
+
+    // Check if the video file exists
+    if (!fs.existsSync(videoPathList[currentVideoIndex])) {
+      socket.emit('video-not-available');
+      return;
+    }
+
+    function sendNextVideo() {
+      if (currentVideoIndex < videoIDList.length) {
+        const nextVideoURL = `http://localhost:3000/video/${videoIDList[currentVideoIndex]}`;
+        socket.emit('videoFile', { url: nextVideoURL });
+        currentVideoIndex++;
+      } else {
+        // If all videos played, send a signal or handle as per your requirement
+        socket.emit('allVideosPlayed');
+      }
+    }
+
+    function deleteVideo(id){
+      const index = videoIDList.indexOf(id);
+      console.log(`Trying to unlink ${videoPathList[index]}`);
+
+      fs.close(videoPathList[index], (err)=>{
+        if (err) console.log(err);
+
+        console.log(`${videoPathList[index]} was deleted`);
+        const removedID = videoIDList.splice(index, 1); 
+        const removedVideo = videoPathList.splice(index, 1); 
+        console.log(`Removed from video id list: ${removedID}`);
+        console.log(`Removed from video video list: ${removedVideo}`);
+
+
+      })
+
+      // if (videoPathList[index]) {
+      //   fs.chmod(videoPathList[index], '0777', () => {
+      //     fs.unlink(videoPathList[index], (err) => {
+      //       if (err) console.log(err);
+
+      //     }); 
+      //   })
+      // }
+    }
+
+
+    socket.on('requestVideo', () => {
+      // console.log(currentVideoIndex);
+      sendNextVideo();
+    });
+
+    socket.on('videoEnded', () => {
+      console.log('All video playlist ended.');
+      sendNextVideo();
+    });
+
+    socket.on('disconnect', () => {
+      console.log('A client disconnected');
+    });
+
+    socket.on('video-removed', (id) => {
+      deleteVideo(id);
+    });
+
+    socket.on('offer', (offer) => {
+      socket.broadcast.emit('answer', offer);
+    });
+  });
 });

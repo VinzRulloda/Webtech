@@ -1,11 +1,12 @@
 <?php
-$dsn = 'mysql:host=localhost;dbname=oop';
-$username = 'root';
-$password = '';
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "oop";
 
-try {
-    $pdo = new PDO($dsn, $username, $password);
-} catch (PDOException $e) {
-    die('Connection failed: ' . $e->getMessage());
-}
+  $conn = new mysqli($servername, $username, $password, $dbname);
+
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
 ?>
