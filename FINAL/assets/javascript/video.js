@@ -33,3 +33,9 @@ function remove_video(id, filepath) {
             window.location.reload();
         });
 }
+
+// document.addEventListener('keyup', (e) => {
+//     if (e.key == 'PrintScreen') {
+        
+//     }
+// });
