@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>OOP-Final Admin</title>
-    <script src="javascript/admin-script.js"></script>
 </head>
 <body>
     <nav>
@@ -22,15 +22,18 @@
     </nav>
 
     <main>
-        <div class="content-container">
-
-            <div class="table-header">
+        <div class="container">
+            <div class="row">
                 <h2>User Table</h2>
-                <button id="addbutton" onclick="toggleAddUserForm()">Add User</button>
+            </div>
+            <div class="row">
+                <div class="col text-right">
+                    <button class="btn btn-primary float-end" id="addbutton" onclick="toggleAddUserForm()">Add User</button>
+                </div>
             </div>
 
-            <div class="table-body">
-                <table>
+            <div class="row">
+                <table class="table table-responsive">
                     <tr>
                       <th>ID</th>
                       <th>First Name</th>
@@ -47,8 +50,8 @@
                             <td><%= data[i]['username'] %></td>
                             <td><%= data[i]['usertype'] %></td>
                             <td>
-                                <button onclick="toggleEditUserForm(<%= data[i]["id"] %>)" class="btn">Edit</button>
-                                <button onclick="toggleDeleteUserForm(<%= data[i]["id"] %>)" class="btn">Delete</button>
+                                <button class="btn btn-primary" onclick="toggleEditUserForm(<%= data[i]["id"] %>)" class="btn">Edit</button>
+                                <button class="btn btn-danger" onclick="toggleDeleteUserForm(<%= data[i]["id"] %>)" class="btn">Delete</button>
                             </td>
                         </tr>
                      <% } %>
@@ -117,6 +120,7 @@
 
     <footer>
     <img src="images/EDITED-FOOTER.png" id="slufooter">
+    <script src="javascript/admin-script.js"></script>
     </footer>
 </body>
 </html>
