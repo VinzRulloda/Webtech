@@ -7,7 +7,7 @@
 
     $query = "SELECT uploads.id, 
                     CONCAT(users.fname, ' ', users.lname) as uploaded_by, 
-                    title, file_path, sequence
+                    title, file_path, sequence, s.schedule_id
             FROM uploads 
             INNER JOIN schedule s on s.schedule_id = uploads.schedule_id 
             INNER JOIN users on users.id = uploads.user_id

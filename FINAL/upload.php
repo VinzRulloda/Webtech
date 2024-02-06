@@ -3,7 +3,7 @@ require 'db_connection.php';
 session_start();
 
 
-function upload($conn, $file, $tmp_name) {
+function upload($conn, $sequence, $file, $tmp_name) {
 
   $target_dir = "public/videos/";
 
@@ -28,8 +28,8 @@ function upload($conn, $file, $tmp_name) {
       echo "<script>alert('Sorry, there was an error uploading your file.')</script>";
     } else {
       // $sql = "INSERT INTO uploads (title,file_path, duration, uploaded_by) VALUES ('$title','$target_file', $duration, '$uploaded_by')";
-      $stmt = $conn->prepare("INSERT INTO uploads (title,file_path, schedule_id, user_id) VALUES (?,?,?,?)");
-      $stmt->bind_param("ssii", $_POST['title'], $target_file, $_POST['schedule_id'], $_SESSION['uid']);
+      $stmt = $conn->prepare("INSERT INTO uploads (title,file_path, schedule_id, user_id, sequence) VALUES (?,?,?,?,?)");
+      $stmt->bind_param("ssiii", $_POST['title'], $target_file, $_POST['schedule_id'], $_SESSION['uid'], $sequence);
       $stmt->execute();
     }
   } 
@@ -40,7 +40,7 @@ $tmp_names = $_FILES['files']['tmp_name'];
 $filecount = count($names);
 
 for ($x = 0; $x < $filecount; $x++) {
-  upload($conn, $names[$x], $tmp_names[$x]);
+  upload($conn, $x+1, $names[$x], $tmp_names[$x]);
 }
 
 echo "<script>window.location.href = 'manager.php';</script>";

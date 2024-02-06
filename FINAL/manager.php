@@ -156,6 +156,7 @@
                 
                 </div>
                 <div class="modal-footer">
+                    <input id="schedule_id" type="hidden"></input>
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
