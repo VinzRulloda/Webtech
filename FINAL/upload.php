@@ -39,10 +39,14 @@ $names = $_FILES['files']['name'];
 $tmp_names = $_FILES['files']['tmp_name'];
 $filecount = count($names);
 
-for ($x = 0; $x < $filecount; $x++) {
-  upload($conn, $x+1, $names[$x], $tmp_names[$x]);
+if (isset($_POST['schedule_id']) && $_POST['schedule_id']) {
+  for ($x = 0; $x < $filecount; $x++) {
+    upload($conn, $x+1, $names[$x], $tmp_names[$x]);
+  }
 }
-
 echo "<script>window.location.href = 'manager.php';</script>";
+
+
+
 
 ?>

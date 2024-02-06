@@ -1,15 +1,3 @@
-function updateTimestamp() {
-    var video = document.getElementById('vidPlayer');
-    localStorage.setItem('videoTimestamp', video.currentTime);
-}
-
-function setVideoTimestamp() {
-    var video = document.getElementById('vidPlayer');
-    var timestamp = localStorage.getItem('videoTimestamp');
-    if (timestamp) {
-        video.currentTime = parseFloat(timestamp);
-    }
-}   
 function remove_video(id, file_path, schedule_id) {
     fetch("remove_video.php", {
         method: "POST",
@@ -28,12 +16,6 @@ function remove_video(id, file_path, schedule_id) {
     });
 
 }
-
-$('#viewScheduleModal').on('show.bs.modal', e => {
-    var schedule_id = $(e.relatedTarget).data('id');
-    $('#schedule_id').val(schedule_id);
-    fetch_video_list(schedule_id);
-})
 
 function fetch_video_list(schedule_id) {
     fetch("schedule_list.php", {
@@ -82,3 +64,14 @@ function fetch_video_list(schedule_id) {
 
 }
 
+$('#viewScheduleModal').on('show.bs.modal', e => {
+    var schedule_id = $(e.relatedTarget).data('id');
+    $('#schedule_id').val(schedule_id);
+    fetch_video_list(schedule_id);
+})
+
+$('#removeScheduleModal').on('show.bs.modal', e => {
+    var schedule_id = $(e.relatedTarget).data('id');
+    $('#removeScheduleConfirm').val(schedule_id);
+    fetch_video_list(schedule_id);
+})

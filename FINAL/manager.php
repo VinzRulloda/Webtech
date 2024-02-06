@@ -36,10 +36,10 @@
         <div class="container">
         <div class="row">
             <div class="col">
-                    <video type="video/mp4" id="videoPlayer" allow="autoplay" autoplay controls>
+                    <!-- <video type="video/mp4" id="videoPlayer" allow="autoplay" autoplay controls>
                         <source id="videoSource">
                         Your browser does not support the video tag.
-                    </video>
+                    </video> -->
             </div>
         </div>
             <div class="row">
@@ -74,8 +74,20 @@
                                     echo '<td>' . $row['start_time'] . '</td>';
                                     echo '<td>' . $row['end_time'] . '</td>';
                                     echo '<td>
-                                            <button type="button" data-id="' . $row['schedule_id'] . '" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#viewScheduleModal">
-                                                View Schedule </button>
+                                            <button 
+                                                type="button" 
+                                                data-id="' . $row['schedule_id'] . '" 
+                                                class="btn btn-primary" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#viewScheduleModal"
+                                            > View Details </button>
+                                            <button 
+                                                type="button" 
+                                                data-id="' . $row['schedule_id'] . '" 
+                                                class="btn btn-danger" 
+                                                data-bs-toggle="modal" 
+                                                data-bs-target="#removeScheduleModal"
+                                            > Remove </button>
                                          </td>';
                                     echo '</tr>';
                                 }
@@ -163,7 +175,6 @@
         </div>
     </div>
      
-    <!-- Modal -->
     <div class="modal fade" id="addVideoModal" tabindex="-1" role="dialog" aria-labelledby="addVideoModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -191,11 +202,10 @@
                             if ($result->num_rows > 0) {
                                 // output data of each row
                                 while($row = $result->fetch_assoc()) {
-                                    
                                     echo '<option value=' . $row['schedule_id'] . '>'.$row['schedule'].'</option>';
                                 }
                               } else {
-                                echo "<option>Please add new schedule first.</option>";
+                                echo "<option value=''>Please add new schedule first.</option>";
                               }
                         ?>
                             
@@ -211,6 +221,28 @@
         </div>
     </div>
     
+    <div class="modal fade" id="removeScheduleModal" tabindex="-1" role="dialog" aria-labelledby="removeScheduleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="removeScheduleModalLabel">Remove Video</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to remove this schedule?</p>
+                    
+            </div>
+            <div class="modal-footer">
+            <form id="removeScheduleForm" action="removeSchedule.php" method="post" enctype="multipart/form-data">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">No</button>
+                <button name="schedule_id" id="removeScheduleConfirm" form="removeScheduleForm" type="submit" class="btn btn-danger">Yes</button>
+            </form>     
+            </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 <footer>

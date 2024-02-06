@@ -39,77 +39,8 @@ function errorLogin() {
     })
 }
 
-function updateTimestamp() {
-    var video = document.getElementById('vidPlayer');
-    localStorage.setItem('videoTimestamp', video.currentTime);
-}
-
-function setVideoTimestamp() {
-    var video = document.getElementById('vidPlayer');
-    var timestamp = localStorage.getItem('videoTimestamp');
-    if (timestamp) {
-        video.currentTime = parseFloat(timestamp);
-    }
-}
-
-// document.addEventListener("DOMContentLoaded", function () {
-    
-//     var rememberMeChecked = getCookie("rememberMe") === "true";
-
-//     if (rememberMeChecked) {
-//         var storedUsername = getCookie("username");
-//         var storedPassword = getCookie("password");
-
-//         if (storedUsername && storedPassword) {
-//             document.getElementById('username').value = storedUsername;
-//             document.getElementById('password').value = storedPassword;
-//         }
-//     }
-
-//     document.getElementById('rememberMe').checked = rememberMeChecked;
-// });
-
-function setCookie(name, value, days) {
-    var expires = "";
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + value + expires + "; path=/";
-}
-
-function getCookie(name) {
-    var nameEQ = name + "=";
-    var cookies = document.cookie.split(';');
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i];
-        while (cookie.charAt(0) === ' ') {
-            cookie = cookie.substring(1, cookie.length);
-        }
-        if (cookie.indexOf(nameEQ) === 0) {
-            return cookie.substring(nameEQ.length, cookie.length);
-        }
-    }
-    return null;
-}
-
 function showForgotPassword() {
     alert("Contact your administrator");
-}
-
-function toggleMute() {
-    var video = document.querySelector('video');
-    if (video.muted) {
-      video.muted = false;
-      // Change the icon to unmute
-      document.querySelector('#muteButton i').className = 'fa-solid fa-volume-high';
-    } else {
-      video.muted = true;
-      // Change the icon to mute
-      document.querySelector('#muteButton i').className = 'fa-solid fa-volume-xmark';
-
-    }
 }
 
 const form = document.getElementById('login');

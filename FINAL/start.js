@@ -5,6 +5,7 @@ const socket = require("socket.io");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const cors = require('cors');
+const getVideoDurationInSeconds = require('video-duration');
 
 
 const { config } = require('./config');
@@ -19,8 +20,12 @@ const {
   change_user_password
 } = require('./model/users');
 const {
-  get_video_by_id
+  get_video_by_id,
+  get_video_by_schedule
 } = require('./model/videos');
+const {
+  get_schedule_now
+} = require('./model/schedule');
 
 const options = {
   cors: {
@@ -209,6 +214,37 @@ app.post('/change_password' , (req, res) => {
   })
 });
 
+app.get('/fetchvideo', (req, res) => {
+  get_schedule_now()
+  .then(function(results){
+
+      if (results.length > 0) {
+        const schedule = results[0];
+
+        get_video_by_schedule(schedule.schedule_id)
+        .then(function(videos){
+            return res.json({
+              "schedule": schedule,
+              "videos": videos
+            });
+        })
+        .catch(function(err){
+            console.log("Error: "+err);
+        })
+
+       
+
+      } else {
+        console.log("No scheduled videos at the current time.")
+
+        return res.json({});
+      }
+     
+  })
+  .catch(function(err){
+      console.log("Error: "+err);
+  })
+});
 app.get('/video/:id', (req, res) => {
   const videoID = req.params.id;
 
@@ -257,20 +293,19 @@ app.get('/video/:id', (req, res) => {
 
 });
 
+// io.on('connection', (socket) => {
+//   console.log('A user connected');
 
-io.on('connection', (socket) => {
-  console.log('A user connected');
+//   // Handle video stream
+//   socket.on('stream', (image) => {
+//     // Broadcast the video stream to all connected clients
+//     io.emit('stream', image);
+//   });
 
-  // Handle video stream
-  socket.on('stream', (image) => {
-    // Broadcast the video stream to all connected clients
-    io.emit('stream', image);
-  });
-
-  socket.on('disconnect', () => {
-    console.log('User disconnected');
-  });
-});
+//   socket.on('disconnect', () => {
+//     console.log('User disconnected');
+//   });
+// });
 
 
 
