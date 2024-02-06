@@ -13,7 +13,4 @@
     unlink($filepath);
     $stmt = $pdo->prepare("DELETE FROM uploads where id=?");
     $stmt->execute([$videoid]); 
-
-    echo "<script>window.location.href = 'manager.php';</script>";
-
 ?>

@@ -1,4 +1,3 @@
 ./withnode/FINAL/node_modules/*
-./FINAL/assets/videos/*
 .gitignore
 .venv
