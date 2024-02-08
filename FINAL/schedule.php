@@ -9,5 +9,15 @@ $end_time = $_POST['end_time'];
 $schedule_name = $_POST['schedule_name'];
 $stmt->execute();
 
+
+$stmt = $conn->prepare("INSERT INTO history (`event`, user_id) VALUES (?, ?)");
+$stmt->bind_param("ss", $event, $user_id);
+
+$event = "Added new schedule.";
+$user_id = $_SESSION['uid'];
+$stmt->execute();
+
+
+
 Header('Location: manager.php');
 ?>

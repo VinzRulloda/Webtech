@@ -17,6 +17,12 @@
     $stmt->execute(); 
 
     $schedule_id = 1;
+
+    $event = "Removed a video.";
+    $stmt = $conn->prepare("INSERT INTO history (`event`,user_id) VALUES (?,?)");
+    $stmt->bind_param("si", $event, $_SESSION['uid']);
+    $stmt->execute();
+    
     // # 2) Get the last sequence number and subtract 1 if it is not equal to 1
     $stmt = $conn->prepare("SELECT id, MAX(sequence) as last_sequence FROM `uploads` WHERE schedule_id = ?");
     $stmt->bind_param("i", $schedule_id);

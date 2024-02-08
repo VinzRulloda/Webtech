@@ -12,6 +12,12 @@ if ($result->num_rows > 0) {
         $filepath = realpath($row['file_path']);
         chmod($filepath, 0777);
         unlink($filepath);
+
+        $event = "Removed video on $filepath";
+
+        $stmt = $conn->prepare("INSERT INTO history (`event`,user_id) VALUES (?,?)");
+        $stmt->bind_param("si", $event, $_SESSION['uid']);
+        $stmt->execute();
     }
 }
 
@@ -21,6 +27,12 @@ $stmt->execute();
 
 $stmt = $conn->prepare("DELETE FROM schedule where schedule_id = ?");
 $stmt->bind_param("i", $_POST["schedule_id"]);
+$stmt->execute();
+
+$event = "Removed schedule.";
+
+$stmt = $conn->prepare("INSERT INTO history (`event`,user_id) VALUES (?,?)");
+$stmt->bind_param("si", $event, $_SESSION['uid']);
 $stmt->execute();
 
 
