@@ -1,5 +1,8 @@
 <?php
 require 'db_connection.php';
+session_start();
+
+echo $_SESSION['uid'];
 
 $stmt = $conn->prepare("SELECT * FROM uploads where schedule_id = ?");
 $stmt->bind_param("i", $_POST["schedule_id"]);
@@ -28,6 +31,8 @@ $stmt->execute();
 $stmt = $conn->prepare("DELETE FROM schedule where schedule_id = ?");
 $stmt->bind_param("i", $_POST["schedule_id"]);
 $stmt->execute();
+
+
 
 $event = "Removed schedule.";
 

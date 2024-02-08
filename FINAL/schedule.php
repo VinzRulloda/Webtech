@@ -1,5 +1,6 @@
 <?php
 require 'db_connection.php';
+session_start();
 
 $stmt = $conn->prepare("INSERT INTO schedule (start_time, end_time, schedule_name) VALUES (?, ?, ?)");
 $stmt->bind_param("sss", $start_time, $end_time, $schedule_name);

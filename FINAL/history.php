@@ -59,14 +59,15 @@
                         </thead>
                         <?php
 
-                            $result = $conn->query('SELECT * FROM history');
+                            $result = $conn->query('SELECT * FROM history INNER JOIN users ON users.id = history.user_id');
 
                             if ($result->num_rows > 0) {
                                 while($row = $result->fetch_assoc()) {
                                     echo '<tr>';
                                     echo '<td>' . $row['history_id'] . '</td>';
                                     echo '<td>' . $row['timestamp'] . '</td>';
-                                    echo '<td>' . $row['user_id'] . '</td>';
+                                    echo '<td>' . $row['event'] . '</td>';
+                                    echo '<td>' . $row['username'] . '</td>';
                                 }
                             } else {
                                 echo "<tr>

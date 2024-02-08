@@ -55,6 +55,7 @@ async function playVideosSequentially(data) {
 
     while (current_sequence <= data.videos.length - 1) {
         const videoPath = data.videos[current_sequence].file_path.replace('public', '');
+        console.log(videoPath);
   
         const loadedMetadata = new Promise(resolve => {
             videoPlayer.addEventListener('loadedmetadata', () => {
