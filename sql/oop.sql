@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2024 at 06:43 AM
+-- Generation Time: Feb 08, 2024 at 03:28 PM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,6 +24,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `history`
+--
+
+CREATE TABLE `history` (
+  `history_id` int(11) NOT NULL,
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `event` varchar(80) DEFAULT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `schedule`
 --
 
@@ -33,15 +46,6 @@ CREATE TABLE `schedule` (
   `end_time` time NOT NULL,
   `schedule_name` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `schedule`
---
-
-INSERT INTO `schedule` (`schedule_id`, `start_time`, `end_time`, `schedule_name`) VALUES
-(1, '10:56:00', '10:56:00', 'Name'),
-(2, '11:14:00', '00:14:00', 'Test'),
-(3, '08:00:00', '09:00:00', '8:00-9:00 Timeslot');
 
 -- --------------------------------------------------------
 
@@ -57,14 +61,6 @@ CREATE TABLE `uploads` (
   `user_id` varchar(255) NOT NULL,
   `sequence` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `uploads`
---
-
-INSERT INTO `uploads` (`id`, `title`, `file_path`, `schedule_id`, `user_id`, `sequence`) VALUES
-(108, 'Series#1', 'public/videos/Hello Im Under The Water... - Trim.mp4', 1, '6', 1),
-(107, 'Series#1', 'public/videos/sample.mp4', 1, '6', 2);
 
 -- --------------------------------------------------------
 
@@ -92,11 +88,19 @@ INSERT INTO `users` (`id`, `fname`, `lname`, `username`, `password`, `usertype`,
 (4, 'Christian', 'Duculan', 'c_duculan', '1234', 'user', 1),
 (5, 'Ivan', 'SanJose', 'ivan', '1234', 'user', 1),
 (6, 'Meree Iris', 'Lopez', 'iris', '1234', 'user', 1),
-(7, 'Paula', 'Nicolas', 'paula', '1234', 'user', 1);
+(7, 'Paula', 'Nicolas', 'paula', '1234', 'user', 1),
+(13, 'Vinz', 'Rulloda', 'vinz', '1234', 'user', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `history`
+--
+ALTER TABLE `history`
+  ADD PRIMARY KEY (`history_id`),
+  ADD UNIQUE KEY `history_id` (`history_id`);
 
 --
 -- Indexes for table `schedule`
@@ -121,22 +125,28 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `history`
+--
+ALTER TABLE `history`
+  MODIFY `history_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `schedule_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `schedule_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `uploads`
 --
 ALTER TABLE `uploads`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
